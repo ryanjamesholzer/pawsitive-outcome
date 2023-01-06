@@ -6,5 +6,4 @@ Today, I worked on:
 
 We worked on getting the docker-compose.yaml configured to right database, fastapi, and ghi. We add two additional folders, gitattributes and pawsitive_service. Together we assembled the Dockerfile and Dockerfile.dev in pawsitive_service.
 
-Today, I learned that docker-compose.yaml configuration is not much different when using FastAPI as an web framework instead of Django.
-The only difference is in our postgres we had to set an username, password, and database name. Then in our FastAPI we had to set those values in the Database url.
+Today, I learned to properly connect the single fastapi sevice to the postgres database.
