@@ -1,3 +1,14 @@
+## January 5, 2023
+
+Today, I worked on:
+
+* Setting up migration directories, routers, queries, and models
+
+Before lunch, I drove and we set up the dog table and adoption table in the migrations file. We also set up the pgadmin page to make sure the tables synced. Triston drove after lunch and we set up the routers and queries for dogs and adoptions. We finished the dog routers and queries, and majority of the routers and queries for adoptions. We plan to finish the last portion of the adoption router and queries tomorrow.
+
+Today, I learned how to set up pgadmin. This is everyone's first time, so it's something new for all of us. I'm looking forward to using it for this project.
+
+
 ## January 4, 2023
 
 Today, I worked on:
