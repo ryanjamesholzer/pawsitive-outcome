@@ -1,3 +1,14 @@
+## January 5, 2023
+
+Today I worked on:
+
+* Setting up router, querey, and migration directories
+
+Triston took the driver's seat today. We started off by creating the tables for our dog and adoption models inside of a migrations file. Once that was done, we imported APIRouter from FastAPI, and created "GET" and "POST" routes for the corresponding tables, writing Querey classes with methods to match the routes. We were then able to create and list dogs and adoptions. Felt good.
+
+Today I learned, as I have so many other times, that the smallest of mistakes can create the largest of errors. However, with five sets of eyes, we were able to isolate any issues we had and correct them.
+
+
 ## January 4, 2023
 
 Today, I worked on:
