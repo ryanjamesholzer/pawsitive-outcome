@@ -31,8 +31,8 @@ class DogQueries:
                 with conn.cursor() as cur:
                     cur.execute(
                         """
-                        SELECT * FROM dogs d
-                        WHERE d.id = %s;
+                        SELECT * FROM dogs
+                        WHERE dogs.id = %s;
                         """,
                         [id]
                     )

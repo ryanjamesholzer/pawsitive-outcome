@@ -10,14 +10,27 @@ class AdoptionQueries:
             with conn.cursor() as cur:
                 cur.execute(
                     """
-                    SELECT * FROM adoptions;
+                    SELECT a.id AS adoption_id, a.adopter_name, a.adopter_address,
+                        a.adopter_email, a.adopter_phone_number, a.date_of_adoption,
+                        d.id AS dog_id, d.name, d.gender, d.breed, d.age, d.picture_url
+                    FROM dogs d
+                    INNER JOIN adoptions a ON d.id = a.dog_id;
                     """
                 )
                 results = []
+                adoption_fields = ['adoption_id', 'adopter_name', 'adopter_address',
+                    'adopter_email', 'adopter_phone_number', 'date_of_adoption',
+                ]
                 for row in cur.fetchall():
                     adoption = {}
+                    dog = {}
                     for i, column in enumerate(cur.description):
-                        adoption[column.name] = row[i]
+                        if column.name in adoption_fields:
+                            adoption[column.name] = row[i]
+                        else:
+                            dog[column.name] = row[i]
+                        adoption['id'] = adoption['adoption_id']
+                        adoption['dog'] = dog
                     results.append(adoption)
                 return results
 
@@ -27,10 +40,11 @@ class AdoptionQueries:
                 with conn.cursor() as cur:
                     cur.execute(
                         """
-                        SELECT a.id AS adoption_id, a.adopter_name, a.adopter_address, a.adopter_email, a.adopter_phone_number, a.date_of_adoption,
-                            d.id dog_id, d.name, d.gender, d.breed, d.age, d.picture_url
-                        FROM adoption a
-                        INNER JOIN dogs d ON d.id = a.dog_id
+                        SELECT a.id AS adoption_id, a.adopter_name, a.adopter_address,
+                            a.adopter_email, a.adopter_phone_number, a.date_of_adoption,
+                            d.id AS dog_id, d.name, d.gender, d.breed, d.age, d.picture_url
+                        FROM dogs d
+                        INNER JOIN adoptions a ON d.id = a.dog_id
                         WHERE a.id = %s;
                         """,
                         [id]
@@ -38,16 +52,20 @@ class AdoptionQueries:
                     results = cur.fetchone()
                     if results is None: return results
                     adoption = {}
-                    adoption_fields = ['adoption_id', 'adopter_name', 'adopter_address','adopter_email', 'adopter_phone_number', 'date_of_adoption',]
+                    adoption_fields = ['adoption_id', 'adopter_name', 'adopter_address',
+                        'adopter_email', 'adopter_phone_number', 'date_of_adoption',
+                    ]
                     dog = {}
                     for i, column in enumerate(cur.description):
                         if column.name in adoption_fields:
                             adoption[column.name] = results[i]
                         else:
                             dog[column.name] = results[i]
+                    print(dog, "****************************************")
                     adoption['id'] = adoption['adoption_id']
-                    dog['id']= dog['dog_id']
-                    adoption['dog_id'] = dog
+                    adoption['dog'] = dog
+                    print(f"the after dog: {dog}")
+                    print(f"The adoption: {adoption}")
                     return adoption
         except Exception:
             return {"message": "Adoption does not exist"}
@@ -80,4 +98,25 @@ class AdoptionQueries:
 
     def adoption_in_to_out(self, id: int, adoption: AdoptionIn):
         old_data = adoption.dict()
+        print(f'This is the first old_data: {old_data}')
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as cur:
+                    cur.execute(
+                        """
+                        SELECT * FROM dogs
+                        WHERE dogs.id=%s
+                        """,
+                        [old_data['dog_id']]
+                    )
+                    results = cur.fetchone()
+                    dog = {}
+                    for i, column in enumerate(cur.description):
+                        dog[column.name] = results[i]
+                    print(f'This is the DOG: {dog}')
+                    old_data['dog_id'] = dog
+                    old_data['dog'] = old_data['dog_id']
+                    print(f"this is the old data: {old_data}")
+        except:
+            pass
         return AdoptionOut(id=id, **old_data)

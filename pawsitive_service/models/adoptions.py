@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from datetime import date
+from models.dogs import DogIn
 
 
 class AdoptionIn(BaseModel):
@@ -10,8 +11,14 @@ class AdoptionIn(BaseModel):
     dog_id: int
     date_of_adoption: date
 
-class AdoptionOut(AdoptionIn):
+class AdoptionOut(BaseModel):
     id: int
+    adopter_name: str
+    adopter_address: str
+    adopter_email: str
+    adopter_phone_number: str
+    dog: dict
+    date_of_adoption: date
 
 class AdoptionList(BaseModel):
     adoptions: list[AdoptionOut]

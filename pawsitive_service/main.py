@@ -8,8 +8,8 @@ from authenticator import authenticator
 app = FastAPI()
 app.include_router(dogs.router, tags=["Dogs"])
 app.include_router(adoptions.router, tags=["Adoptions"])
-app.include_router(authenticator.router)
-app.include_router(accounts.router)
+app.include_router(authenticator.router, tags=["Accounts"])
+app.include_router(accounts.router, tags=["Accounts"])
 
 app.add_middleware(
     CORSMiddleware,

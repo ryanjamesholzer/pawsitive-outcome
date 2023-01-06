@@ -1,36 +1,15 @@
 import os
 from pydantic import BaseModel
 from psycopg_pool import ConnectionPool
+from models.accounts import AccountIn, AccountOutWithPassword
 
-
-class DuplicateAccountError(ValueError):
-    pass
-
-class AccountIn(BaseModel):
-    username: str
-    password: str
-    full_name: str
-
-class AccountOut(BaseModel):
-    id: str
-    username: str
-    full_name: str
-
-
-
-class AccountOutWithPassword(AccountOut):
-    hashed_password: str
 
 pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"])
 
 class AccountQueries:
-
     def get(self, username: str) -> AccountOutWithPassword:
-        # connect the database
         with pool.connection() as conn:
-            # get a cursor (something to run SQL with)
             with conn.cursor() as db:
-                # Run our SELECT statement
                 result = db.execute(
                     """
                     SELECT id
@@ -53,11 +32,8 @@ class AccountQueries:
                 )
 
     def create(self, account: AccountIn, hashed_password: str) -> AccountOutWithPassword:
-        # connect the database
         with pool.connection() as conn:
-            # get a cursor (something to run SQL with)
             with conn.cursor() as db:
-                # Run our SELECT statement
                 result = db.execute(
                     """
                     INSERT INTO accounts (username, hashed_password, full_name)
