@@ -9,9 +9,11 @@ services:
       context: ./pawsitive_service
       dockerfile: Dockerfile.dev
     environment:
+      SIGNING_KEY: 95ad1b096a74b01c8b818edb61311996b12f5ef77d027642f8e5244ddab2f15c
       DATABASE_URL: postgresql://dogs:adoption@postgres/pawsitive
       WAIT_HOSTS: postgres:5432
       PORT: 8000
+
     ports:
       - "8000:8000"
     volumes:
