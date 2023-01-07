@@ -1,3 +1,14 @@
+## January 6, 2023
+
+Today I worked on:
+
+* Setting up authorization and authentication features
+
+Kramer and Angel drove today. In the morning, we worked on JWTs with Fast API. Following the documentation, we created routes, queries, models, and a table for our accounts. When this was working successfully, we altered our routes for dogs and adoptions to require a token to use them. We also updated our AdoptionOut model to return a dog object as foreign key in the adoption data. This was challenging, but our teamwork made it happen.
+
+Today I learned that sometimes the fields in your out models need to greatly differ from the in models. This can be specified however you like, but you must be careful with what you change, and be sure to update any other files that need to know about the changes made to your models.
+
+
 ## January 5, 2023
 
 Today I worked on:
