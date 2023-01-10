@@ -1,3 +1,13 @@
+### January 10, 2023
+
+Today, I worked on:
+
+* Passing the user token to other components.
+
+We got stuck with trying how to transferring the token to our dogs list for authorization. The token was constantly saying null even though we were passing the token through as a prop. We later read in the documentation that we should not pass it as a prop, but use it as a hook and set it in our component. In the documentation, it tells us import from our file that has useAuthContext which has our token set. Use the useAuthContext just like useState.
+
+Today, I learned that read documentation is really IMPORTANT!
+
 ### January 6, 2023
 
 Today, I worked on:
