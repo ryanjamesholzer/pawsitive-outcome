@@ -1,3 +1,25 @@
+## January 10
+
+Today I worked on:
+
+* Getting all of our teams work into the main branch, and testing out our groups’ respective features.
+
+After the standup, we decided to reconcile any differences between our development branches, and start the day fresh. Once everything was merged and reconciled, we wanted to test that our authorization was working for our protected routes. Kramer drove, and we all worked together, as it involved  previous work from both teams. We ended up with some issues retrieving the user’s token across all components. We did manage to fix the issue by importing a useContext hook, which allowed us to access the token within any necessary components. It took a lot of console logs and troubleshooting, but we got everything functioning the way we wanted to.
+
+Today I learned about useContext hooks. This, similar to Redux, was a great way for us to store data globally and import it in any component files where the data would be needed to be accessed. It was a helpful lesson.
+
+
+## January 9
+
+Today I worked on:
+
+* Front-end authentication, with login and signup form components
+
+Triston took the driver’s seat today, as we (Triston, Angel, and I) started working on the login and signup features for the application. Following documentation and example code, we were able to write a useToken hook. The custom hook includes functions for logging in a user, logging a user out, and signing up a user. By de-structuring the useToken hook in App.js, we were able to pass the signup and login functions to our components as props. Kramer and Michelle worked together to create the dogs list and dog detail modal.
+
+Today I learned that by declaring and de-structuring a hook on the main level, you are able to pass functions from within the hook to your child components as props. This was extremely useful today, while working on front-end authorization.
+
+
 ## January 6, 2023
 
 Today I worked on:
@@ -13,7 +35,7 @@ Today I learned that sometimes the fields in your out models need to greatly dif
 
 Today I worked on:
 
-* Setting up router, querey, and migration directories
+* Setting up router, query, and migration directories
 
 Triston took the driver's seat today. We started off by creating the tables for our dog and adoption models inside of a migrations file. Once that was done, we imported APIRouter from FastAPI, and created "GET" and "POST" routes for the corresponding tables, writing Querey classes with methods to match the routes. We were then able to create and list dogs and adoptions. Felt good.
 
