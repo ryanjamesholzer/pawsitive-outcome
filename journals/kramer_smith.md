@@ -1,3 +1,21 @@
+## January 10th, 2023
+    Today were worked in a group of five. I drove. Yesterday, the group of
+three, Ryan, Triston, and Angel, worked on the authentication of the
+project. Authorization was a blocker for all the other components on the
+site, so we all worked on authorization together. We completed authorization
+for the dog components and all walked away with a much better understanding of
+authorization.
+
+
+
+## January 9th, 2023
+    Today we broke up the larger group into groups of three and two.
+Michelle and I were the group of two. I drove and Michelle navigated. We
+got ListDogs, DogDetailModal, and most of AddDogModal completed. It was
+nice to go back to React. Today also really helped build my skills in
+updating state and creating modals.
+
+
 ## January 6th, 2023
 
     Today, Angel and I drove. While Angel was driving, the rest of the team
