@@ -1,3 +1,25 @@
+## January 10, 2023
+
+Today, I worked on:
+
+* Merging branches to main 
+
+The Whisker Watchers came back together to merge our branches together and deal with the merge conflicts. Triston drove for the first half to make sure there are no conflicts with dev_1 and main branch. Kramer drove second half for dev-branch, and completed the autherization for the ListDogs once you login or sign up. 
+
+Today, I learned how to work with authorization tokens. Dev_1 team worked on it yesterday, so dev-2 team got a chance to see how it looked. I thought it was a lot to learn, but I think it'll be useful to know.
+
+
+## January 9, 2023
+ 
+Today, I worked on:
+ 
+* Making Nav, ListDogs, AddDogs, DogDetailModal React files
+ 
+The Whisker Watchers have split into two groups for the React portion of Pawsitive Outcome. Kramer and I worked on the dev-2 branch, which is responsible for listing and adding dogs, creating the modals, and populating the Nav file. Kramer is the driver and I navigated. We finished the majority of the functional portion, we just need to figure out how to get the toggle button working for the Nav file. We plan to save the styling portion for another day.
+ 
+Today, I learned how to make modals from React Bootstrap. Since we wanted it based on the dog's id, it took a bit to make it work, but we got it to work in the end.
+
+
 ## January 5, 2023
 
 Today, I worked on:
