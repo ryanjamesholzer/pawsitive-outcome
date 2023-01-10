@@ -18,6 +18,7 @@ const LoginForm = ({token, login}) =>{
     const handleSubmit = async (e) => {
         e.preventDefault();
         await login(formData.username, formData.password);
+        console.log(token)
 
     }
 

@@ -88,7 +88,7 @@ export function useToken() {
     const form = new FormData();
     form.append("username", username);
     form.append("password", password);
-    console.log(username, password);
+
     const response = await fetch(url, {
       method: "post",
       credentials: "include",
@@ -97,6 +97,7 @@ export function useToken() {
     if (response.ok) {
       const token = await getTokenInternal();
       setToken(token);
+      navigate('/dogs')
       return;
     }
     let error = await response.json();
@@ -105,7 +106,6 @@ export function useToken() {
 
   async function signup(username, password, full_name) {
     const url = `${process.env.REACT_APP_PAWSITIVE_SERVICE_API_HOST}/api/accounts`;
-    console.log(url)
     const response = await fetch(url, {
       method: "post",
       body: JSON.stringify({

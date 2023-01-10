@@ -1,22 +1,33 @@
 import { React, useState, useEffect, useCallback } from 'react'
+import { useAuthContext } from '../Accounts/useToken'
 import DogDetailModal from './Modals/DogDetailModal'
 
 
 function ListDogs() {
+    const {token} = useAuthContext()
     const [dogs, setDogs] = useState([])
     const [dogId, setDogId] = useState(null)
     const [activeModal, setActiveModal] = useState(false)
     let [value, setValue] = useState(0)
 
-    useEffect(() => {
-        fetch('http://localhost:8000/api/dogs')
-            .then(res => {
-                return res.json()
+    useEffect( () => {
+        const myHeaders = new Headers({
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+        });
+        if (token != null) {
+            fetch(`${process.env.REACT_APP_PAWSITIVE_SERVICE_API_HOST}/api/dogs`, {
+                method: 'GET',
+                headers: myHeaders
             })
-            .then(data => {
-                setDogs(data.dogs)
-            })
-    }, [])
+                .then(res => {
+                    return res.json()
+                })
+                .then(data => {
+                    setDogs(data.dogs)
+                })
+        }
+    }, [token])
 
 
     const activateModal = useCallback((dog_id) => () => {
@@ -48,7 +59,7 @@ function ListDogs() {
                                 </div>
                             )
                         })}
-                        <DogDetailModal activeModal={activeModal} setActiveModal={setActiveModal} dogId={dogId} runUseEffect={value}/>
+                        <DogDetailModal activeModal={activeModal} setActiveModal={setActiveModal} dogId={dogId} runUseEffect={value} token={token}/>
                     </div>
                 </div>
             }

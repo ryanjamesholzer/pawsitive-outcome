@@ -23,7 +23,7 @@
 * Endpoint path: /token
 * Endpoint method: DELETE
 * Headers: {
-    Autorization: Bearer token
+    Authorization: Bearer token
 }
 * Response: always true
 * Response shape (JSON):

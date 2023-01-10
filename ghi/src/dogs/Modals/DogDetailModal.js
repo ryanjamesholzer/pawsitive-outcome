@@ -1,12 +1,19 @@
 import { useEffect, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 
-function DogDetailModal({activeModal, setActiveModal, dogId, runUseEffect}) {
+function DogDetailModal({activeModal, setActiveModal, dogId, runUseEffect, token}) {
     const [dog, setDog] = useState(undefined)
 
     useEffect(() => {
         if (dogId != null){
-            fetch(`http://localhost:8000/api/dogs/{dog_id}?id=${dogId}`)
+            const myHeaders = new Headers({
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+            });
+            fetch(`${process.env.REACT_APP_PAWSITIVE_SERVICE_API_HOST}/api/dogs/{dog_id}?id=${dogId}`, {
+                method: 'GET',
+                headers: myHeaders
+            })
             .then(res => {
                 return res.json()
             })
