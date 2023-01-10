@@ -4,7 +4,7 @@ Today, I worked on:
 
 * Setting up authentication, authorization, and updating adoption models
 
-Implementing authentication and authorization for our routers was not as troublesome as we would expect, even though we some bumps in the road. Updating the AdoptionOut model wasn't too troubling, but the queries that required AdoptionOut need a complete altering. We successfully implemented the changes that need to be completed. With that done, we tested every route just to be sure that everything worked properly.
+Implementing authentication and authorization for our routers was not as troublesome as we would expect, even though we had some bumps in the road. Updating the AdoptionOut model wasn't too troubling, but the queries that required AdoptionOut need a complete altering. We successfully implemented the changes that need to be completed. With that done, we tested every route just to be sure that everything worked properly.
 
 Today, I learned how to transverse the data from the database to FastAPI web frame.
 
