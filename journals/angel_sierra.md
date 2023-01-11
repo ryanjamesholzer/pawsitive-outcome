@@ -1,3 +1,6 @@
+## January 11th, 2023
+ Today we struggled alot with figuring out how to setup react with logout with jwt tokens we started getting alot of errors, we ended up getting it somewhat work where we would logout and we would still hold the token till it refreshes the page and ended up fixing it with a seir still a bit confused how we fixed it but will look over the code tonight and see.
+
 ## January 10th, 2023
     Today,
 
