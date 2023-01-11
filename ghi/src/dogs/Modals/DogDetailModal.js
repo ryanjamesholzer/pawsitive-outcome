@@ -19,7 +19,6 @@ function DogDetailModal({activeModal, setActiveModal, dogId, runUseEffect, token
             })
             .then(data => {
                 setDog(data)
-                console.log(`This is data: ${JSON.stringify(data)}`)
             })
         }
     }, [runUseEffect])

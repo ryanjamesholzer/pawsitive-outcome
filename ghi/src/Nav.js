@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import AddDog from './dogs/Modals/AddDogModal'
+import { useToken } from './Accounts/useToken'
 
 function Nav() {
+
     const [activeAddModal, setActiveAddModal] = useState(false)
 
     const activateAddModal =  () => {
         setActiveAddModal(true)
     }
 
+    const [token, logout] = useToken()
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
             <div className="container-fluid">
@@ -26,9 +29,9 @@ function Nav() {
                             <button onClick={activateAddModal} className="nav-link active" aria-current="page">Add Dog</button>
                             <AddDog activeAddModal={activeAddModal} setActiveAddModal={setActiveAddModal} />
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link active" aria-current="page" to="/logout">Logout</NavLink>
-                        </li>
+                        
+                        <button onClick={logout} className="nav-link active" aria-current="page">Logout</button>
+                        
                     </ul>
                 </div>
             </div>

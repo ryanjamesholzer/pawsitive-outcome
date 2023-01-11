@@ -98,14 +98,15 @@ class AdoptionQueries:
 
     def adoption_in_to_out(self, id: int, adoption: AdoptionIn):
         old_data = adoption.dict()
-        print(f'This is the first old_data: {old_data}')
         try:
             with pool.connection() as conn:
                 with conn.cursor() as cur:
                     cur.execute(
                         """
-                        SELECT * FROM dogs
-                        WHERE dogs.id=%s
+                        UPDATE dogs
+                        SET is_adopted = True
+                        WHERE dogs.id = %s
+                        RETURNING *;
                         """,
                         [old_data['dog_id']]
                     )
@@ -113,10 +114,8 @@ class AdoptionQueries:
                     dog = {}
                     for i, column in enumerate(cur.description):
                         dog[column.name] = results[i]
-                    print(f'This is the DOG: {dog}')
                     old_data['dog_id'] = dog
                     old_data['dog'] = old_data['dog_id']
-                    print(f"this is the old data: {old_data}")
         except:
             pass
         return AdoptionOut(id=id, **old_data)

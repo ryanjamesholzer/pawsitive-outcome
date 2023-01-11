@@ -29,9 +29,7 @@ function ListDogs() {
         }
     }, [token])
 
-
     const activateModal = useCallback((dog_id) => () => {
-        console.log(`This is dog_id: ${dog_id}`)
         setValue(value += 1)
         setDogId(dog_id)
         setActiveModal(true)
@@ -40,7 +38,7 @@ function ListDogs() {
 
     return (
         <>
-            {dogs &&
+            {dogs && token &&
                 <div>
                     <div className="row row-cols-1 row-cols-md-3 g-4">
                         {dogs.map(dog => {

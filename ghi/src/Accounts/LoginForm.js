@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useToken } from "./useToken";
 
 let initialData = {
     "username": "",
     "password": "",
 }
 
-const LoginForm = ({token, login}) =>{
+const LoginForm = () =>{
+    const [token, logout, login] = useToken()
     const [formData, setFormData] = useState(initialData);
 
     const handleChange = (e) => {
@@ -18,8 +20,6 @@ const LoginForm = ({token, login}) =>{
     const handleSubmit = async (e) => {
         e.preventDefault();
         await login(formData.username, formData.password);
-        console.log(token)
-
     }
 
     return(
@@ -36,7 +36,7 @@ const LoginForm = ({token, login}) =>{
                             <input onChange={handleChange} value={formData.password} placeholder="Password" required type="text" name="password" id="password" className="form-control" />
                             <label htmlFor="password">Password</label>
                         </div>
-                        <button  className="btn btn-primary" >Login</button>
+                        <button className="btn btn-primary" >Login</button>
                     </form>
                 </div>
             </div>

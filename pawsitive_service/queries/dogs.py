@@ -52,9 +52,9 @@ class DogQueries:
                     result = cur.execute(
                         """
                         INSERT INTO dogs
-                            (name, gender, breed, age, size, notes, is_adopted, picture_url)
+                            (name, gender, breed, age, size, notes, picture_url)
                         VALUES
-                            (%s, %s, %s, %s, %s, %s, %s, %s)
+                            (%s, %s, %s, %s, %s, %s, %s)
                         RETURNING id;
                         """,
                         [
@@ -64,7 +64,6 @@ class DogQueries:
                             dog.age,
                             dog.size,
                             dog.notes,
-                            dog.is_adopted,
                             dog.picture_url,
                         ]
                     )
@@ -75,4 +74,5 @@ class DogQueries:
 
     def dog_in_to_out(self, id: int, dog: DogIn):
         old_data = dog.dict()
+        old_data["is_adopted"] = False
         return DogOut(id=id, **old_data)

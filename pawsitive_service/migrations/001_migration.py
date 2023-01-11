@@ -7,11 +7,11 @@ steps = [
             name VARCHAR(100) NOT NULL,
             gender VARCHAR(10) NOT NULL,
             breed VARCHAR(200) NOT NULL,
-            age INT NOT NULL,
+            age VARCHAR(100) NOT NULL,
             size VARCHAR(20) NOT NULL,
             notes TEXT,
-            is_adopted BOOL NOT NULL DEFAULT FALSE,
-            picture_url VARCHAR(200) NOT NULL
+            picture_url VARCHAR(200) NOT NULL,
+            is_adopted BOOLEAN DEFAULT FALSE
         );
         """,
         """

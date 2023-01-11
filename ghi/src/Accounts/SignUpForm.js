@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useToken } from "./useToken";
 
 let initialData = {
     "username": "",
@@ -7,7 +7,8 @@ let initialData = {
     "full_name": "",
 }
 
-const SignUpForm = ({token, signup}) =>{
+const SignUpForm = () =>{
+    const [token, logout, login, signup] = useToken()
     const [formData, setFormData] = useState(initialData);
 
     const handleChange = (e) => {

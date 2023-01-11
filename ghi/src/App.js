@@ -8,12 +8,11 @@ import { AuthProvider, useToken } from "./Accounts/useToken"
 
 function GetToken() {
     useToken()
-    // return null
+    return null
 }
 
 
 function App() {
-  const [token, login, logout, signup, update] = useToken()
   return (
     <AuthProvider>
       <GetToken/>
@@ -21,8 +20,8 @@ function App() {
       <div className='container'>
         <Routes>
           <Route path='/dogs' element={<ListDogs />} />
-          <Route path='/login' element={<LoginForm token={token} login={login}/>} />
-          <Route path='/signup' element={<SignUpForm token={token} signup={signup}/>} />
+          <Route path='/login' element={<LoginForm />} />
+          <Route path='/signup' element={<SignUpForm />} />
         </Routes>
         </div>
     </AuthProvider>

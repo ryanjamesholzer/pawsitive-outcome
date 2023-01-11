@@ -79,7 +79,7 @@ export function useToken() {
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
-      navigate("/");
+      navigate('/login');
     }
   }
 
@@ -142,5 +142,5 @@ export function useToken() {
     return false;
   }
 
-  return [token, login, logout, signup, update];
+  return [token, logout, login, signup, update];
 }
