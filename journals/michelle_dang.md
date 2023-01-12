@@ -1,3 +1,15 @@
+## January 11, 2023
+
+Today, I worked on:
+
+* Implementing the logout feature and update the is_adopted field in dogs table
+
+Everyone worked together today to implement the logout feature and update the dogs table. I drove and the rest of my teammates navigated. We updated the is_adopted field so it's defaulted to false when adding a dog and we removed the not null. 
+
+While working on the logout feature, it was challenging to get the logout button to work properly. The button would work once we refreshed, which isn't what we were going for. We went to Cooper for help and we finally got it working once we imported useToken to LoginForm, SignUpForm, and Nav.
+
+Today, I learned more about authentication tokens. I thought it was going to be a breeze today to get the logout to work since it was working on Swagger, but I was proven wrong.
+
 ## January 10, 2023
 
 Today, I worked on:
