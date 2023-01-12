@@ -1,4 +1,15 @@
-## January 10
+## January 11, 2023
+
+Today I worked on:
+
+* Updating the is_adopted boolean value for dogs when adoptions are created and the logout feature.
+
+We worked as a full group again to brush up on SQL in order to update boolean values within our queries. We were able to create an adoption, and set the is_adopted boolean value to true within the context of the adoption, but the actual dog stored in our database still showed false. This was solved by adapting our SQL code to update the dogs table as well. We then adapted our code from the front-end authorization cook book to add a logout button to the nav bar.
+
+Today I learned that passing props with useContext can be complicated. It took a lot of testing and changing of imports to get our login, logout, and signup features to work.
+
+
+## January 10, 2023
 
 Today I worked on:
 
@@ -9,7 +20,7 @@ After the standup, we decided to reconcile any differences between our developme
 Today I learned about useContext hooks. This, similar to Redux, was a great way for us to store data globally and import it in any component files where the data would be needed to be accessed. It was a helpful lesson.
 
 
-## January 9
+## January 9, 2023
 
 Today I worked on:
 
