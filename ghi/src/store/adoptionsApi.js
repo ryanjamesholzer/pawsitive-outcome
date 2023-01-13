@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { authApi } from './authApi'
 
 
-export const dogsApi = createApi({
-    reducerPath: 'dogs',
+export const adoptionsApi = createApi({
+    reducerPath: 'adoptions',
     baseQuery: fetchBaseQuery({
         baseUrl: process.env.REACT_APP_PAWSITIVE_SERVICE_API_HOST,
         prepareHeaders: (headers, { getState }) => {
@@ -15,25 +15,25 @@ export const dogsApi = createApi({
             return headers;
         }
     }),
-    tagTypes: ['ListDogs'],
+    tagTypes: ['ListAdoptions'],
     endpoints: builder => ({
-        getDogs: builder.query({
+        getAdoptions: builder.query({
             // To pass arguments to the URL, you do it inside of the query(*here*)
             query: () => ({
-                url: '/api/dogs',
+                url: '/api/adoptions',
                 credentials: 'include',
             }),
-            providesTags: ['ListDogs'],
+            providesTags: ['ListAdoptions'],
         }),
-        createDog: builder.mutation({
+        createAdoption: builder.mutation({
             query: data => ({
-                url: '/api/dogs',
+                url: '/api/adoptions',
                 body: data,
                 method: 'POST',
             }),
-            invalidatesTags: ['ListDogs']
+            invalidatesTags: ['ListAdoptions']
         }),
     }),
 })
 
-export const { useGetDogsQuery, useCreateDogMutation } = dogsApi
+export const { useGetAdoptionsQuery, useCreateAdoptionMutation } = adoptionsApi

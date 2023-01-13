@@ -1,3 +1,26 @@
+## January 13, 2023
+
+Today I worked on:
+
+* Integrating Redux with our authentication processes across our application.
+
+I drove again today and, as a team, we worked on creating authorization queries with Redux in order to gain global access to our JWT tokens. These newly defined queries would then work in tandem with our RTK queries for the dogs table in our database. After some research, we were able to adapt our code and gain access to protected routes after logging in. When that was finished, we created RTK queries and mutations to access our adoptions table.
+
+Today I learned, yet again, that Redux can greatly improve the cleanliness of your code. Our useToken hook for authorization was verbose and complex. It was replaced relatively easily using Redux.
+
+
+
+## January 12, 2023
+
+Today I worked on:
+
+* Adding Redux to our application.
+
+Kramer took the wheel today, as we worked on integrating Redux into our application. After running into some trouble trying to update the state of a component in the nav bar, we decided to create a store to access state on a global level. It took some time and was a bit terrifying but, after getting a query to work, our code within our components was much cleaner and simpler. However, this caused an issue when trying to access our JWT token, which was generated using a custom React hook. Seemed like an issue for another day.
+
+Today I learned that tearing down your work to learn something new (Redux) can be terrifying but, in the end, it was worth it. We all gained knowledge, and our code cleanliness greatly benefitted.
+
+
 ## January 11, 2023
 
 Today I worked on:

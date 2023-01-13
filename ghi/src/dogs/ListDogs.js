@@ -1,15 +1,14 @@
 import { React, useState, useCallback } from 'react'
-import { useAuthContext } from '../Accounts/useToken'
 import DogDetailModal from './Modals/DogDetailModal'
 import { useGetDogsQuery } from '../store/dogsApi'
-
 
 function ListDogs() {
     const {data, error, isLoading } = useGetDogsQuery()
     const [activeModal, setActiveModal] = useState(false)
     let [value, setValue] = useState(0)
-    const {token} = useAuthContext()
     const [dogId, setDogId] = useState(null)
+    let unadopted = null
+
 
     const activateModal = useCallback((dog_id) => () => {
         setValue(value += 1)
@@ -21,15 +20,17 @@ function ListDogs() {
         return (
             <progress className='progress is-primary' max='100'></progress>
         )
+    } else {
+        unadopted = data.dogs.filter(dog => dog.is_adopted === false)
     }
 
     return (
         <>
-            {data.dogs &&
+            {unadopted &&
                 <div>
                     {/* <ErrorNotification error={error} /> */}
                     <div className="row row-cols-1 row-cols-md-3 g-4">
-                        {data.dogs.map(dog => {
+                        {unadopted.map(dog => {
                             return (
                                 <div className="col-sm-6" key={dog.id}>
                                     <div className="card mb-3 shadow">
@@ -45,7 +46,7 @@ function ListDogs() {
                                 </div>
                             )
                         })}
-                        <DogDetailModal activeModal={activeModal} setActiveModal={setActiveModal} dogId={dogId} runUseEffect={value} token={token}/>
+                        <DogDetailModal activeModal={activeModal} setActiveModal={setActiveModal} dogId={dogId} runUseEffect={value}/>
                     </div>
                 </div>
             }

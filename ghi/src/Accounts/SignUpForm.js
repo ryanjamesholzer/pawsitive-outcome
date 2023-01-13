@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useToken } from "./useToken";
+import { useSignUpMutation } from "../store/authApi";
+import { useNavigate } from "react-router-dom";
 
 let initialData = {
     "username": "",
@@ -8,7 +9,8 @@ let initialData = {
 }
 
 const SignUpForm = () =>{
-    const [token, logout, login, signup] = useToken()
+    const navigate = useNavigate();
+    const [signUp, result] = useSignUpMutation();
     const [formData, setFormData] = useState(initialData);
 
     const handleChange = (e) => {
@@ -20,7 +22,14 @@ const SignUpForm = () =>{
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await signup(formData.username, formData.password, formData.full_name);
+        await signUp(formData);
+        navigate('/dogs')
+    }
+
+    if (result.isSuccess) {
+        console.log('Signup successful')
+    } else if (result.isError) {
+        console.log(result.error)
     }
 
     return(

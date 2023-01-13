@@ -1,30 +1,25 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import ListDogs from './dogs/ListDogs'
 import Nav from './Nav'
 import './App.css'
 import LoginForm from './Accounts/LoginForm'
 import SignUpForm from './Accounts/SignUpForm'
-import { AuthProvider, useToken } from "./Accounts/useToken"
-
-function GetToken() {
-    useToken()
-    return null
-}
+import ListAdoptions from './dogs/ListAdoptions'
 
 
 function App() {
   return (
-    <AuthProvider>
-      <GetToken/>
+    <BrowserRouter>
       <Nav />
       <div className='container'>
         <Routes>
           <Route path='/dogs' element={<ListDogs />} />
+          <Route path='/adoptions' element={<ListAdoptions />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/signup' element={<SignUpForm />} />
         </Routes>
-        </div>
-    </AuthProvider>
+      </div>
+    </BrowserRouter>
   )
 }
 

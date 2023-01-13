@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { useToken } from "./useToken";
+import { useLogInMutation } from "../store/authApi";
+import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 let initialData = {
     "username": "",
@@ -7,7 +9,8 @@ let initialData = {
 }
 
 const LoginForm = () =>{
-    const [token, logout, login] = useToken()
+    const navigate = useNavigate()
+    const [logIn, result] = useLogInMutation()
     const [formData, setFormData] = useState(initialData);
 
     const handleChange = (e) => {
@@ -19,7 +22,14 @@ const LoginForm = () =>{
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await login(formData.username, formData.password);
+        await logIn(formData);
+        navigate('/dogs')
+    }
+
+    if (result.isSuccess) {
+        console.log('Login successful')
+    } else if (result.isError) {
+        console.log(result.error)
     }
 
     return(
@@ -37,6 +47,9 @@ const LoginForm = () =>{
                             <label htmlFor="password">Password</label>
                         </div>
                         <button className="btn btn-primary" >Login</button>
+                        <NavLink to='/signup'>
+                            <button className="btn btn-primary">Sign Up</button>
+                        </NavLink>
                     </form>
                 </div>
             </div>

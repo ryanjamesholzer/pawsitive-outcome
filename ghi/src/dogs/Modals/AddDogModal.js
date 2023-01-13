@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
-import { useAuthContext } from '../../Accounts/useToken'
 import { useCreateDogMutation } from '../../store/dogsApi'
+import { useNavigate } from 'react-router-dom'
 
 const initialState = {
     name: '',
@@ -16,8 +16,8 @@ const initialState = {
 
 function AddDog ({activeAddModal, setActiveAddModal}) {
     const [details, setDetails] = useState(initialState)
-    const {token} = useAuthContext()
     const [createDog, result] = useCreateDogMutation()
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -33,29 +33,7 @@ function AddDog ({activeAddModal, setActiveAddModal}) {
     const handleSubmit = (e) => {
         e.preventDefault()
         createDog(details)
-        // const dogsUrl = `${process.env.REACT_APP_PAWSITIVE_SERVICE_API_HOST}/api/dogs`
-        // const fetchConfig = {
-        //     method: "POST",
-        //     body: JSON.stringify(details),
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         Authorization: `Bearer ${token}`
-        //     }
-        // }
-        // fetch(dogsUrl, fetchConfig)
-        //     .then(res => {
-        //         return res.json()
-        //     })
-        //     .then(result => {
-        //         try {
-        //             if (result.id !== undefined) {
-        //                 console.log("dog was created")
-        //             }
-        //         } catch {
-        //             console.log("Something went wrong. Appointment was not created.")
-        //         }
-        //     })
-        // setDetails(initialState)
+        navigate('/dogs')
     }
 
     if (result.isSuccess) {

@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import AddDog from './dogs/Modals/AddDogModal'
-import { useToken } from './Accounts/useToken'
+import { useLogOutMutation } from './store/authApi'
+
 
 function Nav() {
-
+    const [logOut] = useLogOutMutation()
     const [activeAddModal, setActiveAddModal] = useState(false)
 
     const activateAddModal =  () => {
         setActiveAddModal(true)
     }
 
-    const [token, logout] = useToken()
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
             <div className="container-fluid">
@@ -23,15 +23,18 @@ function Nav() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <NavLink className="nav-link active" aria-current="page" to="/dogs">List Dogs</NavLink>
+                            <NavLink className="nav-link active" aria-current="page" to="/dogs">Dogs</NavLink>
                         </li>
                         <li className="nav-item">
-                            <button onClick={activateAddModal} className="nav-link active" aria-current="page">Add Dog</button>
+                            <NavLink onClick={activateAddModal} className="nav-link active" aria-current="page">Add Dog</NavLink>
                             <AddDog activeAddModal={activeAddModal} setActiveAddModal={setActiveAddModal} />
                         </li>
-
-                        <button onClick={logout} className="nav-link active" aria-current="page">Logout</button>
-
+                        <li className='nav-item'>
+                            <NavLink className="nav-link active" aria-current="page" to="/adoptions">Adoptions</NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink onClick={logOut} className="nav-link active" aria-current="page" to="/login">Logout</NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>
