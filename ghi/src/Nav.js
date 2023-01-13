@@ -29,9 +29,9 @@ function Nav() {
                             <button onClick={activateAddModal} className="nav-link active" aria-current="page">Add Dog</button>
                             <AddDog activeAddModal={activeAddModal} setActiveAddModal={setActiveAddModal} />
                         </li>
-                        
+
                         <button onClick={logout} className="nav-link active" aria-current="page">Logout</button>
-                        
+
                     </ul>
                 </div>
             </div>

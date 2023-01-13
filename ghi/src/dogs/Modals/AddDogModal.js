@@ -1,19 +1,23 @@
 import { React, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
+import { useAuthContext } from '../../Accounts/useToken'
+import { useCreateDogMutation } from '../../store/dogsApi'
+
+const initialState = {
+    name: '',
+    gender: '',
+    breed: '',
+    age: '',
+    size: '',
+    picture_url: '',
+    notes: ''
+}
+
 
 function AddDog ({activeAddModal, setActiveAddModal}) {
-    const initialState = {
-        name: '',
-        gender: '',
-        breed: '',
-        age: '',
-        size: '',
-        picture_url: '',
-        notes: ''
-    }
-
     const [details, setDetails] = useState(initialState)
-
+    const {token} = useAuthContext()
+    const [createDog, result] = useCreateDogMutation()
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -27,8 +31,39 @@ function AddDog ({activeAddModal, setActiveAddModal}) {
     }
 
     const handleSubmit = (e) => {
-        return -1
+        e.preventDefault()
+        createDog(details)
+        // const dogsUrl = `${process.env.REACT_APP_PAWSITIVE_SERVICE_API_HOST}/api/dogs`
+        // const fetchConfig = {
+        //     method: "POST",
+        //     body: JSON.stringify(details),
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         Authorization: `Bearer ${token}`
+        //     }
+        // }
+        // fetch(dogsUrl, fetchConfig)
+        //     .then(res => {
+        //         return res.json()
+        //     })
+        //     .then(result => {
+        //         try {
+        //             if (result.id !== undefined) {
+        //                 console.log("dog was created")
+        //             }
+        //         } catch {
+        //             console.log("Something went wrong. Appointment was not created.")
+        //         }
+        //     })
+        // setDetails(initialState)
     }
+
+    if (result.isSuccess) {
+        console.log('Dog was added')
+    } else if (result.isError) {
+        console.log(result.error)
+    }
+
 
     return (
         <Modal show={activeAddModal} onHide={handleClose}>
@@ -69,7 +104,7 @@ function AddDog ({activeAddModal, setActiveAddModal}) {
                     required name="notes" id="notes" className="form-control" />
                     <label htmlFor="notes">Notes</label>
                 </div>
-                <button className="btn btn-primary">Create</button>
+                <button className="btn btn-primary" onClick={handleClose}>Create</button>
             </form>
             </Modal.Body>
         </Modal>

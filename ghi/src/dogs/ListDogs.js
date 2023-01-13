@@ -1,33 +1,15 @@
-import { React, useState, useEffect, useCallback } from 'react'
+import { React, useState, useCallback } from 'react'
 import { useAuthContext } from '../Accounts/useToken'
 import DogDetailModal from './Modals/DogDetailModal'
+import { useGetDogsQuery } from '../store/dogsApi'
 
 
 function ListDogs() {
-    const {token} = useAuthContext()
-    const [dogs, setDogs] = useState([])
-    const [dogId, setDogId] = useState(null)
+    const {data, error, isLoading } = useGetDogsQuery()
     const [activeModal, setActiveModal] = useState(false)
     let [value, setValue] = useState(0)
-
-    useEffect( () => {
-        const myHeaders = new Headers({
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`
-        });
-        if (token != null) {
-            fetch(`${process.env.REACT_APP_PAWSITIVE_SERVICE_API_HOST}/api/dogs`, {
-                method: 'GET',
-                headers: myHeaders
-            })
-                .then(res => {
-                    return res.json()
-                })
-                .then(data => {
-                    setDogs(data.dogs)
-                })
-        }
-    }, [token])
+    const {token} = useAuthContext()
+    const [dogId, setDogId] = useState(null)
 
     const activateModal = useCallback((dog_id) => () => {
         setValue(value += 1)
@@ -35,13 +17,19 @@ function ListDogs() {
         setActiveModal(true)
     }, [])
 
+    if (isLoading) {
+        return (
+            <progress className='progress is-primary' max='100'></progress>
+        )
+    }
 
     return (
         <>
-            {dogs && token &&
+            {data.dogs &&
                 <div>
+                    {/* <ErrorNotification error={error} /> */}
                     <div className="row row-cols-1 row-cols-md-3 g-4">
-                        {dogs.map(dog => {
+                        {data.dogs.map(dog => {
                             return (
                                 <div className="col-sm-6" key={dog.id}>
                                     <div className="card mb-3 shadow">
