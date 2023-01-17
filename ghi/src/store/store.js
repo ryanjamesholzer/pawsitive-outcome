@@ -1,20 +1,16 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query'
-import { dogsApi } from './dogsApi'
-import { authApi } from './authApi'
-import { adoptionsApi } from './adoptionsApi'
+import { apiSlice } from './pawsitiveApi'
 import { accountSlice } from './accountSlice'
 
 
 export const store = configureStore({
     reducer: {
-        [dogsApi.reducerPath]: dogsApi.reducer,
-        [authApi.reducerPath]: authApi.reducer,
-        [adoptionsApi.reducerPath]: adoptionsApi.reducer,
+        [apiSlice.reducerPath]: apiSlice.reducer,
         [accountSlice.name]: accountSlice.reducer,
     },
     middleware: getDefaultMiddleware =>
-        getDefaultMiddleware().concat(dogsApi.middleware, authApi.middleware, adoptionsApi.middleware)
+        getDefaultMiddleware().concat(apiSlice.middleware)
 })
 
 setupListeners(store.dispatch)

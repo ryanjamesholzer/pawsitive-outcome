@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import AddDog from './dogs/Modals/AddDogModal'
-import { useLogOutMutation } from './store/authApi'
+import { useLogOutMutation } from './store/pawsitiveApi'
 
 
 function Nav() {
@@ -27,6 +27,7 @@ function Nav() {
                         </li>
                         <li className="nav-item">
                             <NavLink onClick={activateAddModal} className="nav-link active" aria-current="page">Add Dog</NavLink>
+                            {/* <button className="nav-link active" aria-current="page"> Add Dog </button> */}
                             <AddDog activeAddModal={activeAddModal} setActiveAddModal={setActiveAddModal} />
                         </li>
                         <li className='nav-item'>

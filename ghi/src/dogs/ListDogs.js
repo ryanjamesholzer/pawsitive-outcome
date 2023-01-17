@@ -1,19 +1,17 @@
 import { React, useState, useCallback } from 'react'
 import DogDetailModal from './Modals/DogDetailModal'
-import { useGetDogsQuery } from '../store/dogsApi'
+import { useGetDogsQuery } from '../store/pawsitiveApi'
 
 function ListDogs() {
     const {data, error, isLoading } = useGetDogsQuery()
-    const [activeModal, setActiveModal] = useState(false)
-    let [value, setValue] = useState(0)
+    const [activeDogDetailModal, setActiveDogDetailModal] = useState(false)
     const [dogId, setDogId] = useState(null)
     let unadopted = null
 
 
-    const activateModal = useCallback((dog_id) => () => {
-        setValue(value += 1)
+    const activateDogDetailModal = useCallback((dog_id) => () => {
         setDogId(dog_id)
-        setActiveModal(true)
+        setActiveDogDetailModal(true)
     }, [])
 
     if (isLoading) {
@@ -40,13 +38,13 @@ function ListDogs() {
                                             <h6 className="card-subtitle mb-2 text-muted">Breed: {dog.breed}</h6>
                                             <h6 className="card-subtitle mb-2 text-muted">Gender: {dog.gender}</h6>
                                             <h6 className="card-subtitle mb-2 text-muted">Age: {dog.age}</h6>
-                                            <button className='btn btn-primary' onClick={activateModal(dog.id)} >Read More</button>
+                                            <button className='btn btn-primary' onClick={activateDogDetailModal(dog.id)} >Read More</button>
                                         </div>
                                     </div>
                                 </div>
                             )
                         })}
-                        <DogDetailModal activeModal={activeModal} setActiveModal={setActiveModal} dogId={dogId} runUseEffect={value}/>
+                        <DogDetailModal activeDogDetailModal={activeDogDetailModal} setActiveDogDetailModal={setActiveDogDetailModal} dogId={dogId} />
                     </div>
                 </div>
             }

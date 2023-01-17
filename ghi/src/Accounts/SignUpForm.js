@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useSignUpMutation } from "../store/authApi";
+import { useSignUpMutation } from "../store/pawsitiveApi";
 import { useNavigate } from "react-router-dom";
 
 let initialData = {
     "username": "",
     "password": "",
+    "passwordConfirmation": "",
     "full_name": "",
 }
 
@@ -22,8 +23,14 @@ const SignUpForm = () =>{
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await signUp(formData);
-        navigate('/dogs')
+        if (formData.password === formData.passwordConfirmation) {
+            delete formData.passwordConfirmation
+            await signUp(formData);
+            setFormData(initialData)
+            navigate('/dogs')
+        } else {
+            alert('Password does not match confirmation.')
+        }
     }
 
     if (result.isSuccess) {
@@ -43,8 +50,12 @@ const SignUpForm = () =>{
                             <label htmlFor="username">Username</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={handleChange} value={formData.password} placeholder="Password" required type="text" name="password" id="password" className="form-control" />
-                            <label htmlFor="password">Password</label>
+                            <input onChange={handleChange} value={formData.password} placeholder="Password" required type="password" name="password" id="password" className="form-control" autoComplete="on" />
+                            <label htmlFor="password" >Password</label>
+                        </div>
+                        <div className="form-floating mb-3">
+                            <input onChange={handleChange} value={formData.passwordConfirmation} placeholder="passwordConfirmation" required type="password" name="passwordConfirmation" id="passwordConfirmation" className="form-control" autoComplete="on" />
+                            <label htmlFor="passwordConfirmation">Password Conformation</label>
                         </div>
                         <div className="form-floating mb-3">
                             <input onChange={handleChange} value={formData.full_name} placeholder="Full Name" required type="text" name="full_name" id="full_name" className="form-control" />

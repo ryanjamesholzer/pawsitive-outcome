@@ -4,7 +4,7 @@ import Nav from './Nav'
 import './App.css'
 import LoginForm from './Accounts/LoginForm'
 import SignUpForm from './Accounts/SignUpForm'
-import ListAdoptions from './dogs/ListAdoptions'
+import ListAdoptions from './Adoptions/ListAdoptions'
 
 
 function App() {
