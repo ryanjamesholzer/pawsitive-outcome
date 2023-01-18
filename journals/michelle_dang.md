@@ -1,3 +1,26 @@
+## January 17, 2023
+
+Today, I worked on:
+
+* Adding post queries to redux store and added password confirmation
+
+Angel drove today while we added post queries to the redux store. We consolidated the query builder into pawsitiveApi. We ran into an issue with AddDog, so we updated the file so it would pop up a required field error if nothing was written. Lastly, we added a password confirmation field.
+
+Today, I learned that we need to think about test cases to ensure it passes through every scenario. When we were testing out the SignUp form with a password confirmation, it didn't work at first since we used a username that was already in our database. Since we didn't make an error handle for it, it threw an error on the console and made it seem like what we coded didn't work. We realized a minute later it was because we used the username "hello" already. Because of this, tomorrow we plan to make an error handling for existing usernames.
+
+
+## January 13, 2023
+
+Today, I worked on:
+
+* Implementing Redux in our authentication
+
+Ryan drove today and the rest of the team were navigators. We implemented Redux in our authentication with tokens. Before, we had to import our useToken file and useAuthContext function into every file that needed a token. 
+This became repetitve and inefficient, so we decided to switch to Redux so our JWT tokens will become global. 
+
+Today, I learned that Redux is extremely useful to use. Our team initially thought about incorporating Redux as a stretch goal, but once we saw examples of how to use and saw how much cleaner it looks, we decided to give it a shot. This also taught me to always think about other options that could possibly make your code more legible and efficient. 
+
+
 ## January 11, 2023
 
 Today, I worked on:
@@ -9,6 +32,7 @@ Everyone worked together today to implement the logout feature and update the do
 While working on the logout feature, it was challenging to get the logout button to work properly. The button would work once we refreshed, which isn't what we were going for. We went to Cooper for help and we finally got it working once we imported useToken to LoginForm, SignUpForm, and Nav.
 
 Today, I learned more about authentication tokens. I thought it was going to be a breeze today to get the logout to work since it was working on Swagger, but I was proven wrong.
+
 
 ## January 10, 2023
 
