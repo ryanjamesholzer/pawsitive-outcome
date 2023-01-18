@@ -1,3 +1,12 @@
+### January 17, 2023
+
+Today I worked on:
+
+* Updated AddDog. Added createAdoption, showAdoption, and getAdoption to the Redux store.
+
+Angel drove today while we worked on updating the addDog form and adding builders to the Redux store. Getting better acquainted with the Redux store gives me more confidence in how Redux works. I enjoy working with my group. They not only make you feel more confident but help you better understand the code you were confused about.
+
+Today, I learned that you can consolidate all your Redux builders from separate files into one.
 ### January 10, 2023
 
 Today, I worked on:
