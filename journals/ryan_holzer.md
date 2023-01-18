@@ -1,3 +1,14 @@
+## January 17
+
+Today I worked on:
+
+* Adding post queries to the Redux store, with modals for addDog and createAdoption.
+
+Angel drove today, as we set out to tackle "post" RTK queries to add dogs and create adoptions. We ended up consolidating all of our query builders into a single file in order to invalidate tags across different routes/queries. We then created modals to match our post queries, and added a password confirmation field into our sign up form.
+
+Today I learned that consolidating all of your builders and mutations into a single file can help in the functionality of your components. For example, we needed to invalidate the “ListDogs” tag when an adoption was created, and the consolidation immediately solved our issue.
+
+
 ## January 13, 2023
 
 Today I worked on:
