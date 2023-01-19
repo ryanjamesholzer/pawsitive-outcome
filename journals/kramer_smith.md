@@ -1,3 +1,58 @@
+## January 18th, 2023
+    Today, Triston drove and we all worked together to solve multiple bugs
+and add some new features. First we fixed a bug in the SignUpForm. The
+console said we were changing a defined item to undefined.
+    We then fixed a bug that caused the addDogModal to almost instantly
+close. This was because the result.Success was not being changed back to
+false after each dog was added. The modal is programmed to close whenever
+the result.isSuccess is false. This was an easy fix, yet hard at the time to
+spot. We just set result.isSuccess back to false after we confirmed that the
+POST fetch for adding a dog was successful by writing result.isSuccess = false
+    Next, we made the SignUpForm a modal. It's looks much nicer. This went
+smoothly as we have had plenty of experience setting up modals in this
+project.
+    While working with the SingUpFormModal, we were trying to access the
+error message from bad requests from the modal itself and not through the
+RTK code. This was a little more difficult than we expected because,
+unknowingly, we needed to really dig into the result object. We finally
+found our way to the error message. Our line to access the message was
+"result.error.data.detail".
+    After that, we added a delete dog function. Through a copy and paste
+error, one of us accidentally pasted "ListDogs" into the providesTags
+section of our showDog query. So after we deleted a dog, we invalidated the
+ListDogs query. That would make the ListDogs.js re-render. Which meant the
+DogDetailModal would try to fetch all the dog details. It would then cause
+an error because the dog detail modal for the deleted dog would try to make
+a fetch. It would fail because the dog had been deleted. This was one of
+those fun coding moments where you find one misplaced word that caused a
+series of unexpected events, change it, and it fixes everything. We just
+removed ListDogs from the providesTags section in the showDog query, and it
+worked!
+    I'm starting to see the benefit of these journals. It really helps you
+understand the code you're writing better, and it helps you identify issues.
+As I was writing the previous paragraph, I thought to myself, "We should not
+be running individual fetches for each dog to get their details. That seems
+like a lot of data that may not be utilized." I will talk to the team about
+only running a fetch for the dog details once the user requests that data.
+It may be that we decide to keep it that way to keep the site lightning fast.
+    Lastly, we worked on adding a delete adoption function. The idea of this
+was if a user accidentally files an adoption, they can press "Undo." This
+would delete the adoption record, but set the adopted dog's "is_adopted"
+property back to false. That way, the dog could still be listed as up for
+adoption. This was a bang your head against the wall kind of moment. We
+spent quite a lot of time on this only to later find out that we were
+weren't correctly giving the SQL the id of the dog to be listed back up
+for adoption. We were passing the id of the adoption to be deleted, but not
+the id of the dog. We thought we were, but somehow didn't see that we
+actually weren't.
+    It's crazy how you can look at the same code for hours and not see such
+an obvious mistake. It seems silly writing it out. The reader probably is
+probably thinking, "That's sounds so easy. I can't believe they spent so
+long." Or maybe they understand? Either way, today was frustrating, yet fun.
+The problem solving part of all this is great. I know I will really enjoy
+this career.
+
+
 ## January 17th, 2023
     Today, Angel drove. We all worked on consolidating of all the RTK
 queries into one file. We needed to consolidate it all into one file because
