@@ -3,7 +3,7 @@ import ListDogs from './dogs/ListDogs'
 import Nav from './Nav'
 import './App.css'
 import LoginForm from './Accounts/LoginForm'
-import SignUpForm from './Accounts/SignUpForm'
+import SignUpFormModal from './Accounts/SignUpFormModal'
 import ListAdoptions from './Adoptions/ListAdoptions'
 
 
@@ -16,7 +16,7 @@ function App() {
           <Route path='/dogs' element={<ListDogs />} />
           <Route path='/adoptions' element={<ListAdoptions />} />
           <Route path='/login' element={<LoginForm />} />
-          <Route path='/signup' element={<SignUpForm />} />
+          <Route path='/signup' element={<SignUpFormModal />} />
         </Routes>
       </div>
     </BrowserRouter>

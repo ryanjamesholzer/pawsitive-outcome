@@ -76,3 +76,35 @@ class DogQueries:
         old_data = dog.dict()
         old_data["is_adopted"] = False
         return DogOut(id=id, **old_data)
+
+    def remove_dog(self, id: int):
+        print(id)
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as cur:
+                    cur.execute(
+                        """
+                        DELETE FROM dogs
+                        WHERE id = %s;
+                        """,
+                        [id]
+                    )
+                    return {"message": "Dog was deleted successfully"}
+        except Exception:
+            return {"message": "Dog does not exist"}
+
+    def updateDog(self, id: int):
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as cur:
+                    cur.execute(
+                        """
+                        UPDATE dogs
+                        SET is_adopted = False
+                        WHERE dogs.id = %s
+                        """,
+                        [id]
+                    )
+                    return {"message": "Dog {} was successfully updated".format(id)}
+        except:
+            return {"message": "Dog {} was not updated".format(id)}

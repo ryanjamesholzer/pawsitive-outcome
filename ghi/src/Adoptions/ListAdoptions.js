@@ -3,12 +3,14 @@ import { useGetAdoptionsQuery } from '../store/pawsitiveApi'
 import AdoptionDetailModal from './Modals/AdoptionDetailModal'
 
 function ListAdoptions() {
-    const {data, error, isLoading} = useGetAdoptionsQuery()
+    const {data, isLoading} = useGetAdoptionsQuery()
     const [activeAdoptionDetailModal, setActiveAdoptionDetailModal] = useState(false)
     const [adoptionId, setAdoptionId] = useState(null)
+    const [dogId, setDogId] = useState(null)
 
-    const activateAdoptionDetailModal = useCallback((adoption_id) => () => {
+    const activateAdoptionDetailModal = useCallback((adoption_id, dog_id) => () => {
         setAdoptionId(adoption_id)
+        setDogId(dog_id)
         setActiveAdoptionDetailModal(true)
     }, [])
 
@@ -33,7 +35,7 @@ function ListAdoptions() {
                                             <h5 className="card-title">{adoption.dog.name}</h5>
                                             <h6 className="card-subtitle mb-2 text-muted">Adopted By: {adoption.adopter_name}</h6>
                                             <h6 className="card-subtitle mb-2 text-muted">On: {adoption.date_of_adoption}</h6>
-                                            <button className='btn btn-primary' onClick={activateAdoptionDetailModal(adoption.id)} >Read More</button>
+                                            <button className='btn btn-primary' onClick={activateAdoptionDetailModal(adoption.id, adoption.dog.dog_id)}>Adoption Deets</button>
                                         </div>
                                     </div>
                                 </div>
@@ -42,7 +44,7 @@ function ListAdoptions() {
                     </div>
                 </div>
             }
-            <AdoptionDetailModal activeAdoptionDetailModal={activeAdoptionDetailModal} setActiveAdoptionDetailModal={setActiveAdoptionDetailModal} adoptionId={adoptionId}/>
+            <AdoptionDetailModal activeAdoptionDetailModal={activeAdoptionDetailModal} setActiveAdoptionDetailModal={setActiveAdoptionDetailModal} adoptionId={adoptionId} dogId={dogId}/>
         </>
     )
 

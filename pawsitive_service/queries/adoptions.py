@@ -61,11 +61,8 @@ class AdoptionQueries:
                             adoption[column.name] = results[i]
                         else:
                             dog[column.name] = results[i]
-                    print(dog, "****************************************")
                     adoption['id'] = adoption['adoption_id']
                     adoption['dog'] = dog
-                    print(f"the after dog: {dog}")
-                    print(f"The adoption: {adoption}")
                     return adoption
         except Exception:
             return {"message": "Adoption does not exist"}
@@ -119,3 +116,18 @@ class AdoptionQueries:
         except:
             pass
         return AdoptionOut(id=id, **old_data)
+
+    def remove_adoption(self, id: int):
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as cur:
+                    cur.execute(
+                        """
+                        DELETE FROM adoptions
+                        WHERE id = %s;
+                        """,
+                        [id]
+                    )
+                    return {"message":"Adoption was successfully deleted"}
+        except Exception:
+            return {"message": "Adoption does not exist"}

@@ -1,7 +1,6 @@
 import { React, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { useCreateDogMutation } from '../../store/pawsitiveApi'
-import { useNavigate } from 'react-router-dom'
 
 
 const initialState = {
@@ -14,11 +13,10 @@ const initialState = {
     notes: ''
 }
 
-
 function AddDog ({activeAddModal, setActiveAddModal}) {
     const [details, setDetails] = useState(initialState)
     const [createDog, result] = useCreateDogMutation()
-    const navigate = useNavigate()
+
     const handleChange = (e) => {
         const {name, value} = e.target
         setDetails((prev) => {
@@ -31,19 +29,16 @@ function AddDog ({activeAddModal, setActiveAddModal}) {
     }
 
     const handleSubmit = (e) => {
-        console.log('submitted ')
         e.preventDefault()
         createDog(details)
     }
 
     if (result.isSuccess) {
-        const myTimeout = setTimeout(handleClose, 250);
-        console.log(result)
-        // setActiveAddModal(false)
-        console.log('Dog was added')
+        result.isSuccess = false
+        handleClose()
     } else if (result.isError) {
         console.log(' Dog was not created')
-        console.log(result.error)
+        alert(result.error.data.detail)
     }
 
 
@@ -86,7 +81,7 @@ function AddDog ({activeAddModal, setActiveAddModal}) {
                     name="notes" id="notes" className="form-control" />
                     <label htmlFor="notes">Notes</label>
                 </div>
-                <button className="btn btn-primary" >Create</button>
+                <button className="btn btn-primary">Create</button>
             </form>
             </Modal.Body>
         </Modal>

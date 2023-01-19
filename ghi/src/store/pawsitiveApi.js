@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { clearForm } from './accountSlice';
+
 
 
 export const apiSlice = createApi({
@@ -28,12 +28,6 @@ export const apiSlice = createApi({
       invalidatesTags: result => {
         return (result && ['Token']) || [];
       },
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          await queryFulfilled;
-          dispatch(clearForm());
-        } catch (err) {}
-      },
     }),
     logIn: builder.mutation({
       query: info => {
@@ -56,12 +50,6 @@ export const apiSlice = createApi({
       invalidatesTags: result => {
         return (result && ['Token']) || [];
       },
-      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-        try {
-          await queryFulfilled;
-          dispatch(clearForm());
-        } catch (err) {}
-      },
     }),
     logOut: builder.mutation({
       query: () => ({
@@ -79,7 +67,6 @@ export const apiSlice = createApi({
       providesTags: ['Token'],
     }),
     getDogs: builder.query({
-        // To pass arguments to the URL, you do it inside of the query(*here*)
         query: () => ({
             url: '/api/dogs',
             credentials: 'include',
@@ -97,10 +84,27 @@ export const apiSlice = createApi({
     }),
     showDog: builder.query({
         query: (id) => ({
-            url: `/api/dogs/{id}?id=${id}`,
+            url: `/api/dogs/${id}`,
             credentials: 'include',
         }),
-        providesTags: ['ListDogs'],
+        providesTags: ['ShowDog'],
+    }),
+    deleteDog: builder.mutation({
+      query: (id) => ({
+        url: `/api/dogs/${id}`,
+        method: 'delete',
+        credentials: 'include',
+      }),
+      invalidatesTags: ['ListDogs'],
+    }),
+    updateDog: builder.mutation({
+      query: (id) => ({
+        url: `/api/dogs/${id}`,
+        body: id,
+        method: 'put',
+        credentials: 'include',
+      }),
+      invalidatesTags: ['ListDogs'],
     }),
     getAdoptions: builder.query({
         query: () => ({
@@ -120,10 +124,18 @@ export const apiSlice = createApi({
     }),
     showAdoption: builder.query({
         query: (id) => ({
-            url: `/api/adoptions/{id}?id=${id}`,
+            url: `/api/adoptions/${id}`,
             credentials: 'include',
         }),
-        providesTags: ['ListAdoptions'],
+        providesTags: ['ShowAdoption'],
+    }),
+    deleteAdoption: builder.mutation({
+      query: (id) => ({
+        url: `/api/adoptions/${id}`,
+        method: 'delete',
+        credentials: 'include',
+      }),
+      invalidatesTags: ['ListAdoptions'],
     }),
 
   }),
@@ -137,7 +149,10 @@ export const {
   useGetDogsQuery,
   useShowDogQuery,
   useCreateDogMutation,
+  useDeleteDogMutation,
+  useUpdateDogMutation,
   useGetAdoptionsQuery,
   useCreateAdoptionMutation,
   useShowAdoptionQuery,
+  useDeleteAdoptionMutation,
 } = apiSlice;

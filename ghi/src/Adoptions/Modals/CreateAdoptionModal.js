@@ -37,7 +37,7 @@ function CreateAdoptionModal ({dog, activeCreateAdoptionModal, setActiveCreateAd
     }
 
     if (result.isSuccess) {
-        const myTimeout = setTimeout(handleClose, 250);
+        setTimeout(()=>{navigate('/adoptions')},50);
     } else if (result.isError) {
         console.log(result.error)
     }

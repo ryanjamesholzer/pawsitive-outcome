@@ -1,10 +1,20 @@
-import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { useShowAdoptionQuery } from '../../store/pawsitiveApi'
+import { useDeleteAdoptionMutation } from '../../store/pawsitiveApi'
+import { useUpdateDogMutation } from '../../store/pawsitiveApi'
 
-function AdoptionDetailModal({activeAdoptionDetailModal, setActiveAdoptionDetailModal, adoptionId}) {
+function AdoptionDetailModal({activeAdoptionDetailModal, setActiveAdoptionDetailModal, adoptionId, dogId}) {
     const skip = adoptionId === null
     const {data: adoption} = useShowAdoptionQuery(adoptionId,{skip})
+    const [deleteAdoption] = useDeleteAdoptionMutation()
+    const [updateDog, result] = useUpdateDogMutation()
+
+
+    async function handleDelete() {
+        deleteAdoption(adoptionId)
+        handleClose()
+        await updateDog(dogId)
+    }
 
     function handleClose() {
         setActiveAdoptionDetailModal(false)
@@ -35,6 +45,7 @@ function AdoptionDetailModal({activeAdoptionDetailModal, setActiveAdoptionDetail
                                     <p className="card-subtitle mb-2 text-muted">
                                         Notes: {adoption.dog.notes}
                                     </p>
+                                <button className='btn btn-primary' onClick={handleDelete}>Undo</button>
                             </div>
                         </div>
                     </Modal.Body>

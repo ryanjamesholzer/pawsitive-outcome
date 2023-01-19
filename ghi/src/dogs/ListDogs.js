@@ -3,7 +3,7 @@ import DogDetailModal from './Modals/DogDetailModal'
 import { useGetDogsQuery } from '../store/pawsitiveApi'
 
 function ListDogs() {
-    const {data, error, isLoading } = useGetDogsQuery()
+    const {data, isLoading } = useGetDogsQuery()
     const [activeDogDetailModal, setActiveDogDetailModal] = useState(false)
     const [dogId, setDogId] = useState(null)
     let unadopted = null
@@ -38,7 +38,7 @@ function ListDogs() {
                                             <h6 className="card-subtitle mb-2 text-muted">Breed: {dog.breed}</h6>
                                             <h6 className="card-subtitle mb-2 text-muted">Gender: {dog.gender}</h6>
                                             <h6 className="card-subtitle mb-2 text-muted">Age: {dog.age}</h6>
-                                            <button className='btn btn-primary' onClick={activateDogDetailModal(dog.id)} >Read More</button>
+                                            <button className='btn btn-primary' onClick={activateDogDetailModal(dog.id)} >Dog Deets</button>
                                         </div>
                                     </div>
                                 </div>

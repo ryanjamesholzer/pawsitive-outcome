@@ -2,12 +2,19 @@ import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import CreateAdoptionModal from '../../Adoptions/Modals/CreateAdoptionModal'
 import { useShowDogQuery } from '../../store/pawsitiveApi'
+import { useDeleteDogMutation } from '../../store/pawsitiveApi'
+
 
 function DogDetailModal({activeDogDetailModal, setActiveDogDetailModal, dogId}) {
     const skip = dogId === null
     const {data: dog} = useShowDogQuery(dogId,{skip})
     const [activeCreateAdoptionModal, setActiveCreateAdoptionModal] = useState(false)
+    const [deleteDog] = useDeleteDogMutation()
 
+    function handleDelete() {
+        handleClose()
+        deleteDog(dogId)
+    }
     const activateCreateAdoptionModal =  () => {
         setActiveCreateAdoptionModal(true)
         setActiveDogDetailModal(false)
@@ -42,7 +49,8 @@ function DogDetailModal({activeDogDetailModal, setActiveDogDetailModal, dogId}) 
                                     <p className="card-subtitle mb-2 text-muted">
                                         Notes: {dog.notes}
                                     </p>
-                                    <button className='btn btn-primary' onClick={activateCreateAdoptionModal} >Adoption</button>
+                                    <button className='btn btn-primary' onClick={activateCreateAdoptionModal}>Adopt</button>
+                                    <button className='btn btn-primary' onClick={handleDelete}>Remove</button>
                             </div>
                         </div>
                     </Modal.Body>

@@ -12,7 +12,7 @@ def list_dogs(repo: DogQueries = Depends(),
 ):
     return DogList(dogs=repo.get_all_dogs())
 
-@router.get("/api/dogs/{dog_id}", response_model=DogOut)
+@router.get("/api/dogs/{id}", response_model=DogOut)
 def get_one_dog(id: int, response: Response, repo: DogQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data)
 ):
@@ -25,3 +25,15 @@ def create_dog(dog: DogIn, response: Response, repo: DogQueries = Depends(),
     account_data: dict = Depends(authenticator.get_current_account_data)
 ):
     return repo.add_dog(dog)
+
+@router.delete("/api/dogs/{id}")
+def delete_dog(id: int, repo: DogQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data)
+):
+    return repo.remove_dog(id)
+
+@router.put("/api/dogs/{id}")
+def updated_dog(id: int, repo: DogQueries = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data)
+):
+    return repo.updateDog(id)

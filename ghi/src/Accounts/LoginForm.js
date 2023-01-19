@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLogInMutation } from "../store/pawsitiveApi";
 import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import SignUpFormModal from "./SignUpFormModal";
 
 let initialData = {
     "username": "",
@@ -10,8 +10,13 @@ let initialData = {
 
 const LoginForm = () =>{
     const navigate = useNavigate()
-    const [logIn, result] = useLogInMutation()
+    const [logIn, result, error] = useLogInMutation()
     const [formData, setFormData] = useState(initialData);
+    const [activeSignUpModal, setActiveSignUpModal] = useState(false)
+
+    const activateSignUpFormModal =  () => {
+        setActiveSignUpModal(true)
+    }
 
     const handleChange = (e) => {
         setFormData({
@@ -23,16 +28,18 @@ const LoginForm = () =>{
     const handleSubmit = async (e) => {
         e.preventDefault();
         await logIn(formData);
-        navigate('/dogs')
+
     }
 
     if (result.isSuccess) {
-        console.log('Login successful')
+        result.isSuccess = false
+        setTimeout(()=>{navigate('/dogs')},50)
     } else if (result.isError) {
-        console.log(result.error)
+        alert(result.error.data.detail)
     }
 
     return(
+        <>
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
@@ -43,18 +50,18 @@ const LoginForm = () =>{
                             <label htmlFor="username">Username</label>
                         </div>
                         <div className="form-floating mb-3">
-                            <input onChange={handleChange} value={formData.password} placeholder="Password" required type="text" name="password" id="password" className="form-control" />
+                            <input onChange={handleChange} value={formData.password} placeholder="Password" required type="password" name="password" id="password" className="form-control" />
                             <label htmlFor="password">Password</label>
                         </div>
                         <button className="btn btn-primary" >Login</button>
-                        <NavLink to='/signup'>
-                            <button className="btn btn-primary">Sign Up</button>
-                        </NavLink>
+                        <button onClick={activateSignUpFormModal} className="btn btn-primary">Sign Up</button>
                     </form>
                 </div>
             </div>
         </div>
-    );
+        <SignUpFormModal activeSignUpModal={activeSignUpModal} setActiveSignUpModal={setActiveSignUpModal} />
+        </>
+   );
 }
 
 export default LoginForm;

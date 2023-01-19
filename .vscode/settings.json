@@ -7,5 +7,6 @@
     "reduxjs",
     "SEIR",
     "unadopted"
-  ]
+  ],
+  "git.ignoreLimitWarning": true
 }
