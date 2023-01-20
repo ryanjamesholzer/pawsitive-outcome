@@ -32,8 +32,9 @@ function ListDogs() {
         <>
             <div className='p-3'>
                 <div className='d-flex my-3'>
-                    <input className='my-3 p-2 flex-grow-1 fs-3 fw-bold border border-dark border-3 border-end-0 rounded-start' placeholder="Search for dog" onChange={event => setQuery(event.target.value)} />
-                    <button className='btn fw-bold my-3 py-3 px-5 fs-3 border border-dark border-3 border-start-0 rounded-end' onClick={activateAddDogModal} style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Add Dog</button>
+                    <input className='my-3 p-2 flex-grow-1 fs-3 fw-bold border border-dark border-3 rounded' placeholder="Search for dog" onChange={event => setQuery(event.target.value)} />
+                    <span className='p-3'> </span>
+                    <button className='btn fw-bold my-3 py-3 px-5 fs-3 border border-dark border-3 rounded' onClick={activateAddDogModal} style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Add Dog</button>
                 </div>
                 {unadopted &&
                     <div>
