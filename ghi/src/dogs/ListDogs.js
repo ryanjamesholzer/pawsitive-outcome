@@ -42,14 +42,14 @@ function ListDogs() {
                                 if(dog.name.toLowerCase().includes(query.toLowerCase()) || query === '') {
                                     return (
                                         <div className="" key={dog.id}>
-                                            <div className="card mb-3 shadow border border-dark border-3" style={{backgroundColor: '#ffe45e'}}>
+                                            <div className="card mb-3 shadow rounded" style={{backgroundColor: '#ffe45e'}}>
                                                 <div className="card-body">
-                                                    <h3 className="card-title">{dog.name}</h3>
+                                                    <h3 className="card-title fw-bold fs-1">{dog.name}</h3>
                                                     <img src={dog.picture_url} className="card-img-top mb-2 rounded" alt="" />
-                                                    <h6 className="card-subtitle mb-2 text-muted">Breed: {dog.breed}</h6>
-                                                    <h6 className="card-subtitle mb-2 text-muted">Gender: {dog.gender}</h6>
-                                                    <h6 className="card-subtitle mb-2 text-muted">Age: {dog.age}</h6>
-                                                    <button className='btn fw-bold border border-dark border-3 rounded' onClick={activateDogDetailModal(dog.id)} style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Dog Details</button>
+                                                    <h6 className="card-subtitle mb-2 text-muted fs-4">Breed: {dog.breed}</h6>
+                                                    <h6 className="card-subtitle mb-2 text-muted fs-4">Gender: {dog.gender}</h6>
+                                                    <h6 className="card-subtitle mb-2 text-muted fs-4">Age: {dog.age}</h6>
+                                                    <button className='btn fw-bold fs-4 border border-dark border-1 rounded' onClick={activateDogDetailModal(dog.id)} style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Dog Details</button>
                                                 </div>
                                             </div>
                                         </div>
