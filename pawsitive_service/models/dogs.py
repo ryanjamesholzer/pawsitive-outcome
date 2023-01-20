@@ -9,7 +9,6 @@ class DogIn(BaseModel):
     size: str
     notes: Optional[str]
     picture_url: str
-    # is_adopted: bool
 
 class DogOut(DogIn):
     id: int

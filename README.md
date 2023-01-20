@@ -1,90 +1,51 @@
-# Module3 Project Gamma
+# PAWSITIVE OUTCOME
 
-## Getting started
+- Triston Beason
+- Michelle Dang
+- Ryan Holzer
+- Angel Sierra
+- Kramer Smith
 
-You have a project repository, now what? The next section
-lists all of the deliverables that are due at the end of the
-week. Below is some guidance for getting started on the
-tasks for this week.
 
-## Install Extensions
+Pawsitive Outcome – gotta adopt 'em all.
 
-* Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
-* Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
 
-## Deliverables
+## Design
 
-* [ ] Wire-frame diagrams
-* [ ] API documentation
-* [ ] Project is deployed to Render.com/GitLab-pages
-* [ ] GitLab issue board is setup and in use
-* [ ] Journals
+- [API design](docs/api-design.md)
+- [Data model](docs/data-models.md)
+- [GHI](docs/ghi.md)
 
-## Project layout
 
-The layout of the project is just like all of the projects
-you did with `docker-compose` in module #2. You will create
-a directory in the root of the repository for each service
-that you add to your project just like those previous
-projects were setup.
 
-### Directories
+## Functionality
 
-Several directories have been added to your project. The
-directories `docs` and `journals` are places for you and
-your team-mates to, respectively, put any documentation
-about your project that you create and to put your
-project-journal entries. See the _README.md_ file in each
-directory for more info.
+- This site is built for employees at a dog adoption center.
+- If the employee is new, they are able to sign up by creating an account. This automatically logs them in.
+- Once logged in, employees are able use the full functionality of the application:
+  - View all dogs available for adoption
+  - Add a dog to the list of unadopted dogs
+  - View the details of any/all unadopted dogs
+  - Complete an adoption form to rehome a dog
+  - View adoption records for Pawsitive Outcome
+  - If any dog or adoption was created by mistake, these actions can be undone with the click of a button
+  - When finished, employee is able to logout, returning user to the login page
 
-The other directories, `ghi` and `pawsitive_service`, are
-sample services, that you can start building off of or use
-as a reference point.
 
-Inside of `ghi` is a minimal React app that has an "under
-construction" page. It is setup similarly to all of the
-other React projects that you have worked on.
+## Project Initialization
 
-Inside of `pawsitive_service` is a minimal FastAPI application.
-"Where are all the files?" you might ask? Well, the
-`main.py` file is the whole thing, and go take look inside
-of it... There's not even much in there..., hmm? That is
-FastAPI, we'll learn more about it in the coming days. Can
-you figure out what this little web-application does even
-though you haven't learned about FastAPI yet?
+To run this application on your local machine, please make sure to follow these steps:
 
-Also in `pawsitive_service` is a directory for your migrations.
-If you choose to use PostgreSQL, then you'll want to use
-migrations to control your database. Unlike Django, where
-migrations were automatically created for you, you'll write
-yours by hand using DDL. Don't worry about not knowing what
-DDL means; we have you covered. There's a sample migration
-in there that creates two tables so you can see what they
-look like.
+1. Clone the repository down to your local machine
+2. CD into the new project directory
+3. Run `docker volume create postgres-data`
+4. Run `docker compose build`
+5. Run `docker compose up`
+6. Visit http://localhost:3000/login in your browser
+7. Click "Sign Up" to create an account
+8. Navigate the pages as you please, creating dogs and adoptions
 
-The sample Dockerfile and Dockerfile.dev run your migrations
-for you automatically.
 
-### Other files
-
-The following project files have been created as a minimal
-starting point. Please follow the guidance for each one for
-a most successful project.
-
-* `docker-compose.yaml`: there isn't much in here, just a
-  **really** simple UI and FastAPI service. Add services
-  (like a database) to this file as you did with previous
-  projects in module #2.
-* `.gitlab-ci.yml`: This is your "ci/cd" file where you will
-  configure automated unit tests, code quality checks, and
-  the building and deployment of your production system.
-  Currently, all it does is deploy an "under construction"
-  page to your production UI on GitLab and a sample backend
-  to Render.com. We will learn much more about this file.
-* `.gitignore`: This is a file that prevents unwanted files
-  from getting added to your repository, files like
-  `pyc` files, `__pycache__`, etc. We've set it up so that
-  it has a good default configuration for Python projects.
 
 ## How to complete the initial deploy
 
@@ -145,3 +106,9 @@ in GitLab.
 Merge a change into main to kick off the initial deploy. Once the build pipeline
 finishes you should be able to see an "under construction" page on your GitLab
 pages site.
+
+
+## Install Extensions
+
+* Prettier: <https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode>
+* Black Formatter: <https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter>
