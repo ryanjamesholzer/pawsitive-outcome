@@ -1,3 +1,25 @@
+## January 19
+
+Today I worked on:
+
+* Adding a search filter to the dogs list and moving add dog functionality from the nav bar to the list page.
+
+Michelle drove today, as we worked on wrapping up the functionality of our application before styling it. We finished the list page for unadopted dogs by adding a search bar that filters dogs by name, and moved the add dog modal to activate by the click of a button next to the search bar. After finishing, we created a confirmation alert modal, so the user never deletes a dog or an adoption from the database without confirming via said modal. Finally, we revisited our wireframe, in order to finalize some style choices before diving into Bootstrap.
+
+Today I learned if you start a project using a Bootstrap, it is probably best to stick with Bootstrap. We attempted to switch over to Tailwind mid-project but, seeing as how much of our functionality was build using Bootstrap (primarily our modals), it seemed like taking several steps in the wrong direction before getting things back on track.
+
+
+## January 18
+
+Today I worked on:
+
+* Adding put and delete queries to our application.
+
+Triston drove today, as we added put and delete functionality our Redux store. We started the day by making the sign up form a modal inside the log in form, which involved some bug catching and resolving. This led to investigating other modals, like add dog. Sure enough, there was another console error regarding changing multiple components at the same time, despite everything working (seemingly) as intended. After resolving that by switching up the order of operations in our code, we decided to implement delete/remove buttons for our detail modals. This led us to a myriad of issues. While, trying to remove an adoption from our records, we wanted to update the is_adopted status of the dog back to false. The case for this would be an adoption that was made by mistake, or cancelled by the adopter.
+
+Today I learned that the order of things really matters, and can really hinder React from doing what it needs to do. I also learned that put/patch requests can be complicated using Redux but, like everything else, it’s all in the details. Making sure every file is receiving the data that it needs, in the specific way it needs, is kind of a no-brainer, but sometimes can get complicated.
+
+
 ## January 17
 
 Today I worked on:
