@@ -1,3 +1,13 @@
+### January 19, 2023
+
+Today, I worked on:
+
+* AddDog modal, Confirmation Alert for deletion of adoption and or dog, implemented a search bar for dog, and removed add dog from navbar and set it on the page.
+
+We came to an agreement to remove dog from the nav bar, so when you are on any other page you couldn't add a dog. The reason for this is so we don't have to use redirect or navigate to dogs list. Adding the confirmation alert was to stop yourself from deleting an adoption or dog by accident.
+
+Today, I drill into my mind on how to pass props.
+
 ### January 17, 2023
 
 Today I worked on:
@@ -7,6 +17,7 @@ Today I worked on:
 Angel drove today while we worked on updating the addDog form and adding builders to the Redux store. Getting better acquainted with the Redux store gives me more confidence in how Redux works. I enjoy working with my group. They not only make you feel more confident but help you better understand the code you were confused about.
 
 Today, I learned that you can consolidate all your Redux builders from separate files into one.
+
 ### January 10, 2023
 
 Today, I worked on:
