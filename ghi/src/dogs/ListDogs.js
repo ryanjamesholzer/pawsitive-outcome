@@ -1,14 +1,14 @@
+import { useGetDogsQuery } from '../store/pawsitiveApi'
 import { React, useState, useCallback } from 'react'
 import DogDetailModal from './Modals/DogDetailModal'
-import { useGetDogsQuery } from '../store/pawsitiveApi'
 import AddDog from './Modals/AddDogModal'
 
 function ListDogs() {
-    const {data, isLoading } = useGetDogsQuery()
     const [activeDogDetailModal, setActiveDogDetailModal] = useState(false)
+    const [activeAddDogModal, setActiveAddDogModal] = useState(false)
+    const {data, isLoading } = useGetDogsQuery()
     const [dogId, setDogId] = useState(null)
     const [query, setQuery] = useState("")
-    const [activeAddDogModal, setActiveAddDogModal] = useState(false)
     let unadopted = null
 
     const activateAddDogModal =  () => {
@@ -30,37 +30,38 @@ function ListDogs() {
 
     return (
         <>
-        <h1>Our Dogs</h1>
-            <div>
-                <input placeholder="Search for dog" onChange={event => setQuery(event.target.value)}/>
-                <button onClick={activateAddDogModal}>Add Dog</button>
-            </div>
-            {unadopted &&
-                <div>
-                    <div className="row row-cols-1 row-cols-md-3 g-4">
-                        {unadopted.map(dog => {
-                            if(dog.name.toLowerCase().includes(query.toLowerCase()) || query === '') {   
-                                return (
-                                    <div className="col-sm-6" key={dog.id}>
-                                        <div className="card mb-3 shadow">
-                                            <img src={dog.picture_url} className="card-img-top" alt="" />
-                                            <div className="card-body">
-                                                <h5 className="card-title">{dog.name}</h5>
-                                                <h6 className="card-subtitle mb-2 text-muted">Breed: {dog.breed}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">Gender: {dog.gender}</h6>
-                                                <h6 className="card-subtitle mb-2 text-muted">Age: {dog.age}</h6>
-                                                <button className='btn btn-primary' onClick={activateDogDetailModal(dog.id)} >Dog Deets</button>
+            <div className='p-3'>
+                <div className='d-flex my-3'>
+                    <input className='my-3 p-2 flex-grow-1 fs-3 fw-bold border border-dark border-3 border-end-0 rounded-start' placeholder="Search for dog" onChange={event => setQuery(event.target.value)} />
+                    <button className='btn fw-bold my-3 py-3 px-5 fs-3 border border-dark border-3 border-start-0 rounded-end' onClick={activateAddDogModal} style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Add Dog</button>
+                </div>
+                {unadopted &&
+                    <div>
+                        <div className="row row-cols-1 row-cols-md-4 g-4">
+                            {unadopted.map(dog => {
+                                if(dog.name.toLowerCase().includes(query.toLowerCase()) || query === '') {
+                                    return (
+                                        <div className="" key={dog.id}>
+                                            <div className="card mb-3 shadow border border-dark border-3" style={{backgroundColor: '#ffe45e'}}>
+                                                <div className="card-body">
+                                                    <h3 className="card-title">{dog.name}</h3>
+                                                    <img src={dog.picture_url} className="card-img-top mb-2 rounded" alt="" />
+                                                    <h6 className="card-subtitle mb-2 text-muted">Breed: {dog.breed}</h6>
+                                                    <h6 className="card-subtitle mb-2 text-muted">Gender: {dog.gender}</h6>
+                                                    <h6 className="card-subtitle mb-2 text-muted">Age: {dog.age}</h6>
+                                                    <button className='btn fw-bold border border-dark border-3 rounded' onClick={activateDogDetailModal(dog.id)} style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Dog Details</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )
-                            }
-                        })}
-                        <DogDetailModal activeDogDetailModal={activeDogDetailModal} setActiveDogDetailModal={setActiveDogDetailModal} dogId={dogId} />
+                                    )
+                                }
+                            })}
+                            <DogDetailModal activeDogDetailModal={activeDogDetailModal} setActiveDogDetailModal={setActiveDogDetailModal} dogId={dogId} />
+                        </div>
                     </div>
-                </div>
-            }
-            <AddDog setActiveAddDogModal={setActiveAddDogModal} activeAddDogModal={activeAddDogModal} />
+                }
+                <AddDog setActiveAddDogModal={setActiveAddDogModal} activeAddDogModal={activeAddDogModal} />
+            </div>
         </>
     )
 }

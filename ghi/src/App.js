@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <div className='container'>
+      <div className='container' style={{backgroundColor: '#dee2e6'}}>
         <Routes>
           <Route path='/dogs' element={<ListDogs />} />
           <Route path='/adoptions' element={<ListAdoptions />} />

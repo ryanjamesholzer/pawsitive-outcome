@@ -8,7 +8,7 @@ false after each dog was added. The modal is programmed to close whenever
 the result.isSuccess is false. This was an easy fix, yet hard at the time to
 spot. We just set result.isSuccess back to false after we confirmed that the
 POST fetch for adding a dog was successful by writing result.isSuccess = false
-    Next, we made the SignUpForm a modal. It's looks much nicer. This went
+    Next, we made the SignUpForm a modal. It looks much nicer. This went
 smoothly as we have had plenty of experience setting up modals in this
 project.
     While working with the SingUpFormModal, we were trying to access the
@@ -21,20 +21,13 @@ found our way to the error message. Our line to access the message was
 error, one of us accidentally pasted "ListDogs" into the providesTags
 section of our showDog query. So after we deleted a dog, we invalidated the
 ListDogs query. That would make the ListDogs.js re-render. Which meant the
-DogDetailModal would try to fetch all the dog details. It would then cause
-an error because the dog detail modal for the deleted dog would try to make
+DogDetailModal would try to that dog detail again. It would then cause an
+error because the dog detail modal for the deleted dog would try to make
 a fetch. It would fail because the dog had been deleted. This was one of
 those fun coding moments where you find one misplaced word that caused a
 series of unexpected events, change it, and it fixes everything. We just
 removed ListDogs from the providesTags section in the showDog query, and it
 worked!
-    I'm starting to see the benefit of these journals. It really helps you
-understand the code you're writing better, and it helps you identify issues.
-As I was writing the previous paragraph, I thought to myself, "We should not
-be running individual fetches for each dog to get their details. That seems
-like a lot of data that may not be utilized." I will talk to the team about
-only running a fetch for the dog details once the user requests that data.
-It may be that we decide to keep it that way to keep the site lightning fast.
     Lastly, we worked on adding a delete adoption function. The idea of this
 was if a user accidentally files an adoption, they can press "Undo." This
 would delete the adoption record, but set the adopted dog's "is_adopted"
