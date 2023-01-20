@@ -13,7 +13,7 @@ const initialState = {
     notes: ''
 }
 
-function AddDog ({activeAddModal, setActiveAddModal}) {
+function AddDog ({activeAddDogModal, setActiveAddDogModal}) {
     const [details, setDetails] = useState(initialState)
     const [createDog, result] = useCreateDogMutation()
 
@@ -25,7 +25,7 @@ function AddDog ({activeAddModal, setActiveAddModal}) {
     }
 
     function handleClose() {
-        setActiveAddModal(false)
+        setActiveAddDogModal(false)
     }
 
     const handleSubmit = (e) => {
@@ -35,7 +35,7 @@ function AddDog ({activeAddModal, setActiveAddModal}) {
 
     if (result.isSuccess) {
         result.isSuccess = false
-        handleClose()
+        setTimeout(() => handleClose(), 50)
     } else if (result.isError) {
         console.log(' Dog was not created')
         alert(result.error.data.detail)
@@ -43,7 +43,7 @@ function AddDog ({activeAddModal, setActiveAddModal}) {
 
 
     return (
-        <Modal show={activeAddModal} onHide={handleClose}>
+        <Modal show={activeAddDogModal} onHide={handleClose}>
             <Modal.Body>
                 <form onSubmit={handleSubmit} id="create-conference-form">
                 <div className="form-floating mb-3">

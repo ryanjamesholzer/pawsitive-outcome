@@ -40,9 +40,7 @@ const SignUpFormModal = ({activeSignUpModal, setActiveSignUpModal}) =>{
     }
 
     if (result.isSuccess) {
-        result.isSuccess = false
-        setTimeout(handleClose, 500)
-        navigate('/dogs')
+        setTimeout(() => navigate('/dogs'), 51)
     } else if (result.isError){
         alert(result.error.data.detail)
     }

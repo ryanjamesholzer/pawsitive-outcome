@@ -42,7 +42,7 @@ class AdoptionQueries:
                         """
                         SELECT a.id AS adoption_id, a.adopter_name, a.adopter_address,
                             a.adopter_email, a.adopter_phone_number, a.date_of_adoption,
-                            d.id AS dog_id, d.name, d.gender, d.breed, d.age, d.picture_url
+                            d.id AS dog_id, d.name, d.gender, d.breed, d.age, d.picture_url, d.size, d.notes
                         FROM dogs d
                         INNER JOIN adoptions a ON d.id = a.dog_id
                         WHERE a.id = %s;

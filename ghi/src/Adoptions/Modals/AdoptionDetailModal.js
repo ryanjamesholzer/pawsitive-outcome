@@ -1,25 +1,32 @@
+import { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import { useShowAdoptionQuery } from '../../store/pawsitiveApi'
 import { useDeleteAdoptionMutation } from '../../store/pawsitiveApi'
 import { useUpdateDogMutation } from '../../store/pawsitiveApi'
+import ConfirmationModal from '../../alerts/ConfirmationModal'
 
 function AdoptionDetailModal({activeAdoptionDetailModal, setActiveAdoptionDetailModal, adoptionId, dogId}) {
     const skip = adoptionId === null
     const {data: adoption} = useShowAdoptionQuery(adoptionId,{skip})
     const [deleteAdoption] = useDeleteAdoptionMutation()
     const [updateDog, result] = useUpdateDogMutation()
-
+    const [activeConfirmationModal, setActiveConfirmationModal] = useState(false)
+    const message = "Are you sure you want to undo the adoption?"
 
     async function handleDelete() {
+        setActiveConfirmationModal(false)
         deleteAdoption(adoptionId)
         handleClose()
         await updateDog(dogId)
     }
 
+    const activateConfirmationModal =  () => {
+        setActiveConfirmationModal(true)
+    }
+
     function handleClose() {
         setActiveAdoptionDetailModal(false)
     }
-
 
     return(
         <>
@@ -45,12 +52,13 @@ function AdoptionDetailModal({activeAdoptionDetailModal, setActiveAdoptionDetail
                                     <p className="card-subtitle mb-2 text-muted">
                                         Notes: {adoption.dog.notes}
                                     </p>
-                                <button className='btn btn-primary' onClick={handleDelete}>Undo</button>
+                                <button className='btn btn-primary' onClick={activateConfirmationModal}>Undo</button>
                             </div>
                         </div>
                     </Modal.Body>
                 </Modal>
             }
+            <ConfirmationModal activeConfirmationModal={activeConfirmationModal} setActiveConfirmationModal={setActiveConfirmationModal} message={message} func={handleDelete} />
         </>
     )
 }
