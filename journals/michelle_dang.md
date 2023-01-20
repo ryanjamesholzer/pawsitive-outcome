@@ -1,3 +1,23 @@
+## January 19, 2023
+
+Today, I worked on:
+
+* Creating ConfirmationModal, moved AddDog to ListDogs and implementing search filter
+
+I drove for my group today. In terms of functionality, we finished everything today by adding a ConfirmationModal which pops up before an employee removes a dog or undos an adoption. We also implemented a search filter so we can easily search for a specific dog. We were going to transition into tailwind, but we realized with the amount of time we have left, it’ll be best to stick with bootstrap and make the best out of the project with out. We ended off the night with finalizing the webpage design, which we made a draft during the first week of Module 3.
+
+Today, I learned that it can be easy to get carried away with new ideas that come through while working on a project. The idea of a toast alert came along, and we almost went through with it, but then we realized we can always save it for a stretch goal. Once we finish with the designs, then maybe we can add a toast alert.
+
+## January 18, 2023
+
+Today, I worked on:
+
+* Change SignUpForm to a modal, implement update and delete dog, and debugging
+
+Triston drove today. We made our sign up form into a modal in our login page. This is so we don’t need to redirect to a signup page in the application. We also decided to complete the crud functions by implementing an update and delete for the dogs, so we can remove a dog from the dog list, and we can update the dog’s is_adopted boolean value to true or false depending if they’re adopted or not. Throughout today, we had a lot of minor mistakes and bugs that took us awhile to fix. The main one was deleting an adoption, it kept on giving us a CORS error and we didn’t know why. We thought it had to do something with the headers since that’s the common answer we got from google, but it turned out we just didn’t pass the dog id to delete the adoption. 
+
+Today, I learned that it might be more beneficial to take a break rather than sit for hours trying to figure out what the problem is. The latter might seem more productive to do, but I think in our situation it would’ve been better to get a small break to refresh our brains, so we can return with a clearer mind, which can help with problem solving. I think it especially helps if it’s a minor error that’s hard to detect when you’ve been looking at a screen for hours on end. I’ll be sure to use this tip in the future.
+
 ## January 17, 2023
 
 Today, I worked on:
