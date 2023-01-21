@@ -38,27 +38,38 @@ const LoginForm = () =>{
         alert(result.error.data.detail)
     }
 
+    const picturePosition = {
+            height:'200px',
+            left:'105px',
+            position:'relative',
+            top:'-99px',
+            width:'auto',
+            margin: '-100px'
+    }
+
     return(
         <>
-        <div className="row">
-            <div className="offset-3 col-6">
-                <div className="shadow p-4 mt-4">
-                    <h1>User Login</h1>
-                    <form onSubmit={handleSubmit} id="create-location-form">
-                        <div className="form-floating mb-3">
-                            <input onChange={handleChange} value={formData.name} placeholder="Username" required type="text" name="username" id="username" className="form-control" />
-                            <label htmlFor="username">Username</label>
+            <div className="offset-3 col-6" >
+                <div className="shadow p-4 rounded" style={{backgroundColor: '#ffe45e', marginTop: "22%", width:'600px'}}>
+                    <form onSubmit={handleSubmit} >
+                        <img src={process.env.PUBLIC_URL+"transparentDogs2.png"} alt="" style={picturePosition}/>
+                        <h1 className="fw-bold">User Login</h1>
+                        <div className="mb-3">
+                            <input onChange={handleChange} value={formData.name} placeholder="Username" required type="text" name="username" className="form-control fs-4 border border-3 border-dark" />
                         </div>
-                        <div className="form-floating mb-3">
-                            <input onChange={handleChange} value={formData.password} placeholder="Password" required type="password" name="password" id="password" className="form-control" />
-                            <label htmlFor="password">Password</label>
+                        <div className="mb-5">
+                            <input onChange={handleChange} value={formData.password} placeholder="Password" required type="password" name="password" className="form-control fs-4 border border-3 border-dark" />
                         </div>
-                        <button className="btn btn-primary" >Login</button>
-                        <button onClick={activateSignUpFormModal} className="btn btn-primary">Sign Up</button>
+                        <div className="mb-3">
+                            <button className="btn fw-bold fs-4 border border-dark border-2 rounded" style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Login</button>
+                        </div>
+                        <div>
+                            <p className='fs-2'>Don't have an account? <a className="fs-2" onClick={activateSignUpFormModal}>Sign up</a></p>
+
+                        </div>
                     </form>
                 </div>
             </div>
-        </div>
         <SignUpFormModal activeSignUpModal={activeSignUpModal} setActiveSignUpModal={setActiveSignUpModal} />
         </>
    );

@@ -30,15 +30,15 @@ function ListDogs() {
 
     return (
         <>
-            <div className='p-3'>
+            <div className='p-3' style={{backgroundColor: 'rgba(135, 196, 242, 0.8)'}}>
                 <div className='d-flex my-3'>
-                    <input className='my-3 p-2 flex-grow-1 fs-3 fw-bold border border-dark border-3 rounded' placeholder="Search for dog" onChange={event => setQuery(event.target.value)} />
+                    <input className='my-3 p-2 flex-grow-1 fs-3 fw-bold border border-dark border-3 rounded' placeholder=" 🔍 Search for dog" onChange={event => setQuery(event.target.value)} />
                     <span className='p-3'> </span>
                     <button className='btn fw-bold my-3 py-3 px-5 fs-3 border border-dark border-3 rounded' onClick={activateAddDogModal} style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Add Dog</button>
                 </div>
                 {unadopted &&
                     <div>
-                        <div className="row row-cols-1 row-cols-md-4 g-4">
+                        <div className="row row-cols-1 row-cols-md-4 g-5">
                             {unadopted.map(dog => {
                                 if(dog.name.toLowerCase().includes(query.toLowerCase()) || query === '') {
                                     return (
@@ -46,7 +46,9 @@ function ListDogs() {
                                             <div className="card mb-3 shadow rounded" style={{backgroundColor: '#ffe45e'}}>
                                                 <div className="card-body">
                                                     <h3 className="card-title fw-bold fs-1">{dog.name}</h3>
-                                                    <img src={dog.picture_url} className="card-img-top mb-2 rounded" alt="" />
+                                                    <div className='ratio ratio-4x3'>
+                                                        <img src={dog.picture_url} className="card-img-top pb-3 rounded" alt="" />
+                                                    </div>
                                                     <h6 className="card-subtitle mb-2 text-muted fs-4">Breed: {dog.breed}</h6>
                                                     <h6 className="card-subtitle mb-2 text-muted fs-4">Gender: {dog.gender}</h6>
                                                     <h6 className="card-subtitle mb-2 text-muted fs-4">Age: {dog.age}</h6>

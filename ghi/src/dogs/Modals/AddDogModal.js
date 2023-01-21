@@ -44,44 +44,38 @@ function AddDog ({activeAddDogModal, setActiveAddDogModal}) {
 
     return (
         <Modal show={activeAddDogModal} onHide={handleClose}>
-            <Modal.Body>
+            <Modal.Body className='rounded-3' style={{backgroundColor: '#ffe45e', border: "5px solid black"}}>
                 <form onSubmit={handleSubmit} id="create-conference-form">
-                <div className="form-floating mb-3">
-                    <input onChange={handleChange} placeholder="name"
-                    required type="text" name="name" id="name" className="form-control" />
-                    <label htmlFor="name">Name</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input onChange={handleChange} placeholder="gender" maxLength="17"
-                    required type="text" name="gender" id="gender" className="form-control" />
-                    <label htmlFor="gender">Gender</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input onChange={handleChange} placeholder="breed"
-                    required type="text" name="breed" id="breed" className="form-control" />
-                    <label htmlFor="breed">Breed</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input onChange={handleChange} placeholder="age"
-                    required type="text" name="age" id="age" className="form-control" />
-                    <label htmlFor="age">Age</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input onChange={handleChange} placeholder="size"
-                    required name="size" id="size" className="form-control" />
-                    <label htmlFor="size">Size</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input onChange={handleChange} placeholder="picture_url"
-                    required name="picture_url" id="picture_url" className="form-control" />
-                    <label htmlFor="picture_url">Picture URL</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <textarea onChange={handleChange} placeholder="notes" style={{height: "100px"}}
-                    name="notes" id="notes" className="form-control" />
-                    <label htmlFor="notes">Notes</label>
-                </div>
-                <button className="btn btn-primary">Create</button>
+                    <h1 className='text-center mb-3 fw-bold'>🦴 Add a dog 🦴</h1>
+                    <div className="mb-3">
+                        <input onChange={handleChange} placeholder="Name 🆔" style={{backgroundColor: "#dee2e6"}}
+                        required type="text" name="name" className="form-control fs-4 border border-3 border-dark" />
+                    </div>
+                    <div className="mb-3">
+                        <input onChange={handleChange} placeholder="Gender ⚥" maxLength="17" style={{backgroundColor: "#dee2e6"}}
+                        required type="text" name="gender" className="form-control fs-4 border border-3 border-dark" />
+                    </div>
+                    <div className="mb-3">
+                        <input onChange={handleChange} placeholder="Breed 🐶" style={{backgroundColor: "#dee2e6"}}
+                        required type="text" name="breed" className="form-control fs-4 border border-3 border-dark" />
+                    </div>
+                    <div className="mb-3">
+                        <input onChange={handleChange} placeholder="Age ⏳" style={{backgroundColor: "#dee2e6"}}
+                        required type="text" name="age" className="form-control fs-4 border border-3 border-dark" />
+                    </div>
+                    <div className="mb-3">
+                        <input onChange={handleChange} placeholder="Size 📏" style={{backgroundColor: "#dee2e6"}}
+                        required name="size" className="form-control fs-4 border border-3 border-dark" />
+                    </div>
+                    <div className="mb-3">
+                        <input onChange={handleChange} placeholder="Picture URL 🖼️" style={{backgroundColor: "#dee2e6"}}
+                        required name="picture_url" className="form-control fs-4 border border-3 border-dark" />
+                    </div>
+                    <div className="mb-3">
+                        <textarea onChange={handleChange} placeholder="Notes 📝" style={{height: "100px", backgroundColor: "#dee2e6"}}
+                        name="notes" className="form-control fs-4 border border-3 border-dark" />
+                    </div>
+                    <button className="btn fw-bold fs-4 border border-dark border-2 rounded" style={{backgroundColor: '#f55c7a', color: '#343a40'}}>Create</button>
             </form>
             </Modal.Body>
         </Modal>
