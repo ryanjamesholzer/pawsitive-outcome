@@ -7,6 +7,7 @@ function ListAdoptions() {
     const [activeAdoptionDetailModal, setActiveAdoptionDetailModal] = useState(false)
     const [adoptionId, setAdoptionId] = useState(null)
     const [dogId, setDogId] = useState(null)
+    const [query, setQuery] = useState("")
 
     const activateAdoptionDetailModal = useCallback((adoption_id, dog_id) => () => {
         setAdoptionId(adoption_id)
@@ -25,23 +26,35 @@ function ListAdoptions() {
             {data.adoptions &&
                 <div>
                     {/* <ErrorNotification error={error} /> */}
-                    <div className="row row-cols-1 row-cols-md-3 g-4">
-                        {data.adoptions.map(adoption => {
-                            return (
-                                <div className="col-sm-6" key={adoption.id}>
-                                    <div className="card mb-3 shadow">
-                                        <img src={adoption.dog.picture_url} className="card-img-top" alt="" />
-                                        <div className="card-body">
-                                            <h5 className="card-title">{adoption.dog.name}</h5>
-                                            <h6 className="card-subtitle mb-2 text-muted">Adopted By: {adoption.adopter_name}</h6>
-                                            <h6 className="card-subtitle mb-2 text-muted">On: {adoption.date_of_adoption}</h6>
-                                            <button className='btn btn-primary' onClick={activateAdoptionDetailModal(adoption.id, adoption.dog.dog_id)}>Adoption Deets</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
+                    <div className='d-flex my-3'>
+                        <input className='my-3 p-2 flex-grow-1 fs-3 fw-bold border border-dark border-3 rounded' placeholder=" 🔍 Search for dog" onChange={event => setQuery(event.target.value)} />
                     </div>
+                    <table className="table table-striped m-2" style={{backgroundColor: '#fff1ab'}}>
+                        <thead>
+                            <tr>
+                                <th className="fs-4" scope="col">Dog Name</th>
+                                <th className="fs-4" scope="col">Adopter Name</th>
+                                <th className="fs-4" scope="col">Date of Adoption</th>
+                                <th className="fs-4" scope="col">More Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.adoptions.map(adoption => {
+                                if(adoption.dog.name.toLowerCase().includes(query.toLowerCase()) || query === '') {
+                                    return (
+                                        <tr key={adoption.id}>
+                                            <td className="fw-bold fs-5">{adoption.dog.name}</td>
+                                            <td className="fw-bold fs-5">{adoption.adopter_name}</td>
+                                            <td className="fw-bold fs-5">{adoption.date_of_adoption}</td>
+                                            <td>
+                                                <button className="btn fw-bolder fs-6 border border-dark border-2 rounded" style={{backgroundColor: '#87c4f2', color: '#343a40'}} onClick={activateAdoptionDetailModal(adoption.id, adoption.dog.dog_id)}>Adoption Deets</button>
+                                            </td>
+                                        </tr>
+                                    )
+                                }
+                            })}
+                        </tbody>
+                    </table>
                 </div>
             }
             <AdoptionDetailModal activeAdoptionDetailModal={activeAdoptionDetailModal} setActiveAdoptionDetailModal={setActiveAdoptionDetailModal} adoptionId={adoptionId} dogId={dogId}/>
