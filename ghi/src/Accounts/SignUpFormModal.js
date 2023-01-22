@@ -1,81 +1,129 @@
-import { useState } from "react"
-import { useSignUpMutation } from "../store/pawsitiveApi"
-import { useNavigate } from "react-router-dom"
-import Modal from 'react-bootstrap/Modal'
+import { useSignUpMutation } from "../store/pawsitiveApi";
+import { useNavigate } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+import { useState } from "react";
+import "./SignUpForm.css";
 
 let initialData = {
-    "username": "",
-    "password": "",
-    "full_name": "",
-}
+  username: "",
+  password: "",
+  full_name: "",
+};
 
-const SignUpFormModal = ({activeSignUpModal, setActiveSignUpModal}) =>{
-    const navigate = useNavigate()
-    const [signUp, result] = useSignUpMutation()
-    const [formData, setFormData] = useState(initialData)
-    const [passConfirm, setPassConfirm] = useState('')
+const SignUpFormModal = ({ activeSignUpModal, setActiveSignUpModal }) => {
+  const navigate = useNavigate();
+  const [signUp, result] = useSignUpMutation();
+  const [formData, setFormData] = useState(initialData);
+  const [passConfirm, setPassConfirm] = useState("");
 
-    function handleClose() {
-        setActiveSignUpModal(false)
+  function handleClose() {
+    setActiveSignUpModal(false);
+  }
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const passConfirmChange = (e) => {
+    setPassConfirm(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.password === passConfirm) {
+      await signUp(formData);
+      setFormData(initialData);
+    } else {
+      alert("Password does not match confirmation.");
     }
+  };
 
-    const handleChange = (e) => {
-        setFormData({...formData,
-            [e.target.name]:e.target.value
-        })
-    }
+  if (result.isSuccess) {
+    setTimeout(() => navigate("/dogs"), 51);
+  } else if (result.isError) {
+    alert(result.error.data.detail);
+  }
 
-    const passConfirmChange = (e) => {
-        setPassConfirm(e.target.value)
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        if (formData.password === passConfirm) {
-            await signUp(formData)
-            setFormData(initialData)
-        } else {
-            alert('Password does not match confirmation.')
-        }
-    }
-
-    if (result.isSuccess) {
-        setTimeout(() => navigate('/dogs'), 51)
-    } else if (result.isError){
-        alert(result.error.data.detail)
-    }
-    return(
-        <Modal show={activeSignUpModal} onHide={handleClose}>
-            <Modal.Body>
-                <div className="row">
-                    <div className="offset-3 col-6">
-                        <div className="shadow p-4 mt-4">
-                            <h1>Sign Up</h1>
-                            <form onSubmit={handleSubmit} id="signUp-formModal">
-                                <div className="form-floating mb-3">
-                                    <input onChange={handleChange} value={formData.name} placeholder="Username" required type="text" name="username" id="signUsername" className="form-control" />
-                                    <label htmlFor="username">Username</label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                    <input onChange={handleChange} value={formData.password} placeholder="Password" required type="password" name="password" id="signPassword" className="form-control" autoComplete="on" />
-                                    <label htmlFor="password" >Password</label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                    <input onChange={passConfirmChange} placeholder="passwordConfirmation" required type="password" name="passwordConfirmation" id="passwordConfirmation" className="form-control" autoComplete="on" />
-                                    <label htmlFor="passwordConfirmation">Password Confirmation</label>
-                                </div>
-                                <div className="form-floating mb-3">
-                                    <input onChange={handleChange} value={formData.full_name} placeholder="Full Name" required type="text" name="full_name" id="full_name" className="form-control" />
-                                    <label htmlFor="full_name">Full Name</label>
-                                </div>
-                                <button  className="btn btn-primary">Sign Up</button>
-                            </form>
-                        </div>
-                    </div>
+  return (
+    <Modal
+      size="lg"
+      show={activeSignUpModal}
+      onHide={handleClose}
+      id="sign-up-form-modal"
+      className="modal"
+    >
+      <Modal.Body className="rounded-3" id="sign-up-form-modal-body">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <img
+                src={process.env.PUBLIC_URL + "googly_eyes.png"}
+                alt="/"
+                id="sign-up-picture"
+              />
+            </div>
+            <div className="col">
+              <form onSubmit={handleSubmit} id="signUp-formModal">
+                <h1 className="text-center mb-3 fw-bold">Sign Up</h1>
+                <div className="mb-3">
+                  <input
+                    onChange={handleChange}
+                    value={formData.name}
+                    placeholder="Username"
+                    required
+                    type="text"
+                    name="username"
+                    className="form-control fs-4 border border-3 border-dark"
+                    autoFocus
+                  />
                 </div>
-            </Modal.Body>
-        </Modal>
-    );
-}
+                <div className="mb-3">
+                  <input
+                    onChange={handleChange}
+                    value={formData.password}
+                    placeholder="Password"
+                    required
+                    type="password"
+                    name="password"
+                    className="form-control fs-4 border border-3 border-dark"
+                    autoComplete="on"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    onChange={passConfirmChange}
+                    placeholder="Confirm Password"
+                    required
+                    type="password"
+                    name="passwordConfirmation"
+                    className="form-control fs-4 border border-3 border-dark"
+                    autoComplete="on"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    onChange={handleChange}
+                    value={formData.full_name}
+                    placeholder="Full Name"
+                    required
+                    type="text"
+                    name="full_name"
+                    className="form-control fs-4 border border-3 border-dark"
+                  />
+                </div>
+                <button
+                  className="btn fw-bold fs-4 border border-dark border-2 rounded"
+                  id="sign-up-button"
+                >
+                  Sign Up
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </Modal.Body>
+    </Modal>
+  );
+};
 
 export default SignUpFormModal;
