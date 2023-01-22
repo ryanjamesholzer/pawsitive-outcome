@@ -1,7 +1,8 @@
-import { useState } from "react";
 import { useLogInMutation } from "../store/pawsitiveApi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SignUpFormModal from "./SignUpFormModal";
+import { useState } from "react";
+import "./LoginForm.css";
 
 let initialData = {
   username: "",
@@ -39,40 +40,15 @@ const LoginForm = () => {
     alert(result.error.data.detail);
   }
 
-  const picturePosition = {
-    height: "200px",
-    left: "105px",
-    position: "relative",
-    top: "-99px",
-    width: "auto",
-    margin: "-100px",
-  };
-
-  const centerButton = {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "40%",
-    backgroundColor: "#f55c7a",
-    color: "#343a40",
-  };
-
   return (
     <>
       <div className="offset-3 col-6">
-        <div
-          className="shadow p-4 rounded"
-          style={{
-            backgroundColor: "#ffe45e",
-            marginTop: "22%",
-            width: "600px",
-          }}
-        >
+        <div className="shadow p-4 rounded" id="login-form">
           <form onSubmit={handleSubmit}>
             <img
               src={process.env.PUBLIC_URL + "transparentDogs2.png"}
               alt=""
-              style={picturePosition}
+              id="dogs-picture"
             />
             <h1 className="fw-bold">User Login</h1>
             <div className="mb-3">
@@ -84,10 +60,10 @@ const LoginForm = () => {
                 required
                 type="text"
                 name="username"
-                className="form-control p-3 fs-2 border border-3 border-dark"
+                className="form-control fs-2 border border-3 border-dark"
               />
             </div>
-            <div className="mb-5">
+            <div className="mb-3">
               <input
                 onChange={handleChange}
                 value={formData.password}
@@ -95,13 +71,13 @@ const LoginForm = () => {
                 required
                 type="password"
                 name="password"
-                className="form-control p-3 fs-2 border border-3 border-dark"
+                className="form-control fs-2 border border-3 border-dark"
               />
             </div>
-            <div className="mb-4">
+            <div className="mb-3">
               <button
-                className="btn fw-bold fs-1 border border-dark border-2 rounded"
-                style={centerButton}
+                className="btn fw-bold fs-2 border border-dark border-3 rounded"
+                id="login-button"
               >
                 Login
               </button>
@@ -109,9 +85,9 @@ const LoginForm = () => {
             <div>
               <p className="fs-2">
                 Don't have an account?{" "}
-                <a className="fs-2" onClick={activateSignUpFormModal}>
+                <Link className="fs-2" onClick={activateSignUpFormModal}>
                   Sign up
-                </a>
+                </Link>
               </p>
             </div>
           </form>

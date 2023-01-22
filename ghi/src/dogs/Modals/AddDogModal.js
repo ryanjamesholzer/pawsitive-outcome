@@ -126,7 +126,7 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
             className="btn fw-bold fs-4 border border-dark border-2 rounded"
             style={{ backgroundColor: "#f55c7a", color: "#343a40" }}
           >
-            Create
+            Add Dog
           </button>
         </form>
       </Modal.Body>

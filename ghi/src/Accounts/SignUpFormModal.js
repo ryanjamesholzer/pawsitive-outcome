@@ -112,7 +112,7 @@ const SignUpFormModal = ({ activeSignUpModal, setActiveSignUpModal }) => {
                   />
                 </div>
                 <button
-                  className="btn fw-bold fs-4 border border-dark border-2 rounded"
+                  className="btn fw-bold fs-4 border border-dark border-3 rounded"
                   id="sign-up-button"
                 >
                   Sign Up

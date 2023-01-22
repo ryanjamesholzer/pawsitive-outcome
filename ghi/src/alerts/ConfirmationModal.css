@@ -1,0 +1,25 @@
+#confirmation-modal-body {
+  background-color: #ffe45e;
+}
+
+#dog-picture {
+  height: 200px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#yes-button {
+  background-color: #f55c7a;
+  color: #343a40;
+  width: 175px;
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+#no-button {
+  background-color: #f55c7a;
+  color: #343a40;
+  width: 175px;
+  margin-right: auto;
+}

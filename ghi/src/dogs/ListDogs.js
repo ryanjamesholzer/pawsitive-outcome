@@ -2,6 +2,7 @@ import { useGetDogsQuery } from "../store/pawsitiveApi";
 import { React, useState, useCallback } from "react";
 import DogDetailModal from "./Modals/DogDetailModal";
 import AddDog from "./Modals/AddDogModal";
+import "./ListDogs.css";
 
 function ListDogs() {
   const [activeDogDetailModal, setActiveDogDetailModal] = useState(false);
@@ -31,10 +32,7 @@ function ListDogs() {
 
   return (
     <>
-      <div
-        className="p-3"
-        style={{ backgroundColor: "rgba(135, 196, 242, 0.8)" }}
-      >
+      <div className="p-3" id="list-dogs-page">
         <div className="d-flex my-3">
           <input
             className="my-3 p-2 flex-grow-1 fs-3 fw-bold border border-dark border-3 rounded"
@@ -45,7 +43,7 @@ function ListDogs() {
           <button
             className="btn fw-bold my-3 py-3 px-5 fs-3 border border-dark border-3 rounded"
             onClick={activateAddDogModal}
-            style={{ backgroundColor: "#f55c7a", color: "#343a40" }}
+            id="add-dog-button"
           >
             Add Dog
           </button>
@@ -60,10 +58,7 @@ function ListDogs() {
                 ) {
                   return (
                     <div className="" key={dog.id}>
-                      <div
-                        className="card mb-3 shadow rounded"
-                        style={{ backgroundColor: "#ffe45e" }}
-                      >
+                      <div className="card mb-3 shadow" id="card-background">
                         <div className="card-body">
                           <h3 className="card-title fw-bold fs-1">
                             {dog.name}
@@ -71,11 +66,12 @@ function ListDogs() {
                           <div className="ratio ratio-4x3">
                             <img
                               src={dog.picture_url}
-                              className="card-img-top pb-3 rounded"
+                              className=""
                               alt=""
+                              id="dog-images"
                             />
                           </div>
-                          <h6 className="card-subtitle mb-2 text-muted fs-4">
+                          <h6 className="card-subtitle my-2 text-muted fs-4">
                             Breed: {dog.breed}
                           </h6>
                           <h6 className="card-subtitle mb-2 text-muted fs-4">
@@ -85,12 +81,9 @@ function ListDogs() {
                             Age: {dog.age}
                           </h6>
                           <button
-                            className="btn fw-bold fs-4 border border-dark border-1 rounded"
+                            className="btn fw-bold fs-4 border border-dark border-3 rounded"
                             onClick={activateDogDetailModal(dog.id)}
-                            style={{
-                              backgroundColor: "#f55c7a",
-                              color: "#343a40",
-                            }}
+                            id="dog-details-button"
                           >
                             Dog Details
                           </button>
