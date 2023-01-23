@@ -1,0 +1,23 @@
+#login-form {
+  background-color: #ffe45e;
+  margin-top: 22%;
+  width: 600px;
+}
+
+#dogs-picture {
+  height: 200px;
+  left: 105px;
+  position: relative;
+  top: -99px;
+  width: auto;
+  margin: -100px;
+}
+
+#login-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  background-color: #f55c7a;
+  color: #343a40;
+}

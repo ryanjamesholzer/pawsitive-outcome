@@ -1,0 +1,22 @@
+#list-dogs-page {
+  background-color: rgba(135, 196, 242, 0.8);
+}
+
+#add-dog-button {
+  background-color: #f55c7a;
+  color: #343a40;
+}
+
+#dog-details-button {
+  background-color: #f55c7a;
+  color: #343a40;
+}
+
+#card-background {
+  background-color: #ffe45e;
+  border-radius: 15px;
+}
+
+#dog-images {
+  border-radius: 15px;
+}
