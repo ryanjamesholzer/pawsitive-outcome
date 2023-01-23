@@ -4,6 +4,9 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "cSpell.words": [
+    "excalidraw",
+    "excalidraw's",
+    "Photoshop",
     "reduxjs",
     "SEIR",
     "unadopted"
