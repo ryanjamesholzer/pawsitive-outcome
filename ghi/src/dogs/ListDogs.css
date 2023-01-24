@@ -18,5 +18,6 @@
 }
 
 #dog-images {
+  object-fit: cover;
   border-radius: 15px;
 }
