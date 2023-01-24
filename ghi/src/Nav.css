@@ -1,0 +1,27 @@
+#logout-button {
+  background-color: #f55c7a;
+  color: #343a40;
+}
+
+.nav-link {
+  color: #343a40;
+}
+
+#nav-bar {
+  background-color: #ffe45e;
+  display: flex;
+  justify-content: center;
+}
+
+#nav-header {
+  font-size: 100px;
+  margin: 0 auto;
+}
+
+#navbar-content {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+  width: 1300px;
+  margin: 0 auto;
+}

@@ -1,40 +1,64 @@
-import { NavLink } from 'react-router-dom'
-import { useLogOutMutation } from './store/pawsitiveApi'
-import { useGetTokenQuery } from './store/pawsitiveApi'
-
+import { NavLink } from "react-router-dom";
+import { useLogOutMutation } from "./store/pawsitiveApi";
+import { useGetTokenQuery } from "./store/pawsitiveApi";
+import "./Nav.css";
 
 function Nav() {
-    const [logOut] = useLogOutMutation()
-    const {data: token} = useGetTokenQuery()
+  const [logOut] = useLogOutMutation();
+  const { data: token } = useGetTokenQuery();
 
-    return (
-        <nav className="navbar navbar-expand-lg" style={{backgroundColor: '#ffe45e'}}>
-            <div className="navbar-nav" id="navbarSupportedContent">
-                <img className='navbar-brand' src='..\dog.png' alt='' height='100em'/>
-                {token &&
-                <ul className="navbar-nav pt-3">
-                    <li className="nav-item">
-                        <NavLink className="nav-link active fs-1 me-5" aria-current="page" to="/dogs" style={{color: '#343a40'}}>Dogs</NavLink>
-                    </li>
-                    <li>
-
-                    </li>
-                    <li className='nav-item'>
-                        <NavLink className="nav-link active fs-1" aria-current="page" to="/adoptions" style={{color: '#343a40'}}>Adoptions</NavLink>
-                    </li>
-                    <li className='nav-item'>
-                        <NavLink onClick={logOut} className="nav-link btn active fs-1 mx-5 px-3 position-absolute end-0 border border-dark border-3" aria-current="page" to="/login" style={{backgroundColor: '#f55c7a', color: "#343a40"}}>Log out</NavLink>
-                    </li>
-                </ul>
-                }
-                {!token &&
-                    <>
-                        <h1 className='align-center'>Pawsitive Outcome</h1>
-                        <h2>Gotta adopt'em all</h2>
-                    </>
-                }
-            </div>
-        </nav>
-    )
+  return (
+    <nav className="navbar navbar-expand-sm" id="nav-bar">
+      {token && (
+        <div id="navbar-content">
+          <ul className="navbar-nav pt-2">
+            <li>
+              <img
+                className="navbar-brand me-3"
+                src="..\dog.png"
+                alt=""
+                height="100em"
+              />
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link active fs-1 me-3"
+                aria-current="page"
+                to="/dogs"
+              >
+                Dogs
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link active fs-1 me-3"
+                aria-current="page"
+                to="/adoptions"
+              >
+                Adoptions
+              </NavLink>
+            </li>
+            <li className="nav-item ms-auto me-3">
+              <NavLink
+                onClick={logOut}
+                className="btn fs-1 border border-dark border-3"
+                aria-current="page"
+                to="/login"
+                id="logout-button"
+              >
+                Log out
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      )}
+      {!token && (
+        <div className="text-center ms-auto me-auto">
+          <h1 id="nav-header">Pawsitive Outcome</h1>
+          {/* <h2>Gotta adopt'em all</h2> */}
+        </div>
+      )}
+    </nav>
+  );
 }
-export default Nav
+export default Nav;
