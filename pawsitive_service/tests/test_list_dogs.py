@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from queries.dogs import DogQueries
+from queries.dogs import DogQueries, DogIn, DogOut
 from authenticator import authenticator
 from main import app
 
@@ -15,6 +15,10 @@ def get_current_account_data_mock():
 class DogQueriesMock:
     def get_all_dogs(self):
         return []
+
+    def add_dog(self, dog: DogIn) -> DogOut:
+        dog_dict = dog.dict()
+        return DogOut(id = 13, **dog_dict, is_adopted = False)
 
 
 def test_list_dogs():
