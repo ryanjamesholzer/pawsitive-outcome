@@ -43,7 +43,7 @@ function DogDetailModal({
         <Modal dialogClassName={"dog-detail-modal round-3"} show={activeDogDetailModal} onHide={handleClose}>
           <Modal.Body id="card-background">
             <div id="detail-modal-body">
-              <img src={dog.picture_url} alt="..." id="dog-image" />
+              <img src={dog.picture_url} alt="..." id="dog-detail-image" />
               <div className="row" id="dogs-detail-container">
                 <h4 className="text-3xl uppercase font-bold" id="name-emblem">{dog.name}</h4>
                 <p className="card-subtitle mb-2 text-muted" id="text-1-background">

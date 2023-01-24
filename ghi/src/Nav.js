@@ -14,8 +14,9 @@ function Nav() {
           <ul className="navbar-nav pt-2">
             <li>
               <img
-                className="navbar-brand me-3"
-                src="..\dog.png"
+                className="navbar-brand me-3 ms-2"
+                id="logo"
+                src="..\pawsitive_outcome_logo.png"
                 alt=""
                 height="100em"
               />

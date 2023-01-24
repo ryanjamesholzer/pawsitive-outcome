@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useCreateAdoptionMutation } from "../../store/pawsitiveApi";
 import { useNavigate } from "react-router-dom";
+import "./CreateAdoptionModal.css"
 
 const initialState = {
   adopter_name: "",
@@ -48,71 +49,67 @@ function CreateAdoptionModal({
 
   return (
     <Modal show={activeCreateAdoptionModal} onHide={handleClose}>
-      <Modal.Body>
-        <form onSubmit={handleSubmit} id="create-conference-form">
-          <div className="form-floating mb-3">
+      <Modal.Body id="body-detail">
+        <form onSubmit={handleSubmit} >
+          <h1 className="text-center mb-3 fw-bold"> 🏡Their Forever Home 🏡</h1>
+          <div className=" mb-3">
             <input
               onChange={handleChange}
-              placeholder="adopter_name"
+              placeholder="Adopter Name 🧍‍♂️ 🧍‍♀️"
               required
               type="text"
               name="adopter_name"
               id="adopter_name"
-              className="form-control"
+              className="form-control fs-4 input-detail"
             />
-            <label htmlFor="adopter_name">Adopter's Name</label>
           </div>
-          <div className="form-floating mb-3">
+          <div className="mb-3">
             <input
               onChange={handleChange}
-              placeholder="adopter_address"
+              placeholder="Adopter Address 📍"
               maxLength="250"
               required
               type="text"
               name="adopter_address"
               id="adopter_address"
-              className="form-control"
+              className="form-control fs-4 input-detail"
             />
-            <label htmlFor="adopter_address">Adopter's Address</label>
           </div>
-          <div className="form-floating mb-3">
+          <div className="mb-3">
             <input
               onChange={handleChange}
-              placeholder="adopter_email"
+              placeholder="Adopter Email 📧"
               required
               type="text"
               name="adopter_email"
               id="adopter_email"
-              className="form-control"
+              className="form-control fs-4 input-detail"
             />
-            <label htmlFor="adopter_email">Adopter's Email</label>
           </div>
-          <div className="form-floating mb-3">
+          <div className="mb-3">
             <input
               onChange={handleChange}
-              placeholder="adopter_phone_number"
+              placeholder="Adopter Phone Number 📞"
               required
               type="text"
               name="adopter_phone_number"
               id="adopter_phone_number"
-              className="form-control"
+              className="form-control fs-4 input-detail"
             />
-            <label htmlFor="adopter_phone_number">Adopter's Phone Number</label>
           </div>
-          <div className="form-floating mb-3">
+          <div className="mb-3">
             <input
               onChange={handleChange}
-              placeholder="date_of_adoption"
+              placeholder="Date of Adoption"
               type="date"
               required
               name="date_of_adoption"
               id="date_of_adoption"
-              className="form-control"
+              className="form-control fs-4 input-detail"
             />
-            <label htmlFor="date_of_adoption">Date Of Adoption</label>
           </div>
 
-          <button className="btn btn-primary">File Adoption</button>
+          <button id="button" className="btn fw-bold fs-4 border border-dark border-2 rounded">File Adoption</button>
         </form>
       </Modal.Body>
     </Modal>

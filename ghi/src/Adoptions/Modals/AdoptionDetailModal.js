@@ -75,8 +75,8 @@ function AdoptionDetailModal({
                           <td className="fs-3 ps-3">{adoption.dog.size}</td>
                         </tr>
                         <tr>
-                          <th className="fs-3">Notes:</th>
-                          <td className="fs-3 ps-3">{adoption.dog.notes}</td>
+                          <th className="fs-3 align-top">Notes:</th>
+                          <td className="fs-3 ps-3" id="dog-notes">{adoption.dog.notes}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -109,16 +109,12 @@ function AdoptionDetailModal({
                           </td>
                         </tr>
                         <tr>
-                          <th className="fs-3">Notes:</th>
-                          <td className="fs-3 ps-3">{adoption.dog.notes}</td>
-                        </tr>
-                        <tr>
                           <th className="fs-3">Date of Adoption:</th>
                           <td className="fs-3 ps-3">
                             {adoption.date_of_adoption}
                           </td>
                         </tr>
-                      </tbody>  
+                      </tbody>
                     </table>
                   </div>
                 </div>

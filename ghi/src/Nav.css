@@ -18,6 +18,11 @@
   margin: 0 auto;
 }
 
+#logo {
+  height: 60px;
+  width: auto;
+}
+
 #navbar-content {
   display: inline-block;
   float: none;

@@ -8,6 +8,10 @@
   background-color: #ffe45e;
 }
 
+#dog-notes {
+  word-break: break-all;
+}
+
 #dog-image {
   width: 100%;
   border-radius: 50px;

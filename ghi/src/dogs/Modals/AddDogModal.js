@@ -46,17 +46,17 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
         className="rounded-3"
         style={{ backgroundColor: "#ffe45e", border: "5px solid black" }}
       >
-        <form onSubmit={handleSubmit} id="create-conference-form">
+        <form onSubmit={handleSubmit}>
           <h1 className="text-center mb-3 fw-bold">🦴 Add a dog 🦴</h1>
           <div className="mb-3">
             <input
               onChange={handleChange}
               placeholder="Name 🆔"
-              style={{ backgroundColor: "#dee2e6" }}
+              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black"}}
               required
               type="text"
               name="name"
-              className="form-control fs-4 border border-3 border-dark"
+              className="form-control fs-4"
             />
           </div>
           <div className="mb-3">
@@ -64,62 +64,62 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
               onChange={handleChange}
               placeholder="Gender ⚥"
               maxLength="17"
-              style={{ backgroundColor: "#dee2e6" }}
+              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
               required
               type="text"
               name="gender"
-              className="form-control fs-4 border border-3 border-dark"
+              className="form-control fs-4"
             />
           </div>
           <div className="mb-3">
             <input
               onChange={handleChange}
               placeholder="Breed 🐶"
-              style={{ backgroundColor: "#dee2e6" }}
+              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
               required
               type="text"
               name="breed"
-              className="form-control fs-4 border border-3 border-dark"
+              className="form-control fs-4"
             />
           </div>
           <div className="mb-3">
             <input
               onChange={handleChange}
               placeholder="Age ⏳"
-              style={{ backgroundColor: "#dee2e6" }}
+              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
               required
               type="text"
               name="age"
-              className="form-control fs-4 border border-3 border-dark"
+              className="form-control fs-4"
             />
           </div>
           <div className="mb-3">
             <input
               onChange={handleChange}
               placeholder="Size 📏"
-              style={{ backgroundColor: "#dee2e6" }}
+              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
               required
               name="size"
-              className="form-control fs-4 border border-3 border-dark"
+              className="form-control fs-4"
             />
           </div>
           <div className="mb-3">
             <input
               onChange={handleChange}
               placeholder="Picture URL 🖼️"
-              style={{ backgroundColor: "#dee2e6" }}
+              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
               required
               name="picture_url"
-              className="form-control fs-4 border border-3 border-dark"
+              className="form-control fs-4"
             />
           </div>
           <div className="mb-3">
             <textarea
               onChange={handleChange}
               placeholder="Notes 📝"
-              style={{ height: "100px", backgroundColor: "#dee2e6" }}
+              style={{ height: "100px", backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
               name="notes"
-              className="form-control fs-4 border border-3 border-dark"
+              className="form-control fs-4"
             />
           </div>
           <button
