@@ -42,56 +42,54 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="offset-3 col-6">
-        <div className="shadow p-4 rounded" id="login-form">
-          <form onSubmit={handleSubmit}>
-            <img
-              src={process.env.PUBLIC_URL + "transparentDogs2.png"}
-              alt=""
-              id="dogs-picture"
+      <div className="ms-auto me-auto shadow p-4 rounded" id="login-form">
+        <form onSubmit={handleSubmit}>
+          <img
+            src={process.env.PUBLIC_URL + "transparentDogs2.png"}
+            alt=""
+            id="dogs-picture"
+          />
+          <h1 className="fw-bold">User Login</h1>
+          <div className="mb-3">
+            <input
+              autoFocus
+              onChange={handleChange}
+              value={formData.name}
+              placeholder="Username"
+              required
+              type="text"
+              name="username"
+              className="form-control fs-2 border border-3 border-dark"
             />
-            <h1 className="fw-bold">User Login</h1>
-            <div className="mb-3">
-              <input
-                autoFocus
-                onChange={handleChange}
-                value={formData.name}
-                placeholder="Username"
-                required
-                type="text"
-                name="username"
-                className="form-control fs-2 border border-3 border-dark"
-              />
-            </div>
-            <div className="mb-3">
-              <input
-                onChange={handleChange}
-                value={formData.password}
-                placeholder="Password"
-                required
-                type="password"
-                name="password"
-                className="form-control fs-2 border border-3 border-dark"
-              />
-            </div>
-            <div className="mb-3">
-              <button
-                className="btn fw-bold fs-2 border border-dark border-3 rounded"
-                id="login-button"
-              >
-                Login
-              </button>
-            </div>
-            <div>
-              <p className="fs-2">
-                Don't have an account?{" "}
-                <Link className="fs-2" onClick={activateSignUpFormModal}>
-                  Sign up
-                </Link>
-              </p>
-            </div>
-          </form>
-        </div>
+          </div>
+          <div className="mb-3">
+            <input
+              onChange={handleChange}
+              value={formData.password}
+              placeholder="Password"
+              required
+              type="password"
+              name="password"
+              className="form-control fs-2 border border-3 border-dark"
+            />
+          </div>
+          <div className="mb-3">
+            <button
+              className="btn fw-bold fs-2 border border-dark border-3 rounded"
+              id="login-button"
+            >
+              Login
+            </button>
+          </div>
+          <div>
+            <p className="fs-2">
+              Don't have an account?{" "}
+              <Link className="fs-2" onClick={activateSignUpFormModal}>
+                Sign up
+              </Link>
+            </p>
+          </div>
+        </form>
       </div>
       <SignUpFormModal
         activeSignUpModal={activeSignUpModal}
