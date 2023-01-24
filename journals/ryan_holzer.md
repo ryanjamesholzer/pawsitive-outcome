@@ -1,3 +1,25 @@
+## January 23
+
+Today I worked on:
+
+* Bringing everyone’s work from the weekend into our main branch, and played with our authentication to try and redirect upon the expiration of a cookie.
+
+Michelle drove today, as we worked on merging multiple changes of our application into the main branch. Kramer and Michelle, who had been tweaking the application’s styling on Friday, tied up some loose ends over the weekend. After stand up, we got everything merged together, and added some filtering functionality to the list of adoptions. Now, you can select which field you’d like to input for your search. We had had some issues with our token expiring when spending long days working on the application. This turned out to be a big can of worms, and ended up becoming a stretch goal.
+
+Today I learned that trying to track the state of tokens in real time can get really complicated. We hit a pretty big wall, but also had the wherewithal to know when to say when.
+
+
+## January 20
+
+Today I worked on:
+
+* Updating the docs directory and README.md file.
+
+Today, we split into pairs. Triston and I set out to tackle some of the adjacent	 work regarding the project requirements. We cleaned up our wireframe, took screenshots and added them to a ghi file. We then updated the api design to reflect the input and output of all of our routes. We also added a file that shows how are tables are setup to show as html tables in GitLab. Finally, we updated the README.md to describe the basics of our application, like how it works and how to run it.
+
+Today I learned that you can create a database file by writing into a markdown, and, if done properly, displays as an HTML table on GitLab.
+
+
 ## January 19
 
 Today I worked on:
