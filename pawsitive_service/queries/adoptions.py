@@ -14,7 +14,8 @@ class AdoptionQueries:
                         a.adopter_email, a.adopter_phone_number, a.date_of_adoption,
                         d.id AS dog_id, d.name, d.gender, d.breed, d.age, d.picture_url
                     FROM dogs d
-                    INNER JOIN adoptions a ON d.id = a.dog_id;
+                    INNER JOIN adoptions a ON d.id = a.dog_id
+                    ORDER BY a.date_of_adoption DESC;
                     """
                 )
                 results = []

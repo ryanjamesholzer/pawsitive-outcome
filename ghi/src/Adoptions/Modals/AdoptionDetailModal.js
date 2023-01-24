@@ -57,26 +57,28 @@ function AdoptionDetailModal({
                     <h1 className="mt-3 text-center">Dog's Info</h1>
                     <hr className="border border-primary border-3 opacity-75"></hr>
                     <table className="mb-3">
-                      <tr>
-                        <th className="fs-3">Name:</th>
-                        <td className="fs-3 ps-3">{adoption.dog.name}</td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Breed:</th>
-                        <td className="fs-3 ps-3">{adoption.dog.breed}</td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Age:</th>
-                        <td className="fs-3 ps-3">{adoption.dog.age}</td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Size:</th>
-                        <td className="fs-3 ps-3">{adoption.dog.size}</td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Notes:</th>
-                        <td className="fs-3 ps-3">{adoption.dog.notes}</td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <th className="fs-3">Name:</th>
+                          <td className="fs-3 ps-3">{adoption.dog.name}</td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Breed:</th>
+                          <td className="fs-3 ps-3">{adoption.dog.breed}</td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Age:</th>
+                          <td className="fs-3 ps-3">{adoption.dog.age}</td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Size:</th>
+                          <td className="fs-3 ps-3">{adoption.dog.size}</td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Notes:</th>
+                          <td className="fs-3 ps-3">{adoption.dog.notes}</td>
+                        </tr>
+                      </tbody>
                     </table>
                   </div>
                 </div>
@@ -85,36 +87,38 @@ function AdoptionDetailModal({
                     <h1 className="mt-3 text-center">Adopter's Info</h1>
                     <hr className="border border-primary border-3 opacity-75"></hr>
                     <table className="mb-3">
-                      <tr>
-                        <th className="fs-3">Name:</th>
-                        <td className="fs-3 ps-3">{adoption.adopter_name}</td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Address:</th>
-                        <td className="fs-3 ps-3">
-                          {adoption.adopter_address}
-                        </td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Email:</th>
-                        <td className="fs-3 ps-3">{adoption.adopter_email}</td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Phone Number:</th>
-                        <td className="fs-3 ps-3">
-                          {adoption.adopter_phone_number}
-                        </td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Notes:</th>
-                        <td className="fs-3 ps-3">{adoption.dog.notes}</td>
-                      </tr>
-                      <tr>
-                        <th className="fs-3">Date of Adoption:</th>
-                        <td className="fs-3 ps-3">
-                          {adoption.date_of_adoption}
-                        </td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <th className="fs-3">Name:</th>
+                          <td className="fs-3 ps-3">{adoption.adopter_name}</td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Address:</th>
+                          <td className="fs-3 ps-3">
+                            {adoption.adopter_address}
+                          </td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Email:</th>
+                          <td className="fs-3 ps-3">{adoption.adopter_email}</td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Phone Number:</th>
+                          <td className="fs-3 ps-3">
+                            {adoption.adopter_phone_number}
+                          </td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Notes:</th>
+                          <td className="fs-3 ps-3">{adoption.dog.notes}</td>
+                        </tr>
+                        <tr>
+                          <th className="fs-3">Date of Adoption:</th>
+                          <td className="fs-3 ps-3">
+                            {adoption.date_of_adoption}
+                          </td>
+                        </tr>
+                      </tbody>  
                     </table>
                   </div>
                 </div>
