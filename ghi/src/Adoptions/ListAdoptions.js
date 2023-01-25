@@ -82,7 +82,7 @@ function ListAdoptions() {
                       .toLowerCase()
                       .includes(query.toLowerCase()) ||
                     query === ""
-                  )
+                  ) {
                     return (
                       <tr key={adoption.id}>
                         <td className="fw-bold fs-5">{adoption.dog.name}</td>
@@ -109,6 +109,9 @@ function ListAdoptions() {
                         </td>
                       </tr>
                     );
+                  } else {
+                    return null
+                  }
                 } else if (
                   adoption[choice]
                     .toLowerCase()
