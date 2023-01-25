@@ -57,7 +57,7 @@ const SignUpFormModal = ({ activeSignUpModal, setActiveSignUpModal }) => {
           <div className="row">
             <div className="col">
               <img
-                src={process.env.PUBLIC_URL + "googly_eyes.png"}
+                src={require("../images/googly_eyes.png")}
                 alt="/"
                 id="sign-up-picture"
               />

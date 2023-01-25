@@ -24,7 +24,7 @@ function Nav() {
             <img
               className="navbar-brand ps-3"
               id="logo"
-              src="..\pawsitive_outcome_logo.png"
+              src={require("./images/pawsitive_outcome_logo.png")}
               alt=""
               height="100em"
             />

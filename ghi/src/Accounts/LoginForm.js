@@ -45,7 +45,7 @@ const LoginForm = () => {
       <div className="ms-auto me-auto shadow p-4 rounded" id="login-form">
         <form onSubmit={handleSubmit}>
           <img
-            src={process.env.PUBLIC_URL + "transparentDogs2.png"}
+            src={require("../images/transparentDogs2.png")}
             alt=""
             id="dogs-picture"
           />

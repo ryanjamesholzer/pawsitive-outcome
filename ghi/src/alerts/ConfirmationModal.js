@@ -20,7 +20,7 @@ const ConfirmationModal = ({
       <Modal.Body id="confirmation-modal-body">
         <div className="row mb-4">
           <img
-            src={process.env.PUBLIC_URL + "are_you_sure_dog.png"}
+            src={require("../images/are_you_sure_dog.png")}
             alt="/"
             id="dog-picture"
           />

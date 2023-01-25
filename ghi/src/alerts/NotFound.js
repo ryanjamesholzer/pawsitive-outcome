@@ -8,7 +8,7 @@ export default function NotFound() {
   return (
     <div className="text-center p-5" id="not-found-page">
       <img
-        src={process.env.PUBLIC_URL + "dog-pooping.png"}
+        src={require("../images/dog-pooping.png")}
         alt="/"
         id="dog-pooping-image"
       ></img>
