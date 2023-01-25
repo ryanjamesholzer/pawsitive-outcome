@@ -14,6 +14,7 @@ app.include_router(accounts.router, tags=["Accounts"])
 origins = [
     "http://localhost:8000",
     "http://localhost:3000",
+    "https://whisker-watchers.gitlab.io",
     os.environ.get("REACT_APP_PAWSITIVE_SERVICE_API_HOST", None),
     os.environ.get("PUBLIC_URL", None),
     os.environ.get("CORS_HOST", None),

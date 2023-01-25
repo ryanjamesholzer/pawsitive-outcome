@@ -18,19 +18,19 @@ const ConfirmationModal = ({
       dialogClassName="confirmation-modal"
     >
       <Modal.Body id="confirmation-modal-body">
-        <dev className="row mb-4">
+        <div className="row mb-4">
           <img
             src={process.env.PUBLIC_URL + "are_you_sure_dog.png"}
             alt="/"
             id="dog-picture"
           />
-        </dev>
-        <dev className="row">
+        </div>
+        <div className="row">
           <p className="fw-bold fs-4 text-center">{message}</p>
           <p className="fw-bold fs-4 text-center">
             This process cannot be undone.
           </p>
-        </dev>
+        </div>
       </Modal.Body>
       <Modal.Footer>
         <button

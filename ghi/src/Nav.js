@@ -29,7 +29,7 @@ function Nav() {
               height="100em"
             />
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav">
               <li className="nav-item ms-3">
                 <NavLink
