@@ -36,7 +36,6 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
     result.isSuccess = false;
     setTimeout(() => handleClose(), 50);
   } else if (result.isError) {
-    console.log(" Dog was not created");
     alert(result.error.data.detail);
   }
 
@@ -52,7 +51,10 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
             <input
               onChange={handleChange}
               placeholder="Name 🆔"
-              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black"}}
+              style={{
+                backgroundColor: "#dee2e6",
+                borderBottom: "2px solid black",
+              }}
               required
               type="text"
               name="name"
@@ -64,7 +66,10 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
               onChange={handleChange}
               placeholder="Gender ⚥"
               maxLength="17"
-              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
+              style={{
+                backgroundColor: "#dee2e6",
+                borderBottom: "2px solid black",
+              }}
               required
               type="text"
               name="gender"
@@ -75,7 +80,10 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
             <input
               onChange={handleChange}
               placeholder="Breed 🐶"
-              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
+              style={{
+                backgroundColor: "#dee2e6",
+                borderBottom: "2px solid black",
+              }}
               required
               type="text"
               name="breed"
@@ -86,7 +94,10 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
             <input
               onChange={handleChange}
               placeholder="Age ⏳"
-              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
+              style={{
+                backgroundColor: "#dee2e6",
+                borderBottom: "2px solid black",
+              }}
               required
               type="text"
               name="age"
@@ -97,7 +108,10 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
             <input
               onChange={handleChange}
               placeholder="Size 📏"
-              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
+              style={{
+                backgroundColor: "#dee2e6",
+                borderBottom: "2px solid black",
+              }}
               required
               name="size"
               className="form-control fs-4"
@@ -107,7 +121,10 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
             <input
               onChange={handleChange}
               placeholder="Picture URL 🖼️"
-              style={{ backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
+              style={{
+                backgroundColor: "#dee2e6",
+                borderBottom: "2px solid black",
+              }}
               required
               name="picture_url"
               className="form-control fs-4"
@@ -117,7 +134,11 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
             <textarea
               onChange={handleChange}
               placeholder="Notes 📝"
-              style={{ height: "100px", backgroundColor: "#dee2e6", borderBottom: "2px solid black" }}
+              style={{
+                height: "100px",
+                backgroundColor: "#dee2e6",
+                borderBottom: "2px solid black",
+              }}
               name="notes"
               className="form-control fs-4"
             />

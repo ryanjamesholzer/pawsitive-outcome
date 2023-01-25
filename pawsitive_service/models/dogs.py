@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 
+
 class DogIn(BaseModel):
     name: str
     gender: str
@@ -10,9 +11,11 @@ class DogIn(BaseModel):
     notes: Optional[str]
     picture_url: str
 
+
 class DogOut(DogIn):
     id: int
     is_adopted: bool
+
 
 class DogList(BaseModel):
     dogs: list[DogOut]

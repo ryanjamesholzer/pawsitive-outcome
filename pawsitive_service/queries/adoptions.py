@@ -4,6 +4,7 @@ from models.adoptions import AdoptionIn, AdoptionOut, AdoptionList
 
 pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"])
 
+
 class AdoptionQueries:
     def get_all_adoptions(self):
         with pool.connection() as conn:
@@ -19,8 +20,13 @@ class AdoptionQueries:
                     """
                 )
                 results = []
-                adoption_fields = ['adoption_id', 'adopter_name', 'adopter_address',
-                    'adopter_email', 'adopter_phone_number', 'date_of_adoption',
+                adoption_fields = [
+                    "adoption_id",
+                    "adopter_name",
+                    "adopter_address",
+                    "adopter_email",
+                    "adopter_phone_number",
+                    "date_of_adoption",
                 ]
                 for row in cur.fetchall():
                     adoption = {}
@@ -30,8 +36,8 @@ class AdoptionQueries:
                             adoption[column.name] = row[i]
                         else:
                             dog[column.name] = row[i]
-                        adoption['id'] = adoption['adoption_id']
-                        adoption['dog'] = dog
+                        adoption["id"] = adoption["adoption_id"]
+                        adoption["dog"] = dog
                     results.append(adoption)
                 return results
 
@@ -48,13 +54,19 @@ class AdoptionQueries:
                         INNER JOIN adoptions a ON d.id = a.dog_id
                         WHERE a.id = %s;
                         """,
-                        [id]
+                        [id],
                     )
                     results = cur.fetchone()
-                    if results is None: return results
+                    if results is None:
+                        return results
                     adoption = {}
-                    adoption_fields = ['adoption_id', 'adopter_name', 'adopter_address',
-                        'adopter_email', 'adopter_phone_number', 'date_of_adoption',
+                    adoption_fields = [
+                        "adoption_id",
+                        "adopter_name",
+                        "adopter_address",
+                        "adopter_email",
+                        "adopter_phone_number",
+                        "date_of_adoption",
                     ]
                     dog = {}
                     for i, column in enumerate(cur.description):
@@ -62,8 +74,8 @@ class AdoptionQueries:
                             adoption[column.name] = results[i]
                         else:
                             dog[column.name] = results[i]
-                    adoption['id'] = adoption['adoption_id']
-                    adoption['dog'] = dog
+                    adoption["id"] = adoption["adoption_id"]
+                    adoption["dog"] = dog
                     return adoption
         except Exception:
             return {"message": "Adoption does not exist"}
@@ -87,7 +99,7 @@ class AdoptionQueries:
                             adoption.adopter_phone_number,
                             adoption.dog_id,
                             adoption.date_of_adoption,
-                        ]
+                        ],
                     )
                     id = result.fetchone()[0]
                     return self.adoption_in_to_out(id, adoption)
@@ -106,14 +118,14 @@ class AdoptionQueries:
                         WHERE dogs.id = %s
                         RETURNING *;
                         """,
-                        [old_data['dog_id']]
+                        [old_data["dog_id"]],
                     )
                     results = cur.fetchone()
                     dog = {}
                     for i, column in enumerate(cur.description):
                         dog[column.name] = results[i]
-                    old_data['dog_id'] = dog
-                    old_data['dog'] = old_data['dog_id']
+                    old_data["dog_id"] = dog
+                    old_data["dog"] = old_data["dog_id"]
         except:
             pass
         return AdoptionOut(id=id, **old_data)
@@ -127,8 +139,8 @@ class AdoptionQueries:
                         DELETE FROM adoptions
                         WHERE id = %s;
                         """,
-                        [id]
+                        [id],
                     )
-                    return {"message":"Adoption was successfully deleted"}
+                    return {"message": "Adoption was successfully deleted"}
         except Exception:
             return {"message": "Adoption does not exist"}

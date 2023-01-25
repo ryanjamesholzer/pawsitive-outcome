@@ -104,7 +104,7 @@ function ListAdoptions() {
                               adoption.dog.dog_id
                             )}
                           >
-                            Adoption Deets
+                            Details
                           </button>
                         </td>
                       </tr>
@@ -134,7 +134,7 @@ function ListAdoptions() {
                             adoption.dog.dog_id
                           )}
                         >
-                          Adoption Deets
+                          Details
                         </button>
                       </td>
                     </tr>

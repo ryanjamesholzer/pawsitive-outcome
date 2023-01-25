@@ -6,6 +6,7 @@ from models.accounts import AccountIn, AccountOutWithPassword
 
 pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"])
 
+
 class AccountQueries:
     def get(self, username: str) -> AccountOutWithPassword:
         with pool.connection() as conn:
@@ -19,7 +20,7 @@ class AccountQueries:
                     FROM accounts
                     WHERE username = %s;
                     """,
-                    [username]
+                    [username],
                 )
                 record = result.fetchone()
                 if record is None:
@@ -31,7 +32,9 @@ class AccountQueries:
                     full_name=record[3],
                 )
 
-    def create(self, account: AccountIn, hashed_password: str) -> AccountOutWithPassword:
+    def create(
+        self, account: AccountIn, hashed_password: str
+    ) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -40,7 +43,7 @@ class AccountQueries:
                     VALUES (%s, %s, %s)
                     RETURNING id;
                     """,
-                    [account.username, hashed_password, account.full_name]
+                    [account.username, hashed_password, account.full_name],
                 )
                 id = result.fetchone()[0]
                 return AccountOutWithPassword(

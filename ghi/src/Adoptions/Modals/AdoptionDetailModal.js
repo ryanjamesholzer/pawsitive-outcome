@@ -76,7 +76,9 @@ function AdoptionDetailModal({
                         </tr>
                         <tr>
                           <th className="fs-3 align-top">Notes:</th>
-                          <td className="fs-3 ps-3" id="dog-notes">{adoption.dog.notes}</td>
+                          <td className="fs-3 ps-3" id="dog-notes">
+                            {adoption.dog.notes}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -100,7 +102,9 @@ function AdoptionDetailModal({
                         </tr>
                         <tr>
                           <th className="fs-3">Email:</th>
-                          <td className="fs-3 ps-3">{adoption.adopter_email}</td>
+                          <td className="fs-3 ps-3">
+                            {adoption.adopter_email}
+                          </td>
                         </tr>
                         <tr>
                           <th className="fs-3">Phone Number:</th>

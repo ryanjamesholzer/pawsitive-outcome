@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useCreateAdoptionMutation } from "../../store/pawsitiveApi";
 import { useNavigate } from "react-router-dom";
-import "./CreateAdoptionModal.css"
+import "./CreateAdoptionModal.css";
 
 const initialState = {
   adopter_name: "",
@@ -44,13 +44,13 @@ function CreateAdoptionModal({
       navigate("/adoptions");
     }, 50);
   } else if (result.isError) {
-    console.log(result.error);
+    alert(result.error);
   }
 
   return (
     <Modal show={activeCreateAdoptionModal} onHide={handleClose}>
       <Modal.Body id="body-detail">
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
           <h1 className="text-center mb-3 fw-bold"> 🏡Their Forever Home 🏡</h1>
           <div className=" mb-3">
             <input
@@ -109,7 +109,12 @@ function CreateAdoptionModal({
             />
           </div>
 
-          <button id="button" className="btn fw-bold fs-4 border border-dark border-2 rounded">File Adoption</button>
+          <button
+            id="button"
+            className="btn fw-bold fs-4 border border-dark border-2 rounded"
+          >
+            File Adoption
+          </button>
         </form>
       </Modal.Body>
     </Modal>

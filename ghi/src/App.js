@@ -7,7 +7,6 @@ import NotFound from "./alerts/NotFound";
 import Nav from "./Nav";
 import "./App.css";
 
-
 function App() {
   return (
     <BrowserRouter>

@@ -56,7 +56,6 @@ function Nav() {
       {!token && (
         <div className="text-center ms-auto me-auto">
           <h1 id="nav-header">Pawsitive Outcome</h1>
-          {/* <h2>Gotta adopt'em all</h2> */}
         </div>
       )}
     </nav>

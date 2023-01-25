@@ -4,6 +4,7 @@ from models.dogs import DogIn, DogOut, DogList
 
 pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"])
 
+
 class DogQueries:
     def get_all_dogs(self):
         try:
@@ -34,10 +35,11 @@ class DogQueries:
                         SELECT * FROM dogs
                         WHERE dogs.id = %s;
                         """,
-                        [id]
+                        [id],
                     )
                     results = cur.fetchone()
-                    if results is None: return results
+                    if results is None:
+                        return results
                     dog = {}
                     for i, column in enumerate(cur.description):
                         dog[column.name] = results[i]
@@ -65,7 +67,7 @@ class DogQueries:
                             dog.size,
                             dog.notes,
                             dog.picture_url,
-                        ]
+                        ],
                     )
                     id = result.fetchone()[0]
                     return self.dog_in_to_out(id, dog)
@@ -78,7 +80,6 @@ class DogQueries:
         return DogOut(id=id, **old_data)
 
     def remove_dog(self, id: int):
-        print(id)
         try:
             with pool.connection() as conn:
                 with conn.cursor() as cur:
@@ -87,7 +88,7 @@ class DogQueries:
                         DELETE FROM dogs
                         WHERE id = %s;
                         """,
-                        [id]
+                        [id],
                     )
                     return {"message": "Dog was deleted successfully"}
         except Exception:
@@ -103,8 +104,10 @@ class DogQueries:
                         SET is_adopted = False
                         WHERE dogs.id = %s
                         """,
-                        [id]
+                        [id],
                     )
-                    return {"message": "Dog {} was successfully updated".format(id)}
+                    return {
+                        "message": "Dog {} was successfully updated".format(id)
+                    }
         except:
             return {"message": "Dog {} was not updated".format(id)}

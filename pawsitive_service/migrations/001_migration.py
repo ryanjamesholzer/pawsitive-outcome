@@ -16,7 +16,7 @@ steps = [
         """,
         """
         DROP TABLE dogs;
-        """
+        """,
     ],
     [
         """
@@ -32,7 +32,7 @@ steps = [
         """,
         """
         DROP TABLE adoptions;
-        """
+        """,
     ],
     [
         """
@@ -45,6 +45,6 @@ steps = [
         """,
         """
         DROP TABLE accounts;
-        """
-    ]
+        """,
+    ],
 ]

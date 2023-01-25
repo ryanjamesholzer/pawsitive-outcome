@@ -40,41 +40,64 @@ function DogDetailModal({
   return (
     <>
       {dog && (
-        <Modal dialogClassName={"dog-detail-modal round-3"} show={activeDogDetailModal} onHide={handleClose}>
+        <Modal
+          dialogClassName={"dog-detail-modal round-3"}
+          show={activeDogDetailModal}
+          onHide={handleClose}
+        >
           <Modal.Body id="card-background">
             <div id="detail-modal-body">
               <img src={dog.picture_url} alt="..." id="dog-detail-image" />
               <div className="row" id="dogs-detail-container">
-                <h4 className="text-3xl uppercase font-bold" id="name-emblem">{dog.name}</h4>
-                <p className="card-subtitle mb-2 text-muted" id="text-1-background">
+                <h4 className="text-3xl uppercase font-bold" id="name-emblem">
+                  {dog.name}
+                </h4>
+                <p
+                  className="card-subtitle mb-2 text-muted"
+                  id="text-1-background"
+                >
                   Gender: {dog.gender}
                 </p>
-                <p className="card-subtitle mb-2 text-muted" id="text-2-background">
+                <p
+                  className="card-subtitle mb-2 text-muted"
+                  id="text-2-background"
+                >
                   Breed: {dog.breed}
                 </p>
-                <p className="card-subtitle mb-2 text-muted" id="text-1-background">Age: {dog.age}</p>
-                <p className="card-subtitle mb-2 text-muted" id="text-2-background">
+                <p
+                  className="card-subtitle mb-2 text-muted"
+                  id="text-1-background"
+                >
+                  Age: {dog.age}
+                </p>
+                <p
+                  className="card-subtitle mb-2 text-muted"
+                  id="text-2-background"
+                >
                   Size: {dog.size}
                 </p>
-                <p className="card-subtitle mb-2 text-muted" id="text-1-background">
+                <p
+                  className="card-subtitle mb-2 text-muted"
+                  id="text-1-background"
+                >
                   Notes: {dog.notes}
                 </p>
                 <div id="center-button">
-                <button
-                  id="adopt-button"
-                  onClick={activateCreateAdoptionModal}
-                >
-                  Adopt
-                </button>
-                <span id= "spacing-button"></span>
-                <button
-                  id="remove-button"
-                  onClick={activateConfirmationModal}
-                >
-                  Remove
-                </button>
+                  <button
+                    id="adopt-button"
+                    onClick={activateCreateAdoptionModal}
+                  >
+                    Adopt
+                  </button>
+                  <span id="spacing-button"></span>
+                  <button
+                    id="remove-button"
+                    onClick={activateConfirmationModal}
+                  >
+                    Remove
+                  </button>
                 </div>
-                </div>
+              </div>
             </div>
           </Modal.Body>
         </Modal>
