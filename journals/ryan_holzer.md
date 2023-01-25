@@ -1,3 +1,14 @@
+## January 24
+
+Today I worked on:
+
+* Finalizing styles with the group, updating the adoption form, writing tests.
+
+Triston drove this morning, as we merged all changes from individual branches into main. We then updated our logo in the nav bar, styled the adoption form, and tested functionality across the entire application. Once we were all satisfied, we decided to try and write some unit tests. We split into our groups. I wrote a test for the list dogs function, asserting it returned a status code of 200, and a dictionary with the key “dogs” and the value of an empty list. Triston then worked on a test for the create dog function, with assertions to match. Both tests involved authentication, which added another layer of complexity to the test. Once both were passing, we pushed them to the main branch.
+
+Today I learned about unit tests. When creating a mock repo, naming conventions yet again come into play. Everything must match across the application to ensure a lack of errors in testing.
+
+
 ## January 23
 
 Today I worked on:
