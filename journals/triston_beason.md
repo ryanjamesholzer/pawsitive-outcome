@@ -1,3 +1,14 @@
+### January 24, 2023
+
+Today, We worked on
+
+* Updating CSS files for DogDetailModal, AdoptionDetailModal, and CreateAdoptionModal. Creating test our API routes to make sure everything works.
+
+We made all the modals to look cohesive throughout the UI. We all did one test inside of the tests folder. I did test dog which makes sure the add dog route works
+
+Today, I learned how to properly format a css file.
+
+
 ### January 19, 2023
 
 Today, I worked on:
