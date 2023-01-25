@@ -8,49 +8,60 @@ function Nav() {
   const { data: token } = useGetTokenQuery();
 
   return (
-    <nav className="navbar navbar-expand-sm" id="nav-bar">
+    <nav className="navbar navbar-expand-sm" id="navbar">
       {token && (
         <div id="navbar-content">
-          <ul className="navbar-nav pt-2">
-            <li>
-              <img
-                className="navbar-brand me-3 ms-2"
-                id="logo"
-                src="..\pawsitive_outcome_logo.png"
-                alt=""
-                height="100em"
-              />
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className="nav-link active fs-1 me-3"
-                aria-current="page"
-                to="/dogs"
-              >
-                Dogs
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                className="nav-link active fs-1 me-3"
-                aria-current="page"
-                to="/adoptions"
-              >
-                Adoptions
-              </NavLink>
-            </li>
-            <li className="nav-item ms-auto me-3">
+          <button
+            id="navbar-toggler"
+            className="navbar-toggler border border-dark border-3 ms-3"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <img
+              className="navbar-brand"
+              id="logo"
+              src="..\pawsitive_outcome_logo.png"
+              alt=""
+              height="100em"
+            />
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav">
+              <li className="nav-item ms-3">
+                <NavLink
+                  className="nav-link active fs-1"
+                  aria-current="page"
+                  to="/dogs"
+                >
+                  Dogs
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link active fs-1 ms-3"
+                  aria-current="page"
+                  to="/adoptions"
+                >
+                  Adoptions
+                </NavLink>
+              </li>
+            </ul>
+            <div className="ms-auto me-3">
               <NavLink
                 onClick={logOut}
-                className="btn fs-1 border border-dark border-3"
+                className="btn fs-1 border border-dark border-3 ms-3"
                 aria-current="page"
                 to="/login"
                 id="logout-button"
               >
                 Log out
               </NavLink>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       )}
       {!token && (

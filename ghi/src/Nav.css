@@ -7,10 +7,15 @@
   color: #343a40;
 }
 
-#nav-bar {
+#navbar {
   background-color: #ffe45e;
   display: flex;
   justify-content: center;
+}
+
+#navbar-toggler {
+  background-color: #f55c7a;
+  color: #343a40;
 }
 
 #nav-header {
