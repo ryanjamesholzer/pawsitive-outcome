@@ -8,8 +8,10 @@ import Nav from "./Nav";
 import "./App.css";
 
 function App() {
+  const domain = /https:\/\/[^/]+/;
+  const basename = process.env.PUBLIC_URL.replace(domain, '');
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Nav />
       <div className="container">
         <Routes>
