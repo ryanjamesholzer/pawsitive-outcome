@@ -1,3 +1,24 @@
+## January 24, 2023
+
+Today, I worked on:
+
+* Creating tests and touch ups on css
+
+Today the Whisker Watchers split into two groups to create the tests. Dog tests were dev 1 team and adoptions tests were dev 2 team. Triston wrote create dogs test, Ryan wrote list dogs test, Angel wrote list adoptions test, Kramer wrote create adoptions test, and I wrote the show adoption test. For me, it took a little to get the test working, but my team and I eventually figured it out by putting id as a parameter and putting an adoption_body variable which stores a test data. Before creating the tests, we merged the work Kramer and Triston’s work into main, then touched up on the CSS.
+
+Today, I learned how to make unit tests. It didn’t take too long to figure out what to do, so thankfully we finished it within a few hours. 
+
+
+## January 23, 2023
+
+Today, I worked on:
+
+* Adding dropdown to adoption list to incorporate with search bar, fixed nav bar, and token 
+
+I drove today for my group. First thing we did was add a dropdown to incorporate it with the search bar. This way, we can filter on what the user types based on the selected option. Next, we fixed the nav bar by showing the links to the list of dogs and list of adoptions only when the user is logged in. Afterwards, we decided to figure out how to make the token automatically go to the login page once the token expires. This ended up being a lot more difficult than we anticipated. After taking some time on it, we decided in the end to make it a stretch goal.
+
+Today, I learned that it’s hard to make an application fool-proof within 4 weeks. My teammates and I are thinking of things to add in our application based on cases for new users who don’t know how to use our website. The token expiring is something that a new user would be confused by, and they wouldn’t know to just go back to the login page to re-login. This is a good way of thinking since we’ll need to think like this in the job, but for our project we can just assume no one will be on the website long enough for the token to expire.
+
 ## January 19, 2023
 
 Today, I worked on:
