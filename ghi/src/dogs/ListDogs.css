@@ -12,9 +12,10 @@
   color: #343a40;
 }
 
-#card-background {
+#dog-card {
   background-color: #ffe45e;
   border-radius: 15px;
+  /* min-width: 300px; */
 }
 
 #dog-images {

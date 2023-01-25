@@ -50,7 +50,7 @@ function ListDogs() {
         </div>
         {unadopted && (
           <div>
-            <div className="row row-cols-1 row-cols-md-4 g-5">
+            <div className="row row-cols-1 row-cols-lg-4 g-5 align-items-center">
               {unadopted.map((dog) => {
                 if (
                   dog.name.toLowerCase().includes(query.toLowerCase()) ||
@@ -58,7 +58,7 @@ function ListDogs() {
                 ) {
                   return (
                     <div className="" key={dog.id}>
-                      <div className="card mb-3 shadow" id="card-background">
+                      <div className="card mb-3 shadow" id="dog-card">
                         <div className="card-body">
                           <h3 className="card-title fw-bold fs-1">
                             {dog.name}

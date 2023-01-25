@@ -22,7 +22,7 @@ function Nav() {
             aria-label="Toggle navigation"
           >
             <img
-              className="navbar-brand"
+              className="navbar-brand ps-3"
               id="logo"
               src="..\pawsitive_outcome_logo.png"
               alt=""
