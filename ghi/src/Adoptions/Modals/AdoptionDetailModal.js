@@ -15,7 +15,7 @@ function AdoptionDetailModal({
   const skip = adoptionId === null;
   const { data: adoption } = useShowAdoptionQuery(adoptionId, { skip });
   const [deleteAdoption] = useDeleteAdoptionMutation();
-  const [updateDog, result] = useUpdateDogMutation();
+  const [updateDog] = useUpdateDogMutation();
   const [activeConfirmationModal, setActiveConfirmationModal] = useState(false);
   const message = "Are you sure you want to undo this adoption?";
 
