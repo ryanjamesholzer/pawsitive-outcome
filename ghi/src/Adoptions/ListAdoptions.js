@@ -139,6 +139,8 @@ function ListAdoptions() {
                       </td>
                     </tr>
                   );
+                } else {
+                  return null
                 }
               })}
             </tbody>

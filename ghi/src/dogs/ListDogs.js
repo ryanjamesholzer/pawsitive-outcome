@@ -91,6 +91,8 @@ function ListDogs() {
                       </div>
                     </div>
                   );
+                } else {
+                  return null
                 }
               })}
               <DogDetailModal
