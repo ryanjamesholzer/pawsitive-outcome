@@ -1,8 +1,8 @@
 #sign-up-picture {
   height: 300px;
-  left: -10px;
-  position: relative;
-  top: 114px;
+  position: absolute;
+  left: 3px;
+  top: 126px;
   width: auto;
   margin: -100;
 }
@@ -16,6 +16,7 @@
 
 #sign-up-form-modal-body {
   width: 700px;
+  height: 435px;
   background-color: #ffe45e;
   border: 5px solid black;
 }
