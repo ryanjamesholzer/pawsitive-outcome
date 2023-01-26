@@ -8,6 +8,7 @@ services:
 
 variables:
   DATABASE_URL: postgres://postgres:3b82f3ca412edee0@http://srv-captain--pawsitive-db/postgres
+  SIGNING_KEY: 116ee5083937a7c499ede2939b5c5be10635a47dcec9a700cffbd4282900b14f
 
 # Run flake8 to check for code quality
 # lint-test-job:
