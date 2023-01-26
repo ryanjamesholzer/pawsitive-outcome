@@ -7,7 +7,7 @@ services:
   - postgres:14.2-bullseye
 
 variables:
-  DATABASE_URL: postgresql://postgres:3b82f3ca412edee0@http://srv-captain--pawsitive-db/postgres
+  DATABASE_URL: postgres://postgres:3b82f3ca412edee0@http://srv-captain--pawsitive-db/postgres
 
 # Run flake8 to check for code quality
 # lint-test-job:
