@@ -1,3 +1,14 @@
+## January 26
+
+Today I worked on:
+
+* Trying to deploy our application using CapRover.
+
+The last two days, we have been working on the deployment of our application with CapRover. Yesterday, Michelle drove as we set up our variables in GitLab and CapRover, updated our CI.yaml file, and tried our first deploy. In spite of not getting all the way the where, we made some progress and paved the way for today. I drove today, as we spent most of the time troubleshooting and testing our deployment. We still didn’t get there, but we managed to create an account and log in on the backend, and our login page to show up on the front. We also took some time to update our README, and tweak the styling on our sign up modal.
+
+Today I learned that deployment can be complicated. Seeing as we are learning along with the instructors, it has been really interesting to see the process of understanding new technology along side our mentors.
+
+
 ## January 24
 
 Today I worked on:
