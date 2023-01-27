@@ -1,3 +1,8 @@
+## January 13th, 2023
+* we implmented redux in our auth
+
+Today, Ryan drove while the rest of the group were directing and helping our ryan while ryan writes the redux. We used Redux in our token based authentication. Previously, we had to include our useToken file and useAuthContext method in each file that required a token which started to get annoying and repetitive due to something not allowing us to use usetoken or useauthcontect.so we decided to use Redux to make our JWT tokens globally accessed along the project.
+
 ## January 11th, 2023
  Today we struggled alot with figuring out how to setup react with logout with jwt tokens we started getting alot of errors, we ended up getting it somewhat work where we would logout and we would still hold the token till it refreshes the page and ended up fixing it with a seir still a bit confused how we fixed it but will look over the code tonight and see.
 
