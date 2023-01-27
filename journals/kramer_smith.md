@@ -1,3 +1,61 @@
+## January 27th, 2023
+
+    Today, Angel drove while we prepared our project for submission. We
+
+cleaned up a LOT of code. Every file was reformatted with Prettier and we
+deleted a few console logs and print statements. We removed inline styles
+from .js files and put them in .css files and imported them to their
+corresponding .js files. We also added a custom cursor, which everyone was
+really excited about. That was a great learning experience as none of us
+had done that before.
+
+    We also finally got our site deployed with the advice from another group.
+
+
+    I'm proud of the project we made. This was a great experience that I will
+
+always remember. I'm grateful to have such a great team. I think we really
+lucked out with the team we have.
+
+## January 26th, 2023
+
+    Today, we continued trying to deploy the site with Ryan driving. We were
+
+able to make some progress. We can see our front end through the link, but
+the container for the main web app was not connecting to the container of
+database. We worked on this for the majority of the day, but didn't quite
+get it. At the end of the day, Angel and I stayed up quite late working on
+adding toast messages in a separate branch. We didn't finish it, but I want
+to continue working on this as a stretch goal.
+
+## January 25th, 2023
+
+    Today Michelle drove while we worked on deploying the site. This was a
+
+confusing day. It was spent editing a lot of docker files and variables in
+gitlab. We worked through several errors in our code that were causing
+issues on CapRover. Today was almost a blur because we spent so much time
+tweaking code and not feeling like we made a ton of progress. Hopefully, we
+will finish this up tomorrow. I would love to be able to show my friends and
+family the site we made.
+
+## January 24th, 2023
+
+Today, we all worked unit testing. Each of us wrote a unit test. This was a
+big learning experience for all of us as we have never done it before. It'
+was fun though. I can see how testing could go very in depth and be very
+useful in a large codebase.
+
+## January 23rd, 2023
+
+Today, Michelle drove while we merged in Michelle and my work from the
+weekend. After that, we worked on having the user redirected to the login
+page if they don't have a jwt token. We didn't get it working quite right,
+so we added it to our stretch goals list. After that, we worked on adding a
+"filter by" function to our search-bar on the ListAdoptions page. Triston
+did good work on this while we were working on the login redirect mentioned
+above.
+
 ## January 22nd, 2023
 
     Today is Sunday. I worked on the AdoptionDetailsModal. It looks ok. It
