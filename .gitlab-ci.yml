@@ -74,6 +74,7 @@ build-front-end-job:
     paths:
       - ghi/build/
 
+# This is for deployment
 pages:
   stage: deploy
   rules:
