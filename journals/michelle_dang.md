@@ -1,3 +1,13 @@
+## January 27, 2023
+
+Today, I worked on:
+
+* Cleaning up code, added hover effect on buttons and links, successfully deployed
+
+Angel drove today while we cleaned up our code and added some features into our website. We made a hover effect on the buttons and links. We also added a dog for our cursor and once it hovers over a button or link, it gives an illusion of a dog dancing. We ended the day by passing the unit test job in our gitlab-ci.yml file and fixed minor issues to successfully deploy our website with CapRover. 
+
+Today, I learned that time can go by fast when you’re working hard everyday. This module went by really fast and I’m proud to see our website up and running after working on this everyday. 
+
 ## January 26, 2023
 
 Today, I worked on:
