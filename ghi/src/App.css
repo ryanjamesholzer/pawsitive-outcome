@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+.btn:hover {
+  cursor: url(./images/dancing-dog-cursor-hover_32x32.png), auto;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -11,4 +13,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.custom-hover:hover {
+  cursor: url(./images/dancing-dog-cursor-hover_32x32.png), auto;
 }

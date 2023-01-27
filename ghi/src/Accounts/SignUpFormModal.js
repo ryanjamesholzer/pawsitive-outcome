@@ -31,18 +31,17 @@ const SignUpFormModal = ({ activeSignUpModal, setActiveSignUpModal }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password === passConfirm) {
-      await signUp(formData);
+      const response = await signUp(formData);
       setFormData(initialData);
+      if (response.error) {
+        alert("Username already taken");
+      } else {
+        setTimeout(() => navigate("/dogs"), 51);
+      }
     } else {
       alert("Password does not match confirmation.");
     }
   };
-
-  if (result.isSuccess) {
-    setTimeout(() => navigate("/dogs"), 51);
-  } else if (result.isError) {
-    alert(result.error.data.detail);
-  }
 
   return (
     <Modal

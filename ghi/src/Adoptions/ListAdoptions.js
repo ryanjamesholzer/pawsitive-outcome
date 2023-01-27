@@ -1,6 +1,7 @@
 import { React, useState, useCallback } from "react";
 import { useGetAdoptionsQuery } from "../store/pawsitiveApi";
 import AdoptionDetailModal from "./Modals/AdoptionDetailModal";
+import "./ListAdoptions.css";
 
 function ListAdoptions() {
   const { data, isLoading } = useGetAdoptionsQuery();
@@ -44,20 +45,21 @@ function ListAdoptions() {
               required
               type="text"
               name="select"
-              id="select"
-              className="dropdown-toggle btn fw-bold my-3 py-3 px-1 fs-3 border border-dark border-3 rounded"
+              className="dropdown-toggle btn fw-bold my-3 py-3 px-1 fs-3 border border-dark border-3 rounded pink-background"
               data-toggle="dropdown"
-              style={{ backgroundColor: "#f55c7a", color: "#343a40" }}
             >
-              <option value="adoption.dog.name">Dog Name</option>
-              <option value="adopter_name">Adopter's Name</option>
-              <option value="date_of_adoption">Date of Adoption</option>
+              <option className="custom-hover" value="adoption.dog.name">
+                Dog Name
+              </option>
+              <option className="custom-hover" value="adopter_name">
+                Adopter's Name
+              </option>
+              <option className="custom-hover" value="date_of_adoption">
+                Date of Adoption
+              </option>
             </select>
           </div>
-          <table
-            className="table table-striped m-2"
-            style={{ backgroundColor: "#fff1ab" }}
-          >
+          <table className="table table-striped m-2 text-center table-color">
             <thead>
               <tr>
                 <th className="fs-4" scope="col">
@@ -68,9 +70,6 @@ function ListAdoptions() {
                 </th>
                 <th className="fs-4" scope="col">
                   Date of Adoption
-                </th>
-                <th className="fs-4" scope="col">
-                  More Details
                 </th>
               </tr>
             </thead>
@@ -84,7 +83,14 @@ function ListAdoptions() {
                     query === ""
                   ) {
                     return (
-                      <tr key={adoption.id}>
+                      <tr
+                        className="adoption-data custom-hover"
+                        key={adoption.id}
+                        onClick={activateAdoptionDetailModal(
+                          adoption.id,
+                          adoption.dog.dog_id
+                        )}
+                      >
                         <td className="fw-bold fs-5">{adoption.dog.name}</td>
                         <td className="fw-bold fs-5">
                           {adoption.adopter_name}
@@ -92,25 +98,10 @@ function ListAdoptions() {
                         <td className="fw-bold fs-5">
                           {adoption.date_of_adoption}
                         </td>
-                        <td>
-                          <button
-                            className="btn fw-bolder fs-6 border border-dark border-2 rounded"
-                            style={{
-                              backgroundColor: "#87c4f2",
-                              color: "#343a40",
-                            }}
-                            onClick={activateAdoptionDetailModal(
-                              adoption.id,
-                              adoption.dog.dog_id
-                            )}
-                          >
-                            Details
-                          </button>
-                        </td>
                       </tr>
                     );
                   } else {
-                    return null
+                    return null;
                   }
                 } else if (
                   adoption[choice]
@@ -119,31 +110,23 @@ function ListAdoptions() {
                   query === ""
                 ) {
                   return (
-                    <tr key={adoption.id}>
+                    <tr
+                      className="adoption-data custom-hover"
+                      key={adoption.id}
+                      onClick={activateAdoptionDetailModal(
+                        adoption.id,
+                        adoption.dog.dog_id
+                      )}
+                    >
                       <td className="fw-bold fs-5">{adoption.dog.name}</td>
                       <td className="fw-bold fs-5">{adoption.adopter_name}</td>
                       <td className="fw-bold fs-5">
                         {adoption.date_of_adoption}
                       </td>
-                      <td>
-                        <button
-                          className="btn fw-bolder fs-6 border border-dark border-2 rounded"
-                          style={{
-                            backgroundColor: "#87c4f2",
-                            color: "#343a40",
-                          }}
-                          onClick={activateAdoptionDetailModal(
-                            adoption.id,
-                            adoption.dog.dog_id
-                          )}
-                        >
-                          Details
-                        </button>
-                      </td>
                     </tr>
                   );
                 } else {
-                  return null
+                  return null;
                 }
               })}
             </tbody>

@@ -44,7 +44,7 @@ function CreateAdoptionModal({
       navigate("/adoptions");
     }, 50);
   } else if (result.isError) {
-    alert(result.error);
+    alert(result.error.data.detail);
   }
 
   return (

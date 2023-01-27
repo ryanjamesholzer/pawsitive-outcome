@@ -1,5 +1,4 @@
 import os
-from pydantic import BaseModel
 from psycopg_pool import ConnectionPool
 from models.accounts import AccountIn, AccountOutWithPassword
 

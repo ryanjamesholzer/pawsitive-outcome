@@ -1,6 +1,6 @@
 from psycopg_pool import ConnectionPool
 import os
-from models.dogs import DogIn, DogOut, DogList
+from models.dogs import DogIn, DogOut
 
 pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"])
 

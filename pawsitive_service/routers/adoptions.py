@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, Response
 from models.adoptions import AdoptionIn, AdoptionOut, AdoptionList
 from queries.adoptions import AdoptionQueries
-from typing import Union
 from authenticator import authenticator
 
 

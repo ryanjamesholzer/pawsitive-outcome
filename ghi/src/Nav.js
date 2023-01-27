@@ -33,7 +33,7 @@ function Nav() {
             <ul className="navbar-nav">
               <li className="nav-item ms-3">
                 <NavLink
-                  className="nav-link active fs-1"
+                  className="nav-link active fs-1 custom-hover"
                   aria-current="page"
                   to="/dogs"
                 >
@@ -42,7 +42,7 @@ function Nav() {
               </li>
               <li className="nav-item">
                 <NavLink
-                  className="nav-link active fs-1 ms-3"
+                  className="nav-link active fs-1 ms-3 custom-hover"
                   aria-current="page"
                   to="/adoptions"
                 >
@@ -53,7 +53,7 @@ function Nav() {
             <div className="ms-auto me-3">
               <NavLink
                 onClick={logOut}
-                className="btn fs-1 border border-dark border-3 ms-3"
+                className="btn fs-1 border border-dark border-3 ms-3 custom-hover"
                 aria-current="page"
                 to="/login"
                 id="logout-button"

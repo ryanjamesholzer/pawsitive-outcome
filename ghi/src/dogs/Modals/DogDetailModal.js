@@ -84,6 +84,7 @@ function DogDetailModal({
                 </p>
                 <div id="center-button">
                   <button
+                    className="btn"
                     id="adopt-button"
                     onClick={activateCreateAdoptionModal}
                   >
@@ -91,6 +92,7 @@ function DogDetailModal({
                   </button>
                   <span id="spacing-button"></span>
                   <button
+                    className="btn"
                     id="remove-button"
                     onClick={activateConfirmationModal}
                   >

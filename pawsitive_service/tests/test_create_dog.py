@@ -1,4 +1,4 @@
-from queries.dogs import DogQueries, DogIn, DogOut
+from queries.dogs import DogQueries
 from tests.test_list_dogs import DogQueriesMock, get_current_account_data_mock
 from main import app
 import json

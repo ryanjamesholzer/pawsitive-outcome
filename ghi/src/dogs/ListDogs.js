@@ -92,7 +92,7 @@ function ListDogs() {
                     </div>
                   );
                 } else {
-                  return null
+                  return null;
                 }
               })}
               <DogDetailModal

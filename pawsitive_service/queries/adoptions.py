@@ -1,6 +1,6 @@
 from psycopg_pool import ConnectionPool
 import os
-from models.adoptions import AdoptionIn, AdoptionOut, AdoptionList
+from models.adoptions import AdoptionIn, AdoptionOut
 
 pool = ConnectionPool(conninfo=os.environ["DATABASE_URL"])
 

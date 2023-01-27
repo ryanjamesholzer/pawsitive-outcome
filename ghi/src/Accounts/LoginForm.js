@@ -14,7 +14,6 @@ const LoginForm = () => {
   const [logIn, result] = useLogInMutation();
   const [formData, setFormData] = useState(initialData);
   const [activeSignUpModal, setActiveSignUpModal] = useState(false);
-
   const activateSignUpFormModal = () => {
     setActiveSignUpModal(true);
   };
@@ -28,17 +27,15 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await logIn(formData);
+    const response = await logIn(formData);
+    if (response.error) {
+      alert("Incorrect Password or Username");
+    } else {
+      setTimeout(() => {
+        navigate("/dogs");
+      }, 50);
+    }
   };
-
-  if (result.isSuccess) {
-    result.isSuccess = false;
-    setTimeout(() => {
-      navigate("/dogs");
-    }, 50);
-  } else if (result.isError) {
-    alert(result.error.data.detail);
-  }
 
   return (
     <>
@@ -84,7 +81,10 @@ const LoginForm = () => {
           <div>
             <p className="fs-2">
               Don't have an account?{" "}
-              <Link className="fs-2" onClick={activateSignUpFormModal}>
+              <Link
+                className="fs-2 custom-hover"
+                onClick={activateSignUpFormModal}
+              >
                 Sign up
               </Link>
             </p>

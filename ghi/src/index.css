@@ -1,18 +1,18 @@
 body {
   margin: 0;
-  font-family: 'Caveat', cursive !important;
-  /* -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
+  font-family: "Caveat", cursive !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html {
+  cursor: url(./images/dancing-dog-cursor_32x32.png), auto;
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .vector-image {
-   background-image: url('../public/DogBackground.svg');
+  background-image: url("../public/DogBackground.svg");
 }

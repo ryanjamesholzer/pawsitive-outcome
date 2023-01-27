@@ -1,6 +1,5 @@
 from pydantic import BaseModel
 from datetime import date
-from models.dogs import DogIn
 
 
 class AdoptionIn(BaseModel):
