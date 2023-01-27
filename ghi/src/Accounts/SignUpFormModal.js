@@ -12,7 +12,7 @@ let initialData = {
 
 const SignUpFormModal = ({ activeSignUpModal, setActiveSignUpModal }) => {
   const navigate = useNavigate();
-  const [signUp, result] = useSignUpMutation();
+  const [signUp] = useSignUpMutation();
   const [formData, setFormData] = useState(initialData);
   const [passConfirm, setPassConfirm] = useState("");
 

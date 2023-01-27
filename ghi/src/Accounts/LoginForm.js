@@ -11,7 +11,7 @@ let initialData = {
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [logIn, result] = useLogInMutation();
+  const [logIn] = useLogInMutation();
   const [formData, setFormData] = useState(initialData);
   const [activeSignUpModal, setActiveSignUpModal] = useState(false);
   const activateSignUpFormModal = () => {
