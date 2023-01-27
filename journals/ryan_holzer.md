@@ -1,3 +1,14 @@
+## January 27
+
+Today I worked on:
+
+* Finalizing our project for submission.
+
+Angel drove for our final work day, as we set out to clean up our code, finalize CI/CD, and fully test our application. To start, we searched for any code that wasn’t being used, for and any stray print statements/console logs. We ran into a bug with our alerts when a user inputs invalid information upon sign up or log in. It slowed us down slightly, but after it was resolved we finalized the cleanup. We ended up adding some slight styling changes, including making the cursor a dog that changes stance when hovering over links and buttons. Finally, we managed to get our application deployed successfully with CapRover.
+
+Today I learned that submitting something you’ve worked on for weeks is bittersweet. The entire process has been a learning experience, and I am grateful for my team for making it all fruitful and tolerable.
+
+
 ## January 26
 
 Today I worked on:
