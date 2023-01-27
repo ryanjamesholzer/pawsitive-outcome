@@ -14,8 +14,6 @@ variables:
 api-unit-test-job:
   image: python:3-bullseye
   stage: test
-  needs:
-    - lint-test-job
   script:
     - cd pawsitive_service
     - pip install -r requirements.txt
@@ -52,8 +50,6 @@ build-api-backend:
 build-front-end-job:
   stage: build
   image: node:lts-bullseye
-  needs:
-    - lint-test-job
   variables:
     PUBLIC_URL: https://whisker-watchers.gitlab.io/pawsitive-outcome
     REACT_APP_PAWSITIVE_SERVICE_API_HOST: https://pawsitive-service.sept-ct-1.mod3projects.com
