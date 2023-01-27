@@ -1,3 +1,23 @@
+## January 26, 2023
+
+Today, I worked on:
+
+* Deployment part 2
+
+Ryan drove today and we picked up from where we left off. We're still trying to figure out how to make the sign up form work in our front end. Majority of the day was spent researching ways to get our deployed website to fully work. A win from today was getting the sign up and login to work in the backend. We also updated the README.md to reflect the example Dalonte gave today. 
+
+Today, I learned that we should appreciate any win, big or small. Usually, by the end of the day my teammates and I would figure out a solution to our code. With deployment, we haven't been successful with figuring it out right away, but that is okay. I'm glad we will have more time next week to work on deployment. 
+
+## January 25, 2023
+
+Today, I worked on:
+
+* Deployment
+
+Since my group has finished our project, we decided to move onto the next step: deployment. I drove while we followed the instructions given by Dalonte and had issues with the build-front-end in our first CI/CD push. We fixed that by completing the if statements (putting an else clause on each if statement we had) in our ListDogs and ListAdoptions and removing any variables or imports that were unused. Afterwards, the deployed website didn't show images, so we changed the value in the src and moved all of our images to the src folder. We ended the day after spending hours trying to find a solution for the sign up page along with the other errors that are popping up.
+
+Today, I learned that deployment is a whole thing within itself. Just because our website worked perfectly fine locally doesn't mean it'll translate once it's deployed. I hope we can figure it out soon and get everything to work in our deployed site.
+
 ## January 24, 2023
 
 Today, I worked on:
