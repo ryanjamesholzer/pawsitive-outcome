@@ -67,6 +67,7 @@ const LoginForm = () => {
               required
               type="password"
               name="password"
+              autoComplete="on"
               className="form-control fs-2 border border-3 border-dark"
             />
           </div>

@@ -15,16 +15,16 @@ export default function NotFound() {
       <h1>Oops! You seem to be lost.</h1>
       <p className="fs-2">Here are some helpful links:</p>
       {!token && (
-        <Link to="/Login" className="p-3 fs-2">
+        <Link to="/Login" className="p-3 fs-2 custom-hover">
           Login
         </Link>
       )}
       {token && (
         <>
-          <Link to="/dogs" className="p-3 fs-2">
+          <Link to="/dogs" className="p-3 fs-2 custom-hover">
             Dogs
           </Link>
-          <Link to="/adoptions" className="p-3 fs-2">
+          <Link to="/adoptions" className="p-3 fs-2 custom-hover">
             Adoptions
           </Link>
         </>
