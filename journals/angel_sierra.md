@@ -1,3 +1,26 @@
+
+## january 26th 2023
+
+today we worked on trying to deploy our application using caprover.
+We've been trying to get our application running for a while now but we dont know much of ci/cd and have been struggling just cause lack of information cause its a whole new system that we have to learn but i am really exicted to get it working.
+
+
+
+## january 24th 2023
+
+
+Today i worked on adding test and finishing up touches with our css within the group. We split up into two groups it was myself, michelle and ryan and then triston and kramer. I worked on the list adoption its was quite fairly easy wanted to do more but just kept going till we wanted more i defientily learned more about test and found it pretty relaxing when it came from constant erros to quick and easy test.
+
+
+
+## january 19th,2023
+
+Today I worked on adding search filter to dog list and moving all dog functionality from navbar into the list page cause we prefereed keeping it there.Michelle drove today, while we all worked on wrapping up functionallity on the application before we start styling everything on the application. We had a debate on wither we would have tailwindcss or bootstrap we ended up deciding to keep bootstrap cause tailwind was giving us alot of issues importing tailwind. We created some other functionality as in confirmation alert modal.
+
+## January 17th, 2023
+
+Today, I drove while the group helped me out adding post queries to the redux store file, we put all of the quiries and mutations into one file.we also added a password confirmation field to signup form.
+
 ## January 13th, 2023
 * we implmented redux in our auth
 
