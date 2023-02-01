@@ -14,7 +14,7 @@ function ToastAlert() {
   }
 
   return (
-    <ToastContainer position="bottom-end" className="m-3">
+    <ToastContainer position="bottom-end" className="m-3 position-fixed">
       <Toast show={show} onClose={handleClose} autohide>
         <Toast.Header className="fs-3" id="toast-header">
           <img
