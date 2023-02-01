@@ -40,6 +40,7 @@ function ListAdoptions() {
               placeholder=" 🔍 Search"
               onChange={(event) => setQuery(event.target.value)}
             />
+            <span className="p-3"></span>
             <select
               onChange={handleChange}
               placeholder="select"
