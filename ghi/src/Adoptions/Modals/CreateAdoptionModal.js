@@ -3,6 +3,9 @@ import Modal from "react-bootstrap/Modal";
 import { useCreateAdoptionMutation } from "../../store/pawsitiveApi";
 import { useNavigate } from "react-router-dom";
 import "./CreateAdoptionModal.css";
+import { useDispatch } from "react-redux";
+import { setShow } from "../../store/toastShowSlice";
+import { setMessage } from "../../store/toastMessageSlice";
 
 const initialState = {
   adopter_name: "",
@@ -21,6 +24,7 @@ function CreateAdoptionModal({
   const [details, setDetails] = useState(initialState);
   const [createAdoption, result] = useCreateAdoptionMutation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,6 +40,12 @@ function CreateAdoptionModal({
   const handleSubmit = (e) => {
     e.preventDefault();
     details.dog_id = dog.id;
+    dispatch(
+      setMessage(
+        `Adoption of ${dog.name} by ${details.adopter_name} was filed.`
+      )
+    );
+    dispatch(setShow(true));
     createAdoption(details);
   };
 

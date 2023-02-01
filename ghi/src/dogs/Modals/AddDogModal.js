@@ -2,6 +2,9 @@ import { React, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useCreateDogMutation } from "../../store/pawsitiveApi";
 import "./AddDogModal.css";
+import { useDispatch } from "react-redux";
+import { setShow } from "../../store/toastShowSlice";
+import { setMessage } from "../../store/toastMessageSlice";
 
 const initialState = {
   name: "",
@@ -16,6 +19,7 @@ const initialState = {
 function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
   const [details, setDetails] = useState(initialState);
   const [createDog, result] = useCreateDogMutation();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +34,8 @@ function AddDog({ activeAddDogModal, setActiveAddDogModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(setMessage(`${details.name} was added.`));
+    dispatch(setShow(true));
     createDog(details);
   };
 

@@ -5,6 +5,9 @@ import ConfirmationModal from "../../alerts/ConfirmationModal";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
 import "./AdoptionDetailModal.css";
+import { useDispatch } from "react-redux";
+import { setShow } from "../../store/toastShowSlice";
+import { setMessage } from "../../store/toastMessageSlice";
 
 function AdoptionDetailModal({
   activeAdoptionDetailModal,
@@ -18,9 +21,16 @@ function AdoptionDetailModal({
   const [updateDog] = useUpdateDogMutation();
   const [activeConfirmationModal, setActiveConfirmationModal] = useState(false);
   const message = "Are you sure you want to undo this adoption?";
+  const dispatch = useDispatch();
 
   async function handleDelete() {
     setActiveConfirmationModal(false);
+    dispatch(
+      setMessage(
+        `Adoption of ${adoption.dog.name} by ${adoption.adopter_name} was undone.`
+      )
+    );
+    dispatch(setShow(true));
     deleteAdoption(adoptionId);
     handleClose();
     await updateDog(dogId);

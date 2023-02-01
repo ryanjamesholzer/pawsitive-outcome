@@ -3,6 +3,7 @@ import { React, useState, useCallback } from "react";
 import DogDetailModal from "./Modals/DogDetailModal";
 import AddDog from "./Modals/AddDogModal";
 import "./ListDogs.css";
+import ToastAlert from "../alerts/ToastAlert";
 
 function ListDogs() {
   const [activeDogDetailModal, setActiveDogDetailModal] = useState(false);
@@ -107,6 +108,7 @@ function ListDogs() {
           setActiveAddDogModal={setActiveAddDogModal}
           activeAddDogModal={activeAddDogModal}
         />
+        <ToastAlert />
       </div>
     </>
   );

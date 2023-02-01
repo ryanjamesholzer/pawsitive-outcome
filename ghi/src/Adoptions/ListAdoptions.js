@@ -2,6 +2,7 @@ import { React, useState, useCallback } from "react";
 import { useGetAdoptionsQuery } from "../store/pawsitiveApi";
 import AdoptionDetailModal from "./Modals/AdoptionDetailModal";
 import "./ListAdoptions.css";
+import ToastAlert from "../alerts/ToastAlert";
 
 function ListAdoptions() {
   const { data, isLoading } = useGetAdoptionsQuery();
@@ -139,6 +140,7 @@ function ListAdoptions() {
         adoptionId={adoptionId}
         dogId={dogId}
       />
+      <ToastAlert />
     </>
   );
 }

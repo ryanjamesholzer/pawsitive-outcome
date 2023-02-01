@@ -1,9 +1,12 @@
-import { useState } from "react";
-import Modal from "react-bootstrap/Modal";
 import CreateAdoptionModal from "../../Adoptions/Modals/CreateAdoptionModal";
-import { useShowDogQuery } from "../../store/pawsitiveApi";
 import { useDeleteDogMutation } from "../../store/pawsitiveApi";
 import ConfirmationModal from "../../alerts/ConfirmationModal";
+import { useShowDogQuery } from "../../store/pawsitiveApi";
+import { setMessage } from "../../store/toastMessageSlice";
+import { setShow } from "../../store/toastShowSlice";
+import { useDispatch } from "react-redux";
+import Modal from "react-bootstrap/Modal";
+import { useState } from "react";
 import "./DogDetailModal.css";
 
 function DogDetailModal({
@@ -18,9 +21,12 @@ function DogDetailModal({
   const [activeConfirmationModal, setActiveConfirmationModal] = useState(false);
   const [deleteDog] = useDeleteDogMutation();
   const confirmationMessage = "Are you sure you want to remove this dog?";
+  const dispatch = useDispatch();
 
   function handleDelete() {
     setActiveConfirmationModal(false);
+    dispatch(setMessage(`${dog.name} was removed.`));
+    dispatch(setShow(true));
     handleClose();
     deleteDog(dogId);
   }

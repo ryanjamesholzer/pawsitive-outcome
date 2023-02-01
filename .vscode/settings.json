@@ -4,15 +4,19 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "cSpell.words": [
+    "autohide",
     "Bichon",
     "Chaddington",
     "cutepictureofdog",
     "excalidraw",
     "excalidraw's",
     "Photoshop",
+    "progressbar",
     "reduxjs",
     "SEIR",
-    "unadopted"
+    "timeleft",
+    "unadopted",
+    "valuenow"
   ],
   "git.ignoreLimitWarning": true
 }

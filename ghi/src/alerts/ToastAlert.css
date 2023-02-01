@@ -1,0 +1,40 @@
+#logo {
+  height: 22px !important;
+  width: auto;
+}
+
+.toast {
+  border-radius: 5px !important;
+  width: 100%;
+}
+
+#toast-header {
+  background-color: #ffe45e;
+}
+
+.btn-close:hover {
+  cursor: url(../images/dancing-dog-cursor-hover_32x32.png), auto !important;
+}
+
+.bar {
+  height: 7px;
+  width: 100%;
+}
+
+.in {
+  animation: fill 5s linear 1;
+  height: 100%;
+  background-color: rgba(135, 196, 242);
+  border-right: 1px solid rgb(219, 51, 51);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@keyframes fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
