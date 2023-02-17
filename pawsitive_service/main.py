@@ -15,6 +15,8 @@ origins = [
     "http://localhost:8000",
     "http://localhost:3000",
     "https://whisker-watchers.gitlab.io",
+    "https://whisker-watchers.gitlab.io/pawsitive-outcome",
+    "https://pawsitive-service.sept-ct-1.mod3projects.com",
     os.environ.get("REACT_APP_PAWSITIVE_SERVICE_API_HOST", None),
     os.environ.get("PUBLIC_URL", None),
     os.environ.get("CORS_HOST", None),
