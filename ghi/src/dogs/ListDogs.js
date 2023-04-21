@@ -1,5 +1,5 @@
 import { useGetDogsQuery } from "../store/pawsitiveApi";
-import { React, useState, useCallback } from "react";
+import { React, useState, useCallback, useEffect } from "react";
 import DogDetailModal from "./Modals/DogDetailModal";
 import AddDog from "./Modals/AddDogModal";
 import "./ListDogs.css";
@@ -8,7 +8,7 @@ import ToastAlert from "../alerts/ToastAlert";
 function ListDogs() {
   const [activeDogDetailModal, setActiveDogDetailModal] = useState(false);
   const [activeAddDogModal, setActiveAddDogModal] = useState(false);
-  const { data, isLoading } = useGetDogsQuery();
+  const { data, isLoading, refetch } = useGetDogsQuery();
   const [dogId, setDogId] = useState(null);
   const [query, setQuery] = useState("");
   let unadopted = null;
@@ -24,6 +24,14 @@ function ListDogs() {
     },
     []
   );
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      refetch();
+    }, 300000); // 300000 milliseconds = 5 minutes
+
+    return () => clearInterval(intervalId);
+  }, [refetch]);
 
   if (isLoading) {
     return <progress className="progress is-primary" max="100"></progress>;

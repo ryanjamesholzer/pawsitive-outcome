@@ -11,6 +11,7 @@ from authenticator import authenticator
 from pydantic import BaseModel
 from queries.accounts import AccountQueries
 from models.accounts import AccountIn, AccountOut
+# import time
 
 
 class AccountForm(BaseModel):
@@ -60,3 +61,32 @@ async def create_account(
     form = AccountForm(username=info.username, password=info.password)
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
+
+
+# testAccount = {
+#     'id': 'test_account',
+#     'username': 'test_account',
+#     'full_name': 'Test Account'
+# }
+
+# scope = {
+#     "type": "http",
+#     "asgi": {"version": "3.0"},
+#     "http_version": "1.1",
+#     "server": ("127.0.0.1", 8000),
+#     "client": ("127.0.0.1", 1234),
+#     "scheme": "http",
+#     "method": "GET",
+#     "root_path": "",
+#     "path": "/",
+#     "raw_path": b"/",
+#     "query_string": b"",
+#     "headers": [],
+#     "extensions": {},
+# }
+
+# while True:
+#     async def ping():
+#         await get_token(Request(scope), testAccount)
+#         print('Pinging database')
+#         time.sleep(300)
